@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+mapbox = "*"
+geopandas = "*"
+responder = "*"
 
 [dev-packages]
 black = "*"

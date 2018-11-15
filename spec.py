@@ -1,5 +1,0 @@
-class ShapefileSpec:
-    """
-    elections
-    population
-    """
