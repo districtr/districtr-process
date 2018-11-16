@@ -4,7 +4,8 @@ import pathlib
 import pytest
 import yaml
 
-from districtr_process.columns import Column, MissingColumnsError
+from districtr_process.columns import Column
+from districtr_process.exceptions import MissingColumnsError
 from districtr_process.place import (
     Election,
     ElectionSchema,

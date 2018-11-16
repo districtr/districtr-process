@@ -1,6 +1,8 @@
 from marshmallow import Schema, fields, post_load
 from pandas.api.types import is_numeric_dtype
 
+from .exceptions import MissingColumnsError
+
 
 def all_nonnegative(column):
     return (column >= 0).all()
@@ -8,10 +10,6 @@ def all_nonnegative(column):
 
 def not_all_zero(column):
     return (column != 0).any()
-
-
-class MissingColumnsError(Exception):
-    pass
 
 
 class Column:
@@ -22,7 +20,7 @@ class Column:
         self.key = key
 
     def __repr__(self):
-        return "<Column name={} key={}>".format(self.name, self.key)
+        return '<Column name="{}" key={}>'.format(self.name, self.key)
 
     def problems(self, df):
         failed = []

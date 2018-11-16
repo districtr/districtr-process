@@ -1,3 +1,4 @@
+import os
 import tempfile
 
 import geopandas
@@ -6,6 +7,8 @@ from .tippecanoe import create_tiles
 from .upload import MapboxError, upload
 
 wgs84 = "+init=epsg:4326"
+
+CENTROIDS_DIR = os.environ.get("CENTROIDS_DIR", None)
 
 
 def process(filename, place):
@@ -19,23 +22,26 @@ def process(filename, place):
         )
 
     with tempfile.TemporaryDirectory() as tempdir:
-        geojson_filename = "{}/{}.geojson".format(tempdir, place.id)
+        save_centroids(df, CENTROIDS_DIR or tempdir)
 
         # The GeoDataFrame.to_json method includes ``id`` attributes coming
         # from the Index. So using set_index above gives us the joint index
-        with open(geojson_filename, "w") as f:
-            f.write(df.to_json())
+        geojson = df.to_json()
 
-        centroids_filename = "{}/{}-centroids.geojson".format(tempdir, place.id)
-        with open(centroids_filename, "w") as f:
-            f.write(centroids(df).to_json())
+        mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
 
-        mbtiles_filename = "{}.{}.mbtiles".format(tempdir, place.id)
-        create_tiles(geojson_filename, place, target=mbtiles_filename)
+        # Need to catch TippecanoeErrors here
+        create_tiles(geojson, place, target=mbtiles_filename)
 
         upload_response = upload(geojson_filename, place.id)
 
-        # TODO: put the centroids somewhere. Create database record
+        # TODO: put the centroids somewhere. Create database records.
+
+
+def save_centroids(df, target_dir):
+    centroids_filename = "{}/{}-centroids.geojson".format(target_dir, place.id)
+    with open(centroids_filename, "w") as f:
+        f.write(centroids(df).to_json())
 
 
 def read_in_wgs84(filename):

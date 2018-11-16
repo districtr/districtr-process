@@ -1,7 +1,9 @@
 import subprocess
 
+from .exceptions import TippecanoeError
 
-def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=14):
+
+def tippecanoe_shell_command(place, target, minzoom=0, maxzoom=14):
     accumulate_elections = [
         f"--accumulate-attribute={col}:sum"
         for election in place.elections
@@ -10,16 +12,25 @@ def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=14):
     accumulate_population = [f"--accumulate-attribute={place.population.total}:sum"] + [
         f"--accumulate-attribute={col}:sum" for col in place.population.subgroups
     ]
-    zoom_options = ["-Z", minzoom, "-z", maxzoom]
+
+    zoom_options = ["-Z", minzoom]
+    if maxzoom is None:
+        zoom_options.append("-zg")
+    else:
+        zoom_options += ["-z", maxzoom]
+
     return (
         ["tippecanoe", "-o", target]
         + zoom_options
         + accumulate_elections
         + accumulate_population
-        + ["--coalesce-densest-as-needed", "--extend-zooms-if-still-dropping", filename]
+        + ["--coalesce-densest-as-needed", "--extend-zooms-if-still-dropping"]
     )
 
 
-def create_tiles(filename, place, target, tippecanoe_args):
+def create_tiles(geojson, place, target, tippecanoe_args):
     command = tippecanoe_shell_command(filename, place, **tippecanoe_args)
-    subprocess.run(command)
+    result = subprocess.run(command, input=geojson)
+    if result.returncode != 0:
+        raise TippecanoeError("tippecanoe exited with non-zero status", result)
+    return result

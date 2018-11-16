@@ -2,12 +2,8 @@ from datetime import datetime
 
 from marshmallow import Schema, fields, post_load, validate
 
-from .columns import (
-    ColumnSchema,
-    MissingColumnsError,
-    PopulationColumnSchema,
-    VoteColumnSchema,
-)
+from .columns import ColumnSchema, PopulationColumnSchema, VoteColumnSchema
+from .exceptions import MissingColumnsError
 
 
 class Population:

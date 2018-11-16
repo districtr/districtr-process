@@ -3,9 +3,7 @@ from time import sleep
 
 import mapbox
 
-
-class MapboxError(Exception):
-    pass
+from .exceptions import MapboxError
 
 
 def attempt_upload(uploader, filename, upload_id):
