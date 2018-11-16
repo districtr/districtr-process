@@ -48,15 +48,8 @@ class ColumnSchema(Schema):
 class VoteColumn(Column):
     tests = [all_nonnegative, not_all_zero]
 
-    def __init__(self, party, key):
-        self.party = party
-        super().__init__(party, key)
 
-
-class VoteColumnSchema(Schema):
-    party = fields.String(required=True)
-    key = fields.String(required=True)
-
+class VoteColumnSchema(ColumnSchema):
     @post_load
     def make_column(self, data):
         return VoteColumn(**data)

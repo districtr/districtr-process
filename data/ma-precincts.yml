@@ -1,0 +1,52 @@
+id: ma-precincts-02-10
+name: Massachusetts (Precincts, 2002-2010)
+id_column:
+  name: 2000 Census GEOID
+  key: GEOID10
+population:
+  total:
+    name: 2000 Census Population
+    key: POP2000
+elections:
+  - year: 2002
+    race: Senate
+    vote_totals:
+      - name: Democratic
+        key: SEN02D
+      - name: Republican
+        key: SEN02R
+  - year: 2004
+    race: Presidential
+    vote_totals:
+      - name: Democratic
+        key: PRES04D
+      - name: Republican
+        key: PRES04R
+  - year: 2006
+    race: Senate
+    vote_totals:
+      - name: Democratic
+        key: SEN06D
+      - name: Republican
+        key: SEN06R
+  - year: 2008
+    race: Presidential
+    vote_totals:
+      - name: Democratic
+        key: PRES08D
+      - name: Republican
+        key: PRES08R
+  - year: 2008
+    race: Senate
+    vote_totals:
+      - name: Democratic
+        key: SEN08D
+      - name: Republican
+        key: SEN08R
+  - year: 2010
+    race: Senate
+    vote_totals:
+      - name: Democratic
+        key: SEN10D
+      - name: Republican
+        key: SEN10R
