@@ -1,4 +1,5 @@
 from marshmallow import Schema, fields, post_load
+from pandas.api.types import is_numeric_dtype
 
 
 def all_nonnegative(column):
@@ -6,7 +7,7 @@ def all_nonnegative(column):
 
 
 def not_all_zero(column):
-    return (column > 0).any()
+    return (column != 0).any()
 
 
 class MissingColumnsError(Exception):
@@ -46,7 +47,7 @@ class ColumnSchema(Schema):
 
 
 class VoteColumn(Column):
-    tests = [all_nonnegative, not_all_zero]
+    tests = [is_numeric_dtype, all_nonnegative, not_all_zero]
 
 
 class VoteColumnSchema(ColumnSchema):
@@ -56,7 +57,7 @@ class VoteColumnSchema(ColumnSchema):
 
 
 class PopulationColumn(Column):
-    tests = [all_nonnegative, not_all_zero]
+    tests = [is_numeric_dtype, all_nonnegative, not_all_zero]
 
 
 class PopulationColumnSchema(ColumnSchema):
