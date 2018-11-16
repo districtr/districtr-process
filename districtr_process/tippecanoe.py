@@ -49,10 +49,8 @@ def create_tiles(df, place, target, tippecanoe_args=None):
         with open(filename_absolute, "w") as f:
             f.write(geojson)
         print(filename_absolute, target_absolute)
-        command = " ".join(
-            tippecanoe_shell_command(
-                filename_absolute, place, target_absolute, **tippecanoe_args
-            )
+        command = tippecanoe_shell_command(
+            filename_absolute, place, target_absolute, **tippecanoe_args
         )
         result = subprocess.run(command)
 

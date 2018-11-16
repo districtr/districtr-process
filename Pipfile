@@ -10,6 +10,7 @@ pytest = "*"
 geopandas = "*"
 marshmallow = "~=3.0.0b20"
 mapbox = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.6"
