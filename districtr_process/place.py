@@ -63,7 +63,7 @@ class ElectionSchema(Schema):
 class Place:
     """A place where you might draw a districting plan."""
 
-    def __init__(self, id, name, population, elections=None, id_column=None):
+    def __init__(self, id, name, population=None, elections=None, id_column=None):
         self.id = id
         self.name = name
         self.population = population
