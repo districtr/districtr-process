@@ -2,14 +2,22 @@ import tempfile
 
 import geopandas
 
+from .tippecanoe import create_tiles
+
 wgs84 = "+init=epsg:4326"
 
 
 def process(filename, place):
     df = read_in_wgs84(filename)
     with tempfile.TemporaryDirectory() as tempdir:
-        write_as_geojson(df, "{}/{}.geojson".format(tempdir, place.id))
-        create_centroid_geojson(df, "{}/{}-centroids.geojson".format(tempdir, place.id))
+        geojson_filename = "{}/{}.geojson".format(tempdir, place.id)
+        write_as_geojson(df, geojson_filename)
+
+        centroids_filename = "{}/{}-centroids.geojson".format(tempdir, place.id)
+        create_centroid_geojson(df, centroids_filename)
+
+        mbtiles_filename = "{}.{}.mbtiles".format(tempdir, place.id)
+        create_tiles(geojson_filename, place, target=mbtiles_filename)
 
 
 def read_in_wgs84(filename):
