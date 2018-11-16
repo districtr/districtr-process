@@ -13,33 +13,25 @@ class Population:
 
 class PopulationSchema(Schema):
     total = fields.String()
-    subgroups = fields.List(Column)
+    subgroups = fields.List(ColumnSchema)
 
 
 class Election:
-    def __init__(self, year, race, parties_to_columns):
+    def __init__(self, year, race, vote_totals):
         self.year = year
         self.race = race
-        self.parties_to_columns = parties_to_columns
+        self.vote_totals = vote_totals
 
 
 class ElectionSchema(Schema):
     year = fields.Integer(validate=lambda x: x > 1776 and x <= datetime.now().year)
     race = fields.String()
-    parties_to_columns = fields.List(PartyColumn)
+    vote_totals = fields.List(ColumnSchema)
 
 
-class Party(fields.String):
-    pass
-
-
-class Column(fields.String):
-    pass
-
-
-class PartyColumn(Schema):
-    party = Party()
-    column = Column()
+class ColumnSchema(Schema):
+    name = fields.String()
+    key = fields.String()
 
 
 class Place:
