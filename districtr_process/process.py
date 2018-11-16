@@ -8,10 +8,10 @@ from .upload import MapboxError, upload
 wgs84 = "+init=epsg:4326"
 
 
-def (filename, place):
+def process(filename, place):
     df = read_in_wgs84(filename)
 
-    place.raise_for_missing_columns(df)
+    place.raise_for_problems(df)
 
     if place.id_column is not None:
         df.set_index(

@@ -1,33 +1,13 @@
 from datetime import datetime
-from uuid import uuid4
 
 from marshmallow import Schema, fields, post_load, validate
 
-
-def missing_columns(df, columns):
-    missing = []
-    for column in columns:
-        if column.key not in df.columns:
-            missing.append(column)
-    return missing
-
-
-class Column:
-    def __init__(self, name, key):
-        self.name = name
-        self.key = key
-
-    def __repr__(self):
-        return "<Column name={} key={}>".format(self.name, self.key)
-
-
-class ColumnSchema(Schema):
-    name = fields.String(required=True)
-    key = fields.String(required=True)
-
-    @post_load
-    def make_column(self, data):
-        return Column(**data)
+from .columns import (
+    ColumnSchema,
+    MissingColumnsError,
+    PopulationColumnSchema,
+    VoteColumnSchema,
+)
 
 
 class Population:
@@ -45,8 +25,12 @@ class Population:
 
 
 class PopulationSchema(Schema):
-    total = fields.Nested(ColumnSchema, required=True)
-    subgroups = fields.Nested(ColumnSchema, many=True)
+    total = fields.Nested(PopulationColumnSchema, required=True)
+    subgroups = fields.Nested(PopulationColumnSchema, many=True)
+
+    @post_load
+    def create_population(self, data):
+        return Population(**data)
 
 
 class Election:
@@ -73,7 +57,7 @@ class ElectionSchema(Schema):
         validate=validate.Range(min=1776, max=datetime.now().year), required=True
     )
     race = fields.String(required=True)
-    vote_totals = fields.Nested(ColumnSchema, many=True)
+    vote_totals = fields.Nested(VoteColumnSchema, many=True)
 
     @post_load
     def make_election(self, data):
@@ -96,11 +80,23 @@ class Place:
 
     @property
     def columns(self):
-        return (
-            [column for column in election.columns for election in self.elections]
-            + [self.id_column]
-            + self.population.columns
-        )
+        columns = [column for election in self.elections for column in election.columns]
+        columns += self.population.columns
+        if self.id_column is not None:
+            columns += [self.id_column]
+        return columns
+
+    def problems(self, df):
+        return {column.key: column.problems(df) for column in self.columns}
+
+    def raise_for_problems(self, df):
+        problems = self.problems(df)
+        for failures in problems.values():
+            if len(failures) > 0:
+                raise ValueError(
+                    "The given DataFrame is not compatible with {}".format(self),
+                    problems,
+                )
 
     def raise_for_missing_columns(self, df):
         """Assert that the given DataFrame has the necessary columns"""
@@ -108,9 +104,16 @@ class Place:
         if len(missing) > 0:
             raise MissingColumnsError(missing)
 
+    def __repr__(self):
+        return "<Place id={} name={}>".format(self.id, self.name)
 
-class MissingColumnsError(Exception):
-    pass
+
+def missing_columns(df, columns):
+    missing = []
+    for column in columns:
+        if column.key not in df.columns:
+            missing.append(column)
+    return missing
 
 
 class PlaceSchema(Schema):
