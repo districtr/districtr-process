@@ -1,0 +1,14 @@
+id: alaska
+name: Alaska (Precincts)
+population:
+  total:
+    key: POPULATION
+    name: Total population
+elections:
+  - year: 2016
+    race: Presidential
+    vote_totals:
+      - name: Democratic
+        key: D-Pres Vot
+      - name: Republican
+        key: R-Pres Vot

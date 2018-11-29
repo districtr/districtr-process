@@ -30,7 +30,7 @@ class Column:
         column = df[self.key]
 
         for assertion in self.tests:
-            if not assertition(column):
+            if not assertion(column):
                 failed.append(assertion.__name__)
         return failed
 

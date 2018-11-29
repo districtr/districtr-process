@@ -74,3 +74,6 @@ junit.xml
 # Pytest cache
 .pytest_cache/
 Dockerfile
+
+# Secrets
+.env

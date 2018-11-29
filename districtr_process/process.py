@@ -1,4 +1,6 @@
+import json
 import os
+import pathlib
 import tempfile
 
 import geopandas
@@ -22,24 +24,38 @@ def process(filename, place):
             place.id_column.key, inplace=True, drop=False, verify_integrity=True
         )
 
-    with tempfile.TemporaryDirectory() as tempdir:
-        save_centroids(df, CENTROIDS_DIR or tempdir)
+    tempdir = "./tiles/"
+    print("Generating centroid geometry")
+    save_centroids(df, place, tempdir)
 
-        mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
+    mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
 
-        # Need to catch TippecanoeErrors here
-        result = create_tiles(df, place, target=mbtiles_filename)
-        result.check_returncode()
+    # Need to catch TippecanoeErrors here
+    print("Creating tiles")
+    filename = pathlib.Path(tempdir) / "{}.geojson".format(place.id)
+    add_id_attribute_and_dump(df, filename)
+    result = create_tiles(str(filename.absolute()), place, target=mbtiles_filename)
+    result.check_returncode()
 
-        upload_response = upload(geojson_filename, place.id)
+    print("Uploading to Mapbox")
+    upload_response = upload(mbtiles_filename, place.id)
+    print(upload_response.json())
 
-        # TODO: put the centroids somewhere. Create database records.
+    # TODO: put the centroids somewhere. Create database records.
 
 
-def save_centroids(df, target_dir):
+def save_centroids(df, place, target_dir):
     centroids_filename = "{}/{}-centroids.geojson".format(target_dir, place.id)
-    with open(centroids_filename, "w") as f:
-        f.write(centroids(df).to_json())
+    add_id_attribute_and_dump(centroids(df), centroids_filename)
+    print("Uploading centroids")
+    upload_response = upload(centroids_filename, place.id + "_centroids")
+    print(upload_response.json())
+
+
+def add_id_attribute_and_dump(df, filename):
+    geojson = convert_id_attribute_to_int(df.__geo_interface__)
+    with open(filename, "w") as f:
+        json.dump(geojson, f)
 
 
 def read_in_wgs84(filename):
@@ -67,7 +83,7 @@ def convert_to_integer_ids(ids):
     return integer_id_lookup
 
 
-def add_id_attribute(geojson, id_property, lookup=None):
+def add_id_attribute_from_property(geojson, id_property, lookup=None):
     """Add an integer ``id`` attribute to a GeoJSON FeatureCollection.
     If a ``lookup`` dictionary is provided, it is used to associate ids to features,
     using the feature's ``id_property`` as a key.
@@ -90,5 +106,18 @@ def add_id_attribute(geojson, id_property, lookup=None):
 
     for feature in features:
         feature["id"] = lookup[feature["properties"][id_property]]
+
+    return geojson
+
+
+def convert_id_attribute_to_int(geojson):
+    features = geojson["features"]
+
+    ids = [f["id"] for f in features]
+
+    lookup = convert_to_integer_ids(ids)
+
+    for i, feature in enumerate(features):
+        feature["id"] = lookup[feature["id"]]
 
     return geojson

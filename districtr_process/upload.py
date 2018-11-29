@@ -29,7 +29,7 @@ def upload(filename, upload_id):
     succeeded = lambda resp: resp.status_code != 422
     attempt = lambda: attempt_upload(uploader, filename, upload_id)
 
-    response = retry(f, retries=5, pause=5, succeeded=succeeded)
+    response = retry(attempt, retries=5, pause=5, succeeded=succeeded)
 
     if response.status_code != 201:
         raise MapboxError(response)
