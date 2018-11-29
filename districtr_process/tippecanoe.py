@@ -5,7 +5,7 @@ from tempfile import TemporaryDirectory
 from .exceptions import TippecanoeError
 
 
-def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=14):
+def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):
     accumulate_elections = [
         f"--accumulate-attribute={col.key}:sum"
         for election in place.elections
