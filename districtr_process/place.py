@@ -1,3 +1,4 @@
+import warnings
 from datetime import datetime
 
 from marshmallow import Schema, fields, post_load, validate
@@ -18,6 +19,18 @@ class Population:
     @property
     def columns(self):
         return [self.total] + self.subgroups
+
+    def record(df):
+        return {
+            "total": summarize_column(self.total, df),
+            "subgroups": [
+                summarize_column(subgroup, df) for subgroup in self.subgroups
+            ],
+        }
+
+
+def summarize_column(column, df):
+    return {"key": column.key, "name": column.name, "sum": df[column.key].sum()}
 
 
 class PopulationSchema(Schema):
@@ -47,6 +60,13 @@ class Election:
     def __str__(self):
         return "{year} {race} election".format(year=self.year, race=self.race)
 
+    def record(self):
+        return {
+            "year": self.year,
+            "race": self.race,
+            "voteTotals": [column.record() for column in self.vote_totals],
+        }
+
 
 class ElectionSchema(Schema):
     year = fields.Integer(
@@ -64,6 +84,11 @@ class Place:
     """A place where you might draw a districting plan."""
 
     def __init__(self, id, name, population=None, elections=None, id_column=None):
+        if population is None:
+            warnings.warn('Population is None for place "{}" ({})'.format(name, id))
+        if id_column is None:
+            warnings.warn('ID column is None for place "{}" ({})'.format(name, id))
+
         self.id = id
         self.name = name
         self.population = population
@@ -77,9 +102,13 @@ class Place:
     @property
     def columns(self):
         columns = [column for election in self.elections for column in election.columns]
-        columns += self.population.columns
+
+        if self.population is not None:
+            columns += self.population.columns
+
         if self.id_column is not None:
             columns += [self.id_column]
+
         return columns
 
     def problems(self, df):
@@ -102,6 +131,38 @@ class Place:
 
     def __repr__(self):
         return "<Place id={} name={}>".format(self.id, self.name)
+
+    def record(self, df):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "tilesets": tileset_records(self),
+            "population": self.population.record(df),
+            "bounds": df.geometry.total_bounds,
+            "numberOfParts": self.number_of_parts,
+            "elections": [election.record() for election in self.elections],
+        }
+
+
+def tileset_records(place):
+    return [
+        {
+            "type": "fill",
+            "source": {
+                "type": "vector",
+                "url": "mapbox://districtr.{}".format(place.id),
+            },
+            "sourceLayer": place.id,
+        },
+        {
+            "type": "circle",
+            "source": {
+                "type": "vector",
+                "url": "mapbox://districtr.{}".format(place.id + "_points"),
+            },
+            "sourceLayer": place.id + "_points",
+        },
+    ]
 
 
 def missing_columns(df, columns):
