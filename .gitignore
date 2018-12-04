@@ -77,3 +77,6 @@ Dockerfile
 
 # Secrets
 .env
+
+# Shapefiles
+shapes/*

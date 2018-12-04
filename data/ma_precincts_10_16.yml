@@ -1,0 +1,66 @@
+id: ma_precincts_12_16
+name: Massachusetts (Precincts, 2012-2016)
+id_column:
+  name: Ward number/letter and precinct number/letter
+  key: Precinct
+population:
+  total:
+    name: 2010 Census Population
+    key: POP10
+  subgroups:
+    - key: White
+      name: White population
+    - key: Black
+      name: Black/African American population
+    - key: AmIndian
+      name: American Indian and Alaska Native population
+    - key: Asian
+      name: Asian population
+    - key: Hawaiian
+      name: Native Hawaiian and other Pacific Islander population
+    - key: Other
+      name: Population of other race
+    - key: _1_Race
+      name: Population of one race
+    - key: _2__Races
+      name: Population of two or more races
+    - key: Hispanic_O
+      name: Population of Hispanic origin
+    - key: Not_Hispan
+      name: Population not of Hispanic origin
+elections:
+  - year: 2012
+    race: Senate
+    vote_totals:
+      - name: Democratic
+        key: SEN12D
+      - name: Republican
+        key: SEN12R
+  - year: 2012
+    race: Presidential
+    vote_totals:
+      - name: Democratic
+        key: PRES12D
+      - name: Republican
+        key: PRES12R
+  - year: 2013
+    race: Senate
+    vote_totals:
+      - name: Democratic
+        key: SEN13D
+      - name: Republican
+        key: SEN13R
+  - year: 2014
+    race: Senate
+    vote_totals:
+      - name: Democratic
+        key: SEN14D
+      - name: Republican
+        key: SEN14R
+  - year: 2016
+    race: Presidential
+    vote_totals:
+      - name: Democratic
+        key: PRES16D
+      - name: Republican
+        key: PRES16R
