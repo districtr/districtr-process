@@ -1,4 +1,5 @@
 import json
+import logging
 import pathlib
 import sys
 
@@ -6,6 +7,8 @@ import yaml
 
 from .place import PlaceSchema
 from .process import process
+
+logging.captureWarnings(True)
 
 
 def load(place_filename):
