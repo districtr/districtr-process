@@ -48,3 +48,12 @@ def shapefile(gdf_with_data):
         filename = str(filepath.absolute())
         gdf_with_data.to_file(filename)
         yield filename
+
+
+@pytest.fixture
+def geojson(gdf_with_data):
+    with TemporaryDirectory() as d:
+        filepath = pathlib.Path(d) / "temp.geojson"
+        filename = str(filepath.absolute())
+        gdf_with_data.to_file(filename, driver="GeoJSON")
+        yield filename
