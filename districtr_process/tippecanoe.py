@@ -1,8 +1,5 @@
 import pathlib
 import subprocess
-from tempfile import TemporaryDirectory
-
-from .exceptions import TippecanoeError
 
 
 def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):

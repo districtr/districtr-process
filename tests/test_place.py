@@ -33,10 +33,11 @@ def ma_precincts():
 def data_files():
     def generator():
         for filename in pathlib.Path("data").iterdir():
-            with open(filename) as f:
-                if filename.suffix in ("yml", "yaml"):
+            if filename.suffix in ("yml", "yaml"):
+                with open(filename) as f:
                     yield yaml.safe_load(f)
-                if filename.suffix == "json":
+            elif filename.suffix == "json":
+                with open(filename) as f:
                     yield json.load(f)
 
     return generator
@@ -63,10 +64,6 @@ def test_parse_lowell_yaml(lowell):
 def test_raise_for_missing(lowell, geodataframe):
     with pytest.raises(MissingColumnsError):
         lowell.raise_for_missing_columns(geodataframe)
-
-
-def test_deserializes_population_object(lowell):
-    assert isinstance(lowell.population, Population)
 
 
 def test_deserializes_population_object(lowell):

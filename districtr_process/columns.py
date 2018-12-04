@@ -12,6 +12,10 @@ def not_all_zero(column):
     return (column != 0).any()
 
 
+def has_unique_values(column):
+    return len(column) == len(set(column))
+
+
 class Column:
     tests = []
 
@@ -42,6 +46,16 @@ class ColumnSchema(Schema):
     @post_load
     def make_column(self, data):
         return Column(**data)
+
+
+class IdColumn(Column):
+    tests = [has_unique_values]
+
+
+class IdColumnSchema(ColumnSchema):
+    @post_load
+    def make_column(self, data):
+        return IdColumn(**data)
 
 
 class VoteColumn(Column):

@@ -8,8 +8,8 @@ population:
     name: 2010 Census Population
     key: POP100
   subgroups:
-    name: 2010 Voting age population
-    key: VAP
+    - name: 2010 Voting age population
+      key: VAP
 elections:
   - year: 2008
     race: Presidential

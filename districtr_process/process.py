@@ -1,12 +1,7 @@
 import json
-import os
-import pathlib
-import tempfile
 
 import geopandas
 
-from .exceptions import MapboxError, TippecanoeError
-from .tippecanoe import create_tiles
 from .upload import upload
 
 wgs84 = "+init=epsg:4326"
@@ -17,27 +12,30 @@ def process(filename, place):
 
     place.raise_for_problems(df)
 
+    # only keep the data that you need
+    df = df[place.columns]
+
     if place.id_column is not None:
         df.set_index(
             place.id_column.key, inplace=True, drop=False, verify_integrity=True
         )
 
-    with TemporaryDirectory() as tempdir:
-        print("Generating point geometry")
-        save_points(df, place, tempdir)
+    # with tempfile.TemporaryDirectory() as tempdir:
+    #     print("Generating point geometry")
+    #     save_points(df, place, tempdir)
 
-        mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
+    #     mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
 
-        # Need to catch TippecanoeErrors here
-        print("Creating tiles")
-        filename = pathlib.Path(tempdir) / "{}.geojson".format(place.id)
-        add_id_attribute_and_dump(df, filename)
-        result = create_tiles(str(filename.absolute()), place, target=mbtiles_filename)
-        result.check_returncode()
+    #     # Need to catch TippecanoeErrors here
+    #     print("Creating tiles")
+    #     filename = pathlib.Path(tempdir) / "{}.geojson".format(place.id)
+    #     add_id_attribute_and_dump(df, filename)
+    #     result = create_tiles(str(filename.absolute()), place, target=mbtiles_filename)
+    #     result.check_returncode()
 
-        print("Uploading to Mapbox")
-        upload_response = upload(mbtiles_filename, place.id)
-        print(upload_response.json())
+    #     print("Uploading to Mapbox")
+    #     upload_response = upload(mbtiles_filename, place.id)
+    #     print(upload_response.json())
 
     # TODO: Create database records.
     return place.record(df)

@@ -1,4 +1,3 @@
-import os
 from time import sleep
 
 import mapbox
@@ -24,10 +23,15 @@ def retry(f, retries, pause, succeeded):
             return result
 
 
+def succeeded(resp):
+    return resp.status_code != 422
+
+
 def upload(filename, upload_id):
     uploader = mapbox.Uploader()
-    succeeded = lambda resp: resp.status_code != 422
-    attempt = lambda: attempt_upload(uploader, filename, upload_id)
+
+    def attempt():
+        return attempt_upload(uploader, filename, upload_id)
 
     response = retry(attempt, retries=5, pause=5, succeeded=succeeded)
 

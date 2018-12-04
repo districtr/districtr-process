@@ -3,7 +3,7 @@ from datetime import datetime
 
 from marshmallow import Schema, fields, post_load, validate
 
-from .columns import ColumnSchema, PopulationColumnSchema, VoteColumnSchema
+from .columns import IdColumnSchema, PopulationColumnSchema, VoteColumnSchema
 from .exceptions import MissingColumnsError
 
 
@@ -20,7 +20,7 @@ class Population:
     def columns(self):
         return [self.total] + self.subgroups
 
-    def record(df):
+    def record(self, df):
         return {
             "total": summarize_column(self.total, df),
             "subgroups": [
@@ -64,7 +64,9 @@ class Election:
         return {
             "year": self.year,
             "race": self.race,
-            "voteTotals": [column.record() for column in self.vote_totals],
+            "voteTotals": [
+                {"key": column.key, "name": column.name} for column in self.vote_totals
+            ],
         }
 
 
@@ -138,9 +140,16 @@ class Place:
             "name": self.name,
             "tilesets": tileset_records(self),
             "population": self.population.record(df),
-            "bounds": df.geometry.total_bounds,
+            "bounds": bounds(df),
             "elections": [election.record() for election in self.elections],
         }
+
+
+def bounds(df):
+    """Give [[minx, miny], [maxx, maxy]] for a GeoDataFrame"""
+    # Convert minx, miny, maxx, maxy to [[minx, miny], [maxx, maxy]]
+    array = [round(n, 4) for n in df.geometry.total_bounds]
+    return [[array[0], array[1]], [array[2], array[3]]]
 
 
 def tileset_records(place):
@@ -177,7 +186,7 @@ class PlaceSchema(Schema):
     name = fields.String(required=True)
     elections = fields.Nested(ElectionSchema, many=True)
     population = fields.Nested(PopulationSchema)
-    id_column = fields.Nested(ColumnSchema)
+    id_column = fields.Nested(IdColumnSchema)
 
     @post_load
     def create_place(self, data):
