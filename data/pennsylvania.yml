@@ -1,0 +1,84 @@
+id: pa-vtds
+name: Pennsylvania
+id_column:
+  name: 2010 Census GEOID
+  key: GEOID10
+population:
+  total:
+    name: 2010 Census Population
+    key: TOT_POP
+  subgroups:
+    - key: HISP_POP
+      name: 2010 Hispanic or Latino population
+    - key: WHITE_POP
+      name: 2010 White alone population
+    - key: BLACK_POP
+      name: 2010 Black/African American alone population
+    - key: NATIVE_POP
+      name: 2010 American Indian or Alaska Native alone population
+    - key: ASIAN_POP
+      name: 2010 Asian alone population
+elections:
+  - year: 2012
+    race: Attorney General
+    vote_totals:
+      - key: ATG12D
+        name: Democratic
+      - key: ATG12R
+        name: Republican
+  - year: 2014
+    race: Governor
+    vote_totals:
+      - key: F2014GOVD
+        name: Democratic
+      - key: F2014GOVR
+        name: Republican
+  - year: 2010
+    race: Governor
+    vote_totals:
+      - key: GOV10D
+        name: Democratic
+      - key: GOV10R
+        name: Republican
+  - year: 2012
+    race: Presidential
+    vote_totals:
+      - key: PRES12D
+        name: Democratic
+      - key: PRES12R
+        name: Republican
+  - year: 2016
+    race: Presidential
+    vote_totals:
+      - key: T16PRESD
+        name: Democratic
+      - key: T16PRESR
+        name: Republican
+  - year: 2010
+    race: Senate
+    vote_totals:
+      - key: SEN10D
+        name: Democratic
+      - key: SEN10R
+        name: Republican
+  - year: 2016
+    race: Attorney General
+    vote_totals:
+      - key: T16ATGD
+        name: Democratic
+      - key: T16ATGR
+        name: Republican
+  - year: 2012
+    race: Senate
+    vote_totals:
+      - key: USS12D
+        name: Democratic
+      - key: USS12R
+        name: Republican
+  - year: 2010
+    race: Senate
+    vote_totals:
+      - key: T16SEND
+        name: Democratic
+      - key: T16SENR
+        name: Republican
