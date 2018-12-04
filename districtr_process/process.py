@@ -1,8 +1,10 @@
 import json
+import pathlib
 import tempfile
 
 import geopandas
 
+from .tippecanoe import create_tiles
 from .upload import upload
 
 wgs84 = "+init=epsg:4326"

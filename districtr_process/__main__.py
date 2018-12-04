@@ -5,6 +5,7 @@ import sys
 
 import yaml
 
+from .graph import save_graph
 from .place import PlaceSchema
 from .process import process
 
@@ -34,7 +35,9 @@ def many(pairs, output_file):
 
 def main(filename, place_filename):
     place = load(place_filename)
-    place_record = process(filename, place)
+    # place_record = process(filename, place)
+    save_graph(place, filename)
+
     return place_record
 
 
