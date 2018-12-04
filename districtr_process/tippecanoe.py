@@ -17,7 +17,7 @@ def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):
         ["tippecanoe", "-o", target]
         + zoom_options
         + accumulate_columns
-        + ["--coalesce-densest-as-needed", "--extend-zooms-if-still-dropping", filename]
+        + ["--extend-zooms-if-still-dropping", filename]
     )
 
 
