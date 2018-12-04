@@ -139,7 +139,6 @@ class Place:
             "tilesets": tileset_records(self),
             "population": self.population.record(df),
             "bounds": df.geometry.total_bounds,
-            "numberOfParts": self.number_of_parts,
             "elections": [election.record() for election in self.elections],
         }
 
