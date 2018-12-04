@@ -22,11 +22,19 @@ def load(place_filename):
     return place
 
 
+def many(pairs, output_file):
+    records = [main(filename, place_filename) for filename, place_filename in pairs]
+    print(records)
+    with open(output_file, "w") as f:
+        json.dump(records, f)
+
+
 def main(filename, place_filename):
     place = load(place_filename)
-    process(filename, place)
+    place_record = process(filename, place)
+    return place_record
 
 
 if __name__ == "__main__":
-    print(*sys.argv[1:3])
-    main(*sys.argv[1:3])
+    result = main(*sys.argv[1:3])
+    print(result)

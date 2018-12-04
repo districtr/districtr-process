@@ -11,8 +11,6 @@ from .upload import upload
 
 wgs84 = "+init=epsg:4326"
 
-CENTROIDS_DIR = os.environ.get("CENTROIDS_DIR", None)
-
 
 def process(filename, place):
     df = read_in_wgs84(filename)
@@ -24,31 +22,32 @@ def process(filename, place):
             place.id_column.key, inplace=True, drop=False, verify_integrity=True
         )
 
-    tempdir = "./tiles/"
-    print("Generating centroid geometry")
-    save_centroids(df, place, tempdir)
+    with TemporaryDirectory() as tempdir:
+        print("Generating point geometry")
+        save_points(df, place, tempdir)
 
-    mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
+        mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
 
-    # Need to catch TippecanoeErrors here
-    print("Creating tiles")
-    filename = pathlib.Path(tempdir) / "{}.geojson".format(place.id)
-    add_id_attribute_and_dump(df, filename)
-    result = create_tiles(str(filename.absolute()), place, target=mbtiles_filename)
-    result.check_returncode()
+        # Need to catch TippecanoeErrors here
+        print("Creating tiles")
+        filename = pathlib.Path(tempdir) / "{}.geojson".format(place.id)
+        add_id_attribute_and_dump(df, filename)
+        result = create_tiles(str(filename.absolute()), place, target=mbtiles_filename)
+        result.check_returncode()
 
-    print("Uploading to Mapbox")
-    upload_response = upload(mbtiles_filename, place.id)
-    print(upload_response.json())
+        print("Uploading to Mapbox")
+        upload_response = upload(mbtiles_filename, place.id)
+        print(upload_response.json())
 
-    # TODO: put the centroids somewhere. Create database records.
+    # TODO: Create database records.
+    return place.record(df)
 
 
-def save_centroids(df, place, target_dir):
-    centroids_filename = "{}/{}-centroids.geojson".format(target_dir, place.id)
-    add_id_attribute_and_dump(centroids(df), centroids_filename)
-    print("Uploading centroids")
-    upload_response = upload(centroids_filename, place.id + "_centroids")
+def save_points(df, place, target_dir):
+    points_filename = "{}/{}_points.geojson".format(target_dir, place.id)
+    add_id_attribute_and_dump(points(df), points_filename)
+    print("Uploading points")
+    upload_response = upload(points_filename, place.id + "_points")
     print(upload_response.json())
 
 
@@ -65,11 +64,11 @@ def read_in_wgs84(filename):
     return df
 
 
-def centroids(df):
+def points(df):
     assert df.crs == wgs84
-    centroids = df.copy()
-    centroids.geometry = df.centroid
-    return centroids
+    points = df.copy()
+    points.geometry = df.geometry.representative_point()
+    return points
 
 
 def convert_to_integer_ids(ids):
