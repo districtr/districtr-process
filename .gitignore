@@ -80,3 +80,5 @@ Dockerfile
 
 # Shapefiles
 shapes/*
+
+graphs/*

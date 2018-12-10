@@ -1,4 +1,4 @@
-id: pa-vtds
+id: pa_vtds
 name: Pennsylvania
 id_column:
   name: 2010 Census GEOID
@@ -75,7 +75,7 @@ elections:
         name: Democratic
       - key: USS12R
         name: Republican
-  - year: 2010
+  - year: 2016
     race: Senate
     vote_totals:
       - key: T16SEND
