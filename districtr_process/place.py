@@ -20,7 +20,7 @@ class Population:
     def columns(self):
         return [self.total] + self.subgroups
 
-    def record(self, df):
+    def record(self, df=None):
         return {
             "total": summarize_column(self.total, df),
             "subgroups": [
@@ -29,8 +29,11 @@ class Population:
         }
 
 
-def summarize_column(column, df):
-    return {"key": column.key, "name": column.name, "sum": df[column.key].sum()}
+def summarize_column(column, df=None):
+    if df is not None:
+        return {"key": column.key, "name": column.name, "sum": df[column.key].sum()}
+    else:
+        return {"key": column.key, "name": column.name}
 
 
 class PopulationSchema(Schema):
@@ -134,15 +137,21 @@ class Place:
     def __repr__(self):
         return "<Place id={} name={}>".format(self.id, self.name)
 
-    def record(self, df):
-        return {
+    def record(self, df=None):
+        record = {
             "id": self.id,
             "name": self.name,
             "tilesets": tileset_records(self),
             "population": self.population.record(df),
-            "bounds": bounds(df),
             "elections": [election.record() for election in self.elections],
         }
+
+        if self.id_column is not None:
+            record["idColumn"] = self.id_column.record()
+        if df is not None:
+            record["bounds"] = bounds(df)
+
+        return record
 
 
 def bounds(df):

@@ -37,6 +37,9 @@ class Column:
             if not assertion(column):
                 failed.append(assertion.__name__)
         return failed
+    
+    def record(self):
+        return {"name": self.name, "key": self.key}
 
 
 class ColumnSchema(Schema):
