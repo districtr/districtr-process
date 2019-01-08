@@ -31,7 +31,13 @@ class Population:
 
 def summarize_column(column, df=None):
     if df is not None:
-        return {"key": column.key, "name": column.name, "sum": df[column.key].sum()}
+        return {
+            "key": column.key,
+            "name": column.name,
+            "sum": df[column.key].sum(),
+            "min": df[column.key].min(),
+            "max": df[column.key].max(),
+        }
     else:
         return {"key": column.key, "name": column.name}
 
