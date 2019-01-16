@@ -3,6 +3,7 @@ import logging
 import pathlib
 import sys
 
+import geopandas
 import yaml
 
 from .place import PlaceSchema
@@ -35,7 +36,6 @@ def many(pairs, output_file):
 def main(filename, place_filename):
     place = load(place_filename)
     place_record = process(filename, place)
-
     return place_record
 
 

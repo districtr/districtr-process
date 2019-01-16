@@ -1,3 +1,4 @@
+import pandas
 from marshmallow import Schema, fields, post_load
 from pandas.api.types import is_numeric_dtype
 
@@ -18,6 +19,7 @@ def has_unique_values(column):
 
 class Column:
     tests = []
+    require_numeric = None
 
     def __init__(self, name, key):
         self.name = name
@@ -31,13 +33,16 @@ class Column:
         if self.key not in df.columns:
             raise MissingColumnsError("Missing column {}".format(self))
 
+        if self.require_numeric is True:
+            df[self.key] = pandas.to_numeric(df[self.key])
+
         column = df[self.key]
 
         for assertion in self.tests:
             if not assertion(column):
                 failed.append(assertion.__name__)
         return failed
-    
+
     def record(self):
         return {"name": self.name, "key": self.key}
 
@@ -63,6 +68,7 @@ class IdColumnSchema(ColumnSchema):
 
 class VoteColumn(Column):
     tests = [is_numeric_dtype, all_nonnegative, not_all_zero]
+    require_numeric = True
 
 
 class VoteColumnSchema(ColumnSchema):
@@ -73,6 +79,7 @@ class VoteColumnSchema(ColumnSchema):
 
 class PopulationColumn(Column):
     tests = [is_numeric_dtype, all_nonnegative, not_all_zero]
+    require_numeric = True
 
 
 class PopulationColumnSchema(ColumnSchema):

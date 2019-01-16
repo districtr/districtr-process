@@ -1,0 +1,22 @@
+id: santa_clara_blocks
+name: Santa Clara
+id_column:
+  name: 2010 Census GEOID
+  key: GEOID10
+population:
+  total:
+    key: TOTPOP
+    name: Total Population
+  subgroups:
+    - key: NH_WHITE
+      name: White population
+    - key: NH_BLACK
+      name: Black population
+    - key: NH_ASIAN
+      name: Asian population
+    - key: HPOP
+      name: Hispanic population
+    - key: NH_NAHI
+      name: Hawaiian Native population
+    - key: NH_AMIN
+      name: American Indian population
