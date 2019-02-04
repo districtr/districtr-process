@@ -1,87 +1,88 @@
 id: wisconsin_12_16
 name: Wisconsin
+unit_type: block
 id_column:
-  key: GEOID10
-  name: Ward FIPS code
+    key: GEOID10
+    name: Ward FIPS code
 population:
-  total:
-    key: PERSONS
-    name: Population from 2010 Census
-  subgroups:
-    - key: WHITE
-      name: White population from 2010 Census
-    - key: BLACK
-      name: Black/African American population from 2010 Census
-    - key: HISPANIC
-      name: Population of Hispanic origin from 2010 Census
-    - key: ASIAN
-      name: Asian population from 2010 Census
-    - key: AMINDIAN
-      name: American Indian or Alaska Native population from 2010 Census
-    - key: PISLAND
-      name: Native Hawaiian or other Pacific Islander population from 2010 Census
-    - key: OTHER
-      name: Population of other race from 2010 Census
-    - key: OTHERMLT
-      name: Population of other multiple races from 2010 Census
-    - key: PERSONS18
-      name: Population over the age of 18 from the 2010 Census
-    - key: WHITE18
-      name: White population over 18 from the 2010 Census
-    - key: BLACK18
-      name: Black population over 18 from the 2010 Census
-    - key: HISPANIC18
-      name: Population of Hispanic origin over 18 from the 2010 Census
-    - key: ASIAN18
-      name: Asian population over 18 from the 2010 Census
-    - key: AMINDIAN18
-      name: American Indian or Alaska Native population over 18 from the 2010 Census
-    - key: PISLAND18
-      name: Native Hawaiian or other Pacific Islander population over 18 from the 2010 Census
-    - key: OTHER18
-      name: Population of other race over 18 from the 2010 Census
-    - key: OTHERMLT18
-      name: Population of other multiple races over 18 from the 2010 Census
+    total:
+        key: PERSONS
+        name: Population from 2010 Census
+    subgroups:
+        - key: WHITE
+          name: White population from 2010 Census
+        - key: BLACK
+          name: Black/African American population from 2010 Census
+        - key: HISPANIC
+          name: Population of Hispanic origin from 2010 Census
+        - key: ASIAN
+          name: Asian population from 2010 Census
+        - key: AMINDIAN
+          name: American Indian or Alaska Native population from 2010 Census
+        - key: PISLAND
+          name: Native Hawaiian or other Pacific Islander population from 2010 Census
+        - key: OTHER
+          name: Population of other race from 2010 Census
+        - key: OTHERMLT
+          name: Population of other multiple races from 2010 Census
+        - key: PERSONS18
+          name: Population over the age of 18 from the 2010 Census
+        - key: WHITE18
+          name: White population over 18 from the 2010 Census
+        - key: BLACK18
+          name: Black population over 18 from the 2010 Census
+        - key: HISPANIC18
+          name: Population of Hispanic origin over 18 from the 2010 Census
+        - key: ASIAN18
+          name: Asian population over 18 from the 2010 Census
+        - key: AMINDIAN18
+          name: American Indian or Alaska Native population over 18 from the 2010 Census
+        - key: PISLAND18
+          name: Native Hawaiian or other Pacific Islander population over 18 from the 2010 Census
+        - key: OTHER18
+          name: Population of other race over 18 from the 2010 Census
+        - key: OTHERMLT18
+          name: Population of other multiple races over 18 from the 2010 Census
 elections:
-  - year: 2016
-    race: Presidential
-    vote_totals:
-      - name: Democratic
-        key: PREDEM16
-      - name: Republican
-        key: PREREP16
-  - year: 2012
-    race: Presidential
-    vote_totals:
-      - name: Democratic
-        key: PREDEM12
-      - name: Republican
-        key: PREREP12
-  - year: 2016
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: USSDEM16
-      - name: Republican
-        key: USSREP16
-  - year: 2012
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: USSDEM12
-      - name: Republican
-        key: USSREP12
-  - year: 2014
-    race: Governor
-    vote_totals:
-      - name: Democratic
-        key: GOVDEM14
-      - name: Republican
-        key: GOVREP14
-  - year: 2012
-    race: Governor
-    vote_totals:
-      - name: Democratic
-        key: GOVDEM12
-      - name: Republican
-        key: GOVREP12
+    - year: 2016
+      race: Presidential
+      vote_totals:
+          - name: Democratic
+            key: PREDEM16
+          - name: Republican
+            key: PREREP16
+    - year: 2012
+      race: Presidential
+      vote_totals:
+          - name: Democratic
+            key: PREDEM12
+          - name: Republican
+            key: PREREP12
+    - year: 2016
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: USSDEM16
+          - name: Republican
+            key: USSREP16
+    - year: 2012
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: USSDEM12
+          - name: Republican
+            key: USSREP12
+    - year: 2014
+      race: Governor
+      vote_totals:
+          - name: Democratic
+            key: GOVDEM14
+          - name: Republican
+            key: GOVREP14
+    - year: 2012
+      race: Governor
+      vote_totals:
+          - name: Democratic
+            key: GOVDEM12
+          - name: Republican
+            key: GOVREP12

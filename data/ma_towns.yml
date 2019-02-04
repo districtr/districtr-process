@@ -1,91 +1,92 @@
 id: ma_towns
-name: Massachusetts (Towns)
+name: Massachusetts
+unit_type: town
 population:
-  total:
-    key: POP2010
-    name: 2010 Census population
+    total:
+        key: POP2010
+        name: 2010 Census population
 elections:
-  - year: 2000
-    race: Presidential
-    vote_totals:
-      - name: Democratic
-        key: Pres00D
-      - name: Republican
-        key: Pres00R
-  - year: 2000
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: Sen00D
-      - name: Republican
-        key: Sen00R
-  - year: 2002
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: Sen02D
-      - name: Republican
-        key: Sen02R
-  - year: 2004
-    race: Presidential
-    vote_totals:
-      - name: Democratic
-        key: Pres04D
-      - name: Republican
-        key: Pres04R
-  - year: 2006
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: Sen06D
-      - name: Republican
-        key: Sen06R
-  - year: 2008
-    race: Presidential
-    vote_totals:
-      - name: Democratic
-        key: Pres08D
-      - name: Republican
-        key: Pres08R
-  - year: 2010
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: Sen10D
-      - name: Republican
-        key: Sen10R
-  - year: 2012
-    race: Presidential
-    vote_totals:
-      - name: Democratic
-        key: Pres12D
-      - name: Republican
-        key: Pres12R
-  - year: 2012
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: Sen12D
-      - name: Republican
-        key: Sen12R
-  - year: 2013
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: Sen13D
-      - name: Republican
-        key: Sen13R
-  - year: 2014
-    race: Senate
-    vote_totals:
-      - name: Democratic
-        key: Sen14D
-      - name: Republican
-        key: Sen14R
-  - year: 2016
-    race: Presidential
-    vote_totals:
-      - name: Democratic
-        key: Pres12D
-      - name: Republican
-        key: Pres12R
+    - year: 2000
+      race: Presidential
+      vote_totals:
+          - name: Democratic
+            key: Pres00D
+          - name: Republican
+            key: Pres00R
+    - year: 2000
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: Sen00D
+          - name: Republican
+            key: Sen00R
+    - year: 2002
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: Sen02D
+          - name: Republican
+            key: Sen02R
+    - year: 2004
+      race: Presidential
+      vote_totals:
+          - name: Democratic
+            key: Pres04D
+          - name: Republican
+            key: Pres04R
+    - year: 2006
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: Sen06D
+          - name: Republican
+            key: Sen06R
+    - year: 2008
+      race: Presidential
+      vote_totals:
+          - name: Democratic
+            key: Pres08D
+          - name: Republican
+            key: Pres08R
+    - year: 2010
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: Sen10D
+          - name: Republican
+            key: Sen10R
+    - year: 2012
+      race: Presidential
+      vote_totals:
+          - name: Democratic
+            key: Pres12D
+          - name: Republican
+            key: Pres12R
+    - year: 2012
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: Sen12D
+          - name: Republican
+            key: Sen12R
+    - year: 2013
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: Sen13D
+          - name: Republican
+            key: Sen13R
+    - year: 2014
+      race: Senate
+      vote_totals:
+          - name: Democratic
+            key: Sen14D
+          - name: Republican
+            key: Sen14R
+    - year: 2016
+      race: Presidential
+      vote_totals:
+          - name: Democratic
+            key: Pres12D
+          - name: Republican
+            key: Pres12R

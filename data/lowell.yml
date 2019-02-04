@@ -1,21 +1,22 @@
 id: lowell_blocks
 name: Lowell
+unit_type: block
 population:
-  total:
-    key: P0010001
-    name: Total Population
-  subgroups:
-    - key: P0030002
-      name: White Population
-    - key: P0050003
-      name: White Population, Not Hispanic or Latino
-    - key: P0040003
-      name: Hispanic or Latino Population
-    - key: P0070006
-      name: Asian Population, Not Hispanic or Latino
-    - key: P0030005
-      name: Asian Population
-    - key: P0030003
-      name: Black Population
-    - key: H0160002
-      name: Owner occupied housing units
+    total:
+        key: P0010001
+        name: Total Population
+    subgroups:
+        - key: P0030002
+          name: White Population
+        - key: P0050003
+          name: White Population, Not Hispanic or Latino
+        - key: P0040003
+          name: Hispanic or Latino Population
+        - key: P0070006
+          name: Asian Population, Not Hispanic or Latino
+        - key: P0030005
+          name: Asian Population
+        - key: P0030003
+          name: Black Population
+        - key: H0160002
+          name: Owner occupied housing units

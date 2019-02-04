@@ -2,6 +2,7 @@ import warnings
 from datetime import datetime
 
 from marshmallow import Schema, fields, post_load, validate
+from marshmallow.validate import OneOf
 
 from .columns import IdColumnSchema, PopulationColumnSchema, VoteColumnSchema
 from .exceptions import MissingColumnsError
@@ -199,6 +200,9 @@ def missing_columns(df, columns):
 class PlaceSchema(Schema):
     id = fields.String(required=True)
     name = fields.String(required=True)
+    unit_type = fields.String(
+        validate=OneOf(["precinct", "block", "block_group", "town"])
+    )
     elections = fields.Nested(ElectionSchema, many=True)
     population = fields.Nested(PopulationSchema)
     id_column = fields.Nested(IdColumnSchema)
