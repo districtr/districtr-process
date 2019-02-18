@@ -95,7 +95,9 @@ class ElectionSchema(Schema):
 class Place:
     """A place where you might draw a districting plan."""
 
-    def __init__(self, id, name, population=None, elections=None, id_column=None):
+    def __init__(
+        self, id, name, unit_type=None, population=None, elections=None, id_column=None
+    ):
         if population is None:
             warnings.warn('Population is None for place "{}" ({})'.format(name, id))
         if id_column is None:
@@ -105,6 +107,7 @@ class Place:
         self.name = name
         self.population = population
         self.id_column = id_column
+        self.unit_type = unit_type
 
         if elections is not None:
             self.elections = elections
@@ -206,6 +209,7 @@ class PlaceSchema(Schema):
     elections = fields.Nested(ElectionSchema, many=True)
     population = fields.Nested(PopulationSchema)
     id_column = fields.Nested(IdColumnSchema)
+    unit_type = fields.String()
 
     @post_load
     def create_place(self, data):

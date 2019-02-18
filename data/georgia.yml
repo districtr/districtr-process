@@ -1,5 +1,5 @@
-id: alaska
-name: Alaska
+id: georgia
+name: Georgia
 unit_type: precinct
 id_column:
   name: ID
@@ -9,19 +9,21 @@ population:
     key: TOTPOP
     name: Total population
   subgroups:
-    - key: WHITE
+    - key: NH_WHITE
       name: White population
-    - key: BLACK
+    - key: NH_BLACK
       name: Black population
-    - key: ASIAN
+    - key: HISP
+      name: Hispanic population
+    - key: NH_ASIAN
       name: Asian population
-    - key: AMIN
-      name: Native American and Alaskan Native population
-    - key: NHPI
+    - key: NH_AMIN
+      name: American Indian population
+    - key: NH_NHPI
       name: Native Hawaiian and Pacific Islander population
-    - key: 2MORE
+    - key: NH_2MORE
       name: Two or more races
-    - key: OTHER
+    - key: NH_OTHER
       name: Other races
     - key: VAP
       name: Voting age population
@@ -30,7 +32,7 @@ population:
     - key: BVAP
       name: Black voting age population
     - key: AMINVAP
-      name: Native American and Alaskan Native voting age population
+      name: Native American voting age population
     - key: NHPIVAP
       name: Native Hawaiian and Pacific Islander voting age population
     - key: ASIANVAP
@@ -40,15 +42,6 @@ population:
     - key: 2MOREVAP
       name: Two or more races voting age population
 elections:
-  - year: 2014
-    race: U.S. House
-    vote_totals:
-      - key: USH14R
-        name: Republican
-      - key: USH14D
-        name: Democratic
-      # - key: USH14L
-      #   name: Libertarian
   - year: 2016
     race: Presidential
     vote_totals:
@@ -58,10 +51,6 @@ elections:
         name: Democratic
       # - key: PRES16L
       #   name: Libertarian
-      # - key: PRES16G
-      #   name: Green Party
-      # - key: PRES16C
-      #   name: Constitution Party
   - year: 2016
     race: Senate
     vote_totals:
@@ -70,22 +59,4 @@ elections:
       - key: SEN16D
         name: Democratic
       # - key: SEN16L
-      #   name: Libertarian
-  - year: 2018
-    race: U.S. House
-    vote_totals:
-      - key: USH18R
-        name: Republican
-      - key: USH18D
-        name: Democratic
-      # - key: USH18L
-      #   name: Libertarian
-  - year: 2018
-    race: Governor
-    vote_totals:
-      - key: GOV18R
-        name: Republican
-      - key: GOV18D
-        name: Democratic
-      # - key: GOV18L
       #   name: Libertarian

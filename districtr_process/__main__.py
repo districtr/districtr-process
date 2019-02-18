@@ -36,9 +36,25 @@ def many(pairs, output_file):
 def main(filename, place_filename):
     place = load(place_filename)
     place_record = process(filename, place)
-    return place_record
+    return str(place_record).replace("'", '"')
+
+
+def find_shp(folder):
+    for item in folder.iterdir():
+        if item.suffix == ".shp":
+            return str(item.absolute())
 
 
 if __name__ == "__main__":
-    result = main(*sys.argv[1:3])
-    print(result)
+    with open("./places.txt") as f:
+        args = [tuple(line.strip().split(" ")) for line in f if line[0] != "#"]
+    pairs = [
+        (
+            find_shp(pathlib.Path(f"./shapes/{shapefile_folder}")),
+            f"./data/{place_name}.yml",
+        )
+        for place_name, shapefile_folder in args
+    ]
+    many(pairs, "./output.json")
+    # result = main(*sys.argv[1:3])
+    # print(result)
