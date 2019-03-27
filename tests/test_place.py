@@ -12,6 +12,7 @@ from districtr_process.place import (
     Place,
     PlaceSchema,
     Population,
+    summarize_column,
 )
 
 
@@ -24,7 +25,7 @@ def lowell():
 
 @pytest.fixture
 def ma_precincts():
-    with open("data/ma-precincts.yml") as f:
+    with open("data/ma_precincts_02_10.yml") as f:
         ma_yaml = yaml.safe_load(f)
     return PlaceSchema().load(ma_yaml)
 
@@ -77,3 +78,10 @@ def test_data_files_are_valid(data_files):
 
 def test_deserializes_election_object(ma_precincts):
     assert all(isinstance(election, Election) for election in ma_precincts.elections)
+
+
+def test_summarize_column_returns_json_serializable(geodataframe):
+    geodataframe["data"] = 0
+    print(geodataframe["data"].dtype)
+    column = Column(key="data", name="Test data")
+    assert json.dumps(summarize_column(column, geodataframe))

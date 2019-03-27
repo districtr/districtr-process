@@ -1,7 +1,7 @@
 # alaska AK_precincts
 # austin austin_blocks
 # chicago chicago_precincts_12
-chicago_communities chicago_communities
+# chicago_communities chicago_communities
 # georgia GA_precincts16
 # islip islip_blocks
 # lowell Lowell_blocks

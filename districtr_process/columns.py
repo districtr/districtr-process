@@ -1,6 +1,6 @@
 import pandas
 from marshmallow import Schema, fields, post_load
-from pandas.api.types import is_integer_dtype, is_numeric_dtype
+from pandas.api.types import is_numeric_dtype
 
 from .exceptions import MissingColumnsError
 

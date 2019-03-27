@@ -93,7 +93,7 @@ def add_id_attribute_from_property(geojson, id_property, lookup=None):
     :param dict geojson: A deserialized GeoJSON object
     :param str id_property: The string key for the property containing unique
         identifiers for all the features.
-    :param lookup: (optional) Maps each feature's ``id_property`` value to the 
+    :param lookup: (optional) Maps each feature's ``id_property`` value to the
         desired ``id`` attribute
     :type lookup: dict(str, int)
     :raises ValueError: if the the ``id_property`` values are not unique

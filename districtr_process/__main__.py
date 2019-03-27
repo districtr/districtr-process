@@ -3,7 +3,6 @@ import logging
 import pathlib
 import sys
 
-import geopandas
 import yaml
 
 from .place import PlaceSchema
@@ -36,7 +35,7 @@ def many(pairs, output_file):
 def main(filename, place_filename):
     place = load(place_filename)
     place_record = process(filename, place)
-    return str(place_record).replace("'", '"')
+    return place_record
 
 
 def find_shp(folder):
@@ -46,15 +45,16 @@ def find_shp(folder):
 
 
 if __name__ == "__main__":
-    with open("./places.txt") as f:
-        args = [tuple(line.strip().split(" ")) for line in f if line[0] != "#"]
-    pairs = [
-        (
-            find_shp(pathlib.Path(f"./shapes/{shapefile_folder}")),
-            f"./data/{place_name}.yml",
-        )
-        for place_name, shapefile_folder in args
-    ]
-    many(pairs, "./output.json")
+    # with open("./places.txt") as f:
+    #     args = [tuple(line.strip().split(" ")) for line in f if line[0] != "#"]
+    # pairs = [
+    #     (
+    #         find_shp(pathlib.Path(f"./shapes/{shapefile_folder}")),
+    #         f"./data/{place_name}.yml",
+    #     )
+    #     for place_name, shapefile_folder in args
+    # ]
+    # many(pairs, "./output.json")
     # result = main(*sys.argv[1:3])
-    # print(result)
+    result = many([tuple(sys.argv[1:3])], "./output.json")
+    print(result)

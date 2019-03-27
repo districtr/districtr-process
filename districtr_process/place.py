@@ -35,9 +35,9 @@ def summarize_column(column, df=None):
         return {
             "key": column.key,
             "name": column.name,
-            "sum": df[column.key].sum(),
-            "min": df[column.key].min(),
-            "max": df[column.key].max(),
+            "sum": int(df[column.key].sum()),
+            "min": int(df[column.key].min()),
+            "max": int(df[column.key].max()),
         }
     else:
         return {"key": column.key, "name": column.name}

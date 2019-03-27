@@ -1,9 +1,9 @@
-id: georgia
-name: Georgia
-unit_type: precinct
+id: chicago_communities
+name: Chicago (Community Areas)
+unit_type: community_area
 id_column:
-  name: ID
-  key: ID
+  key: area_num_1
+  name: Area Number
 population:
   total:
     key: TOTPOP
@@ -39,26 +39,7 @@ population:
       name: Native Hawaiian and Pacific Islander voting age population
     - key: ASIANVAP
       name: Asian voting age population
-    - key: OTHERVAP
+    - key: OTHVAP
       name: Other races voting age population
-    - key: 2MOREVAP
+    - key: X2MOREVAP
       name: Two or more races voting age population
-elections:
-  - year: 2016
-    race: Presidential
-    vote_totals:
-      - key: PRES16R
-        name: Republican
-      - key: PRES16D
-        name: Democratic
-      # - key: PRES16L
-      #   name: Libertarian
-  - year: 2016
-    race: Senate
-    vote_totals:
-      - key: SEN16R
-        name: Republican
-      - key: SEN16D
-        name: Democratic
-      # - key: SEN16L
-      #   name: Libertarian
