@@ -1,75 +1,42 @@
 import warnings
-from datetime import datetime
 
-from marshmallow import Schema, fields, post_load, validate
+from marshmallow import Schema, fields, post_load
 from marshmallow.validate import OneOf
 
-from .columns import IdColumnSchema, PopulationColumnSchema, VoteColumnSchema
 from .exceptions import MissingColumnsError
 from .column_set import ColumnSet
+from .columns import IdColumnSchema
 
 
 class Population(ColumnSet):
     pass
 
 
-class PopulationSchema(Schema):
-    total = fields.Nested(PopulationColumnSchema, required=True)
-    subgroups = fields.Nested(PopulationColumnSchema, many=True)
-    metadata = fields.Dict()
-
-    @post_load
-    def create_population(self, data):
-        return Population(**data)
-
-
 class Election(ColumnSet):
     pass
 
 
-class ElectionMetadataSchema(Schema):
-    year = fields.Integer(
-        validate=validate.Range(min=1776, max=datetime.now().year), required=True
-    )
-    race = fields.String(required=True)
+def ColumnSetSchema(column_schema, model_type):
 
-
-class ElectionSchema(PopulationSchema):
-    metadata = fields.Nested(ElectionMetadataSchema)
-
-    @post_load
-    def make_election(self, data):
-        return Election(**data)
+    return ColumnSetSchema
 
 
 class Place:
     """A place where you might draw a districting plan."""
 
-    def __init__(
-        self, id, name, unit_type=None, population=None, elections=None, id_column=None
-    ):
-        if population is None:
-            warnings.warn('Population is None for place "{}" ({})'.format(name, id))
+    def __init__(self, id, name, unit_type=None, column_sets=None, id_column=None):
         if id_column is None:
             warnings.warn('ID column is None for place "{}" ({})'.format(name, id))
 
         self.id = id
         self.name = name
-        self.population = population
         self.id_column = id_column
         self.unit_type = unit_type
-
-        if elections is not None:
-            self.elections = elections
-        else:
-            self.elections = []
+        self.column_sets = column_sets
 
     @property
     def columns(self):
-        columns = [column for election in self.elections for column in election.columns]
-
-        if self.population is not None:
-            columns += self.population.columns
+        columns = [column for column_set in self.column_sets for column in column_set]
 
         if self.id_column is not None:
             columns += [self.id_column]
@@ -102,8 +69,7 @@ class Place:
             "id": self.id,
             "name": self.name,
             "tilesets": tileset_records(self),
-            "population": self.population.record(df),
-            "elections": [election.record() for election in self.elections],
+            "columnSets": [column_set.record(df) for column_set in self.column_sets],
         }
 
         if self.id_column is not None:
@@ -156,10 +122,8 @@ class PlaceSchema(Schema):
     unit_type = fields.String(
         validate=OneOf(["precinct", "block", "block_group", "town"])
     )
-    elections = fields.Nested(ElectionSchema, many=True)
-    population = fields.Nested(PopulationSchema)
+    column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)
-    unit_type = fields.String()
 
     @post_load
     def create_place(self, data):

@@ -6,14 +6,8 @@ import yaml
 
 from districtr_process.columns import Column
 from districtr_process.exceptions import MissingColumnsError
-from districtr_process.place import (
-    Election,
-    ElectionSchema,
-    Place,
-    PlaceSchema,
-    Population,
-    summarize_column,
-)
+from districtr_process.place import Election, Place, PlaceSchema, Population
+from districtr_process.column_set import summarize_column, ColumnSetSchema
 
 
 @pytest.fixture
@@ -45,17 +39,16 @@ def data_files():
 
 
 def test_lists_of_columns_deserialize():
-    schema = ElectionSchema()
+    schema = ColumnSetSchema()
     raw = {
-        "year": 2000,
-        "race": "Presidential",
-        "vote_totals": [
+        "metadata": {"year": 2000, "race": "Presidential"},
+        "subgroups": [
             {"name": "Republican", "key": "R_VOTES"},
             {"name": "Democratic", "key": "D_VOTES"},
         ],
     }
     election = schema.load(raw)
-    assert all(isinstance(col, Column) for col in election.vote_totals)
+    assert all(isinstance(col, Column) for col in election.subgroups)
 
 
 def test_parse_lowell_yaml(lowell):

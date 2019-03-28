@@ -51,10 +51,6 @@ class ColumnSchema(Schema):
     name = fields.String(required=True)
     key = fields.String(required=True)
 
-    @post_load
-    def make_column(self, data):
-        return Column(**data)
-
 
 class IdColumn(Column):
     tests = [has_unique_values]
@@ -71,18 +67,6 @@ class VoteColumn(Column):
     require_numeric = True
 
 
-class VoteColumnSchema(ColumnSchema):
-    @post_load
-    def make_column(self, data):
-        return VoteColumn(**data)
-
-
 class PopulationColumn(Column):
     tests = [is_numeric_dtype, all_nonnegative, not_all_zero]
     require_numeric = True
-
-
-class PopulationColumnSchema(ColumnSchema):
-    @post_load
-    def make_column(self, data):
-        return PopulationColumn(**data)
