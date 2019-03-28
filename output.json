@@ -1,1 +1,0 @@
-[{"id": "chicago", "name": "Chicago", "tilesets": [{"type": "fill", "source": {"type": "vector", "url": "mapbox://districtr.chicago"}, "sourceLayer": "chicago"}, {"type": "circle", "source": {"type": "vector", "url": "mapbox://districtr.chicago_points"}, "sourceLayer": "chicago_points"}], "population": {"total": {"key": "TOTPOP", "name": "Total population", "sum": 
