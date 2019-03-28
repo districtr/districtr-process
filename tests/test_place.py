@@ -6,8 +6,8 @@ import yaml
 
 from districtr_process.columns import Column
 from districtr_process.exceptions import MissingColumnsError
-from districtr_process.place import Election, Place, PlaceSchema, Population
-from districtr_process.column_set import summarize_column, ColumnSetSchema
+from districtr_process.place import Place, PlaceSchema
+from districtr_process.column_set import summarize_column, ColumnSetSchema, ColumnSet
 
 
 @pytest.fixture
@@ -41,6 +41,7 @@ def data_files():
 def test_lists_of_columns_deserialize():
     schema = ColumnSetSchema()
     raw = {
+        "type": "election",
         "metadata": {"year": 2000, "race": "Presidential"},
         "subgroups": [
             {"name": "Republican", "key": "R_VOTES"},
@@ -60,17 +61,15 @@ def test_raise_for_missing(lowell, geodataframe):
         lowell.raise_for_missing_columns(geodataframe)
 
 
-def test_deserializes_population_object(lowell):
-    assert isinstance(lowell.population, Population)
-
-
 def test_data_files_are_valid(data_files):
     for data in data_files():
         assert isinstance(PlaceSchema().load(data), Place)
 
 
-def test_deserializes_election_object(ma_precincts):
-    assert all(isinstance(election, Election) for election in ma_precincts.elections)
+def test_deserializes_column_set_object(ma_precincts):
+    assert all(
+        isinstance(column_set, ColumnSet) for column_set in ma_precincts.column_sets
+    )
 
 
 def test_summarize_column_returns_json_serializable(geodataframe):

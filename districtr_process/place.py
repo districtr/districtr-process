@@ -4,21 +4,8 @@ from marshmallow import Schema, fields, post_load
 from marshmallow.validate import OneOf
 
 from .exceptions import MissingColumnsError
-from .column_set import ColumnSet
+from .column_set import ColumnSetSchema
 from .columns import IdColumnSchema
-
-
-class Population(ColumnSet):
-    pass
-
-
-class Election(ColumnSet):
-    pass
-
-
-def ColumnSetSchema(column_schema, model_type):
-
-    return ColumnSetSchema
 
 
 class Place:
@@ -32,6 +19,9 @@ class Place:
         self.name = name
         self.id_column = id_column
         self.unit_type = unit_type
+
+        if column_sets is None:
+            column_sets = []
         self.column_sets = column_sets
 
     @property
