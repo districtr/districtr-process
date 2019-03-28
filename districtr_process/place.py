@@ -6,86 +6,36 @@ from marshmallow.validate import OneOf
 
 from .columns import IdColumnSchema, PopulationColumnSchema, VoteColumnSchema
 from .exceptions import MissingColumnsError
+from .column_set import ColumnSet
 
 
-class Population:
-    """Population data, optionally with demographic subgroups"""
-
-    def __init__(self, total, subgroups=None):
-        self.total = total
-        if subgroups is None:
-            subgroups = []
-        self.subgroups = subgroups
-
-    @property
-    def columns(self):
-        return [self.total] + self.subgroups
-
-    def record(self, df=None):
-        return {
-            "total": summarize_column(self.total, df),
-            "subgroups": [
-                summarize_column(subgroup, df) for subgroup in self.subgroups
-            ],
-        }
-
-
-def summarize_column(column, df=None):
-    if df is not None:
-        return {
-            "key": column.key,
-            "name": column.name,
-            "sum": int(df[column.key].sum()),
-            "min": int(df[column.key].min()),
-            "max": int(df[column.key].max()),
-        }
-    else:
-        return {"key": column.key, "name": column.name}
+class Population(ColumnSet):
+    pass
 
 
 class PopulationSchema(Schema):
     total = fields.Nested(PopulationColumnSchema, required=True)
     subgroups = fields.Nested(PopulationColumnSchema, many=True)
+    metadata = fields.Dict()
 
     @post_load
     def create_population(self, data):
         return Population(**data)
 
 
-class Election:
-    """Election data"""
-
-    def __init__(self, year, race, vote_totals):
-        self.year = year
-        self.race = race
-        self.vote_totals = vote_totals
-
-    @property
-    def columns(self):
-        return self.vote_totals
-
-    def __repr__(self):
-        return "<Election {} {}>".format(self.year, self.race)
-
-    def __str__(self):
-        return "{year} {race} election".format(year=self.year, race=self.race)
-
-    def record(self):
-        return {
-            "year": self.year,
-            "race": self.race,
-            "voteTotals": [
-                {"key": column.key, "name": column.name} for column in self.vote_totals
-            ],
-        }
+class Election(ColumnSet):
+    pass
 
 
-class ElectionSchema(Schema):
+class ElectionMetadataSchema(Schema):
     year = fields.Integer(
         validate=validate.Range(min=1776, max=datetime.now().year), required=True
     )
     race = fields.String(required=True)
-    vote_totals = fields.Nested(VoteColumnSchema, many=True)
+
+
+class ElectionSchema(PopulationSchema):
+    metadata = fields.Nested(ElectionMetadataSchema)
 
     @post_load
     def make_election(self, data):
