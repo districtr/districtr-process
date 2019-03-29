@@ -1,63 +1,82 @@
+column_sets:
+- name: Population
+  subgroups:
+  - key: VAP
+    name: 2010 Voting age population
+  total:
+    key: POP100
+    name: 2010 Census Population
+  type: population
+- metadata:
+    race: Presidential
+    year: 2008
+  subgroups:
+  - key: PR_RV08
+    name: Republican
+  - key: PR_DV08
+    name: Democratic
+  type: election
+- metadata:
+    race: Governor
+    year: 2008
+  subgroups:
+  - key: GOV_RV08
+    name: Republican
+  - key: GOV_DV08
+    name: Democratic
+  type: election
+- metadata:
+    race: US House
+    year: 2008
+  subgroups:
+  - key: USH_RV08
+    name: Republican
+  - key: USH_DV08
+    name: Democratic
+  type: election
+- metadata:
+    race: Lt. Governor
+    year: 2008
+  subgroups:
+  - key: LG_RV08
+    name: Republican
+  - key: LG_DV08
+    name: Democratic
+  type: election
+- metadata:
+    race: Secretary of State
+    year: 2008
+  subgroups:
+  - key: SS_RV08
+    name: Republican
+  - key: SS_DV08
+    name: Democratic
+  type: election
+- metadata:
+    race: Treasurer
+    year: 2008
+  subgroups:
+  - key: TR_RV08
+    name: Republican
+  - key: TR_DV08
+    name: Democratic
+  type: election
+- metadata:
+    race: Attorney General
+    year: 2008
+  subgroups:
+  - key: AG_RV08
+    name: Republican
+  - key: AG_DV08
+    name: Democratic
+  type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 8
+  pluralNoun: Congressional Districts
 id: missouri
+id_column:
+  key: GEOID10
+  name: 2010 Census GEOID
 name: Missouri
 unit_type: precinct
-id_column:
-    name: 2010 Census GEOID
-    key: GEOID10
-population:
-    total:
-        name: 2010 Census Population
-        key: POP100
-    subgroups:
-        - name: 2010 Voting age population
-          key: VAP
-elections:
-    - year: 2008
-      race: Presidential
-      vote_totals:
-          - key: PR_RV08
-            name: Republican
-          - key: PR_DV08
-            name: Democratic
-    - year: 2008
-      race: Governor
-      vote_totals:
-          - key: GOV_RV08
-            name: Republican
-          - key: GOV_DV08
-            name: Democratic
-    - year: 2008
-      race: US House
-      vote_totals:
-          - key: USH_RV08
-            name: Republican
-          - key: USH_DV08
-            name: Democratic
-    - year: 2008
-      race: Lt. Governor
-      vote_totals:
-          - key: LG_RV08
-            name: Republican
-          - key: LG_DV08
-            name: Democratic
-    - year: 2008
-      race: Secretary of State
-      vote_totals:
-          - key: SS_RV08
-            name: Republican
-          - key: SS_DV08
-            name: Democratic
-    - year: 2008
-      race: Treasurer
-      vote_totals:
-          - key: TR_RV08
-            name: Republican
-          - key: TR_DV08
-            name: Democratic
-    - year: 2008
-      race: Attorney General
-      vote_totals:
-          - key: AG_RV08
-            name: Republican
-          - key: AG_DV08
-            name: Democratic

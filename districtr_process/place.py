@@ -1,125 +1,42 @@
 import warnings
-from datetime import datetime
 
-from marshmallow import Schema, fields, post_load, validate
+from marshmallow import Schema, fields, post_load
 from marshmallow.validate import OneOf
 
-from .columns import IdColumnSchema, PopulationColumnSchema, VoteColumnSchema
 from .exceptions import MissingColumnsError
-
-
-class Population:
-    """Population data, optionally with demographic subgroups"""
-
-    def __init__(self, total, subgroups=None):
-        self.total = total
-        if subgroups is None:
-            subgroups = []
-        self.subgroups = subgroups
-
-    @property
-    def columns(self):
-        return [self.total] + self.subgroups
-
-    def record(self, df=None):
-        return {
-            "total": summarize_column(self.total, df),
-            "subgroups": [
-                summarize_column(subgroup, df) for subgroup in self.subgroups
-            ],
-        }
-
-
-def summarize_column(column, df=None):
-    if df is not None:
-        return {
-            "key": column.key,
-            "name": column.name,
-            "sum": int(df[column.key].sum()),
-            "min": int(df[column.key].min()),
-            "max": int(df[column.key].max()),
-        }
-    else:
-        return {"key": column.key, "name": column.name}
-
-
-class PopulationSchema(Schema):
-    total = fields.Nested(PopulationColumnSchema, required=True)
-    subgroups = fields.Nested(PopulationColumnSchema, many=True)
-
-    @post_load
-    def create_population(self, data):
-        return Population(**data)
-
-
-class Election:
-    """Election data"""
-
-    def __init__(self, year, race, vote_totals):
-        self.year = year
-        self.race = race
-        self.vote_totals = vote_totals
-
-    @property
-    def columns(self):
-        return self.vote_totals
-
-    def __repr__(self):
-        return "<Election {} {}>".format(self.year, self.race)
-
-    def __str__(self):
-        return "{year} {race} election".format(year=self.year, race=self.race)
-
-    def record(self):
-        return {
-            "year": self.year,
-            "race": self.race,
-            "voteTotals": [
-                {"key": column.key, "name": column.name} for column in self.vote_totals
-            ],
-        }
-
-
-class ElectionSchema(Schema):
-    year = fields.Integer(
-        validate=validate.Range(min=1776, max=datetime.now().year), required=True
-    )
-    race = fields.String(required=True)
-    vote_totals = fields.Nested(VoteColumnSchema, many=True)
-
-    @post_load
-    def make_election(self, data):
-        return Election(**data)
+from .column_set import ColumnSetSchema
+from .columns import IdColumnSchema
+from .districting_problems import DistrictingProblemSchema
 
 
 class Place:
     """A place where you might draw a districting plan."""
 
     def __init__(
-        self, id, name, unit_type=None, population=None, elections=None, id_column=None
+        self,
+        id,
+        name,
+        unit_type=None,
+        column_sets=None,
+        id_column=None,
+        districting_problems=None,
     ):
-        if population is None:
-            warnings.warn('Population is None for place "{}" ({})'.format(name, id))
         if id_column is None:
             warnings.warn('ID column is None for place "{}" ({})'.format(name, id))
 
         self.id = id
         self.name = name
-        self.population = population
         self.id_column = id_column
         self.unit_type = unit_type
+        self.districting_problems = districting_problems
 
-        if elections is not None:
-            self.elections = elections
-        else:
-            self.elections = []
+        if column_sets is None:
+            column_sets = []
+        self.column_sets = column_sets
 
     @property
     def columns(self):
-        columns = [column for election in self.elections for column in election.columns]
-
-        if self.population is not None:
-            columns += self.population.columns
+        columns = [column for column_set in self.column_sets for column in column_set]
 
         if self.id_column is not None:
             columns += [self.id_column]
@@ -151,9 +68,10 @@ class Place:
         record = {
             "id": self.id,
             "name": self.name,
+            "unitType": unit_types[self.unit_type],
             "tilesets": tileset_records(self),
-            "population": self.population.record(df),
-            "elections": [election.record() for election in self.elections],
+            "columnSets": [column_set.record(df) for column_set in self.column_sets],
+            "districtingProblems": self.districting_problems,
         }
 
         if self.id_column is not None:
@@ -192,6 +110,15 @@ def tileset_records(place):
     ]
 
 
+unit_types = {
+    "precinct": "Precincts",
+    "block": "Blocks",
+    "block_group": "Block Groups",
+    "town": "Towns",
+    "community_area": "Community Areas",
+}
+
+
 def missing_columns(df, columns):
     missing = []
     for column in columns:
@@ -203,13 +130,12 @@ def missing_columns(df, columns):
 class PlaceSchema(Schema):
     id = fields.String(required=True)
     name = fields.String(required=True)
-    unit_type = fields.String(
-        validate=OneOf(["precinct", "block", "block_group", "town"])
+    unit_type = fields.String(validate=OneOf(list(unit_types)))
+    districting_problems = fields.Nested(
+        DistrictingProblemSchema, many=True, required=True
     )
-    elections = fields.Nested(ElectionSchema, many=True)
-    population = fields.Nested(PopulationSchema)
+    column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)
-    unit_type = fields.String()
 
     @post_load
     def create_place(self, data):

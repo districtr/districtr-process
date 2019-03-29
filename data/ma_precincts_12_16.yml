@@ -1,67 +1,82 @@
+column_sets:
+- name: Population
+  subgroups:
+  - key: White
+    name: White population
+  - key: Black
+    name: Black/African American population
+  - key: AmIndian
+    name: American Indian and Alaska Native population
+  - key: Asian
+    name: Asian population
+  - key: Hawaiian
+    name: Native Hawaiian and other Pacific Islander population
+  - key: Other
+    name: Population of other race
+  - key: _1_Race
+    name: Population of one race
+  - key: _2__Races
+    name: Population of two or more races
+  - key: Hispanic_O
+    name: Population of Hispanic origin
+  - key: Not_Hispan
+    name: Population not of Hispanic origin
+  total:
+    key: POP10
+    name: 2010 Census Population
+  type: population
+- metadata:
+    race: Senate
+    year: 2012
+  subgroups:
+  - key: SEN12D
+    name: Democratic
+  - key: SEN12R
+    name: Republican
+  type: election
+- metadata:
+    race: Presidential
+    year: 2012
+  subgroups:
+  - key: PRES12D
+    name: Democratic
+  - key: PRES12R
+    name: Republican
+  type: election
+- metadata:
+    race: Senate
+    year: 2013
+  subgroups:
+  - key: SEN13D
+    name: Democratic
+  - key: SEN13R
+    name: Republican
+  type: election
+- metadata:
+    race: Senate
+    year: 2014
+  subgroups:
+  - key: SEN14D
+    name: Democratic
+  - key: SEN14R
+    name: Republican
+  type: election
+- metadata:
+    race: Presidential
+    year: 2016
+  subgroups:
+  - key: PRES16D
+    name: Democratic
+  - key: PRES16R
+    name: Republican
+  type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 9
+  pluralNoun: Congressional Districts
 id: ma_precincts_12_16
+id_column:
+  key: Name
+  name: Precinct name
 name: Massachusetts (Precincts, 2012-2016)
 unit_type: precinct
-id_column:
-    name: Precinct name
-    key: Name
-population:
-    total:
-        name: 2010 Census Population
-        key: POP10
-    subgroups:
-        - key: White
-          name: White population
-        - key: Black
-          name: Black/African American population
-        - key: AmIndian
-          name: American Indian and Alaska Native population
-        - key: Asian
-          name: Asian population
-        - key: Hawaiian
-          name: Native Hawaiian and other Pacific Islander population
-        - key: Other
-          name: Population of other race
-        - key: _1_Race
-          name: Population of one race
-        - key: _2__Races
-          name: Population of two or more races
-        - key: Hispanic_O
-          name: Population of Hispanic origin
-        - key: Not_Hispan
-          name: Population not of Hispanic origin
-elections:
-    - year: 2012
-      race: Senate
-      vote_totals:
-          - name: Democratic
-            key: SEN12D
-          - name: Republican
-            key: SEN12R
-    - year: 2012
-      race: Presidential
-      vote_totals:
-          - name: Democratic
-            key: PRES12D
-          - name: Republican
-            key: PRES12R
-    - year: 2013
-      race: Senate
-      vote_totals:
-          - name: Democratic
-            key: SEN13D
-          - name: Republican
-            key: SEN13R
-    - year: 2014
-      race: Senate
-      vote_totals:
-          - name: Democratic
-            key: SEN14D
-          - name: Republican
-            key: SEN14R
-    - year: 2016
-      race: Presidential
-      vote_totals:
-          - name: Democratic
-            key: PRES16D
-          - name: Republican
-            key: PRES16R

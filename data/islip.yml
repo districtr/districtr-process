@@ -1,23 +1,29 @@
+column_sets:
+- name: Population
+  subgroups:
+  - key: NH_WHITE
+    name: White population
+  - key: NH_BLACK
+    name: Black population
+  - key: HPOP
+    name: Hispanic population
+  - key: NH_ASIAN
+    name: Asian population
+  - key: NH_AMIN
+    name: American Indian population
+  - key: NH_NAHI
+    name: Hawaiian Native population
+  total:
+    key: TOTPOP
+    name: Total Population
+  type: population
+districting_problems:
+- name: Town Council
+  numberOfParts: 4
+  pluralNoun: Town Council Districts
 id: islip_blocks
+id_column:
+  key: GEOID10
+  name: 2010 Census GEOID
 name: Islip
 unit_type: block
-id_column:
-    name: 2010 Census GEOID
-    key: GEOID10
-population:
-    total:
-        key: TOTPOP
-        name: Total Population
-    subgroups:
-        - key: NH_WHITE
-          name: White population
-        - key: NH_BLACK
-          name: Black population
-        - key: HPOP
-          name: Hispanic population
-        - key: NH_ASIAN
-          name: Asian population
-        - key: NH_AMIN
-          name: American Indian population
-        - key: NH_NAHI
-          name: Hawaiian Native population

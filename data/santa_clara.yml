@@ -1,23 +1,33 @@
+column_sets:
+- name: Population
+  subgroups:
+  - key: NH_WHITE
+    name: White population
+  - key: NH_BLACK
+    name: Black population
+  - key: NH_ASIAN
+    name: Asian population
+  - key: HPOP
+    name: Hispanic population
+  - key: NH_NAHI
+    name: Hawaiian Native population
+  - key: NH_AMIN
+    name: American Indian population
+  total:
+    key: TOTPOP
+    name: Total Population
+  type: population
+districting_problems:
+- name: City Council
+  numberOfParts: 6
+  pluralNoun: City Council Districts
+- name: City Council
+  numberOfParts: 6
+  pluralNoun: City Council Seats
+  type: multimember
 id: santa_clara_blocks
+id_column:
+  key: GEOID10
+  name: 2010 Census GEOID
 name: Santa Clara
 unit_type: block
-id_column:
-    name: 2010 Census GEOID
-    key: GEOID10
-population:
-    total:
-        key: TOTPOP
-        name: Total Population
-    subgroups:
-        - key: NH_WHITE
-          name: White population
-        - key: NH_BLACK
-          name: Black population
-        - key: NH_ASIAN
-          name: Asian population
-        - key: HPOP
-          name: Hispanic population
-        - key: NH_NAHI
-          name: Hawaiian Native population
-        - key: NH_AMIN
-          name: American Indian population
