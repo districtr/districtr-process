@@ -15,6 +15,7 @@ marshmallow = "~=3.0.0b20"
 mapbox = "*"
 pyyaml = "*"
 gerrychain = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.6"

@@ -1,93 +1,94 @@
 column_sets:
-- name: Population
-  subgroups:
-  - key: WHITE
-    name: White population
-  - key: BLACK
-    name: Black population
-  - key: HISP
-    name: Hispanic population
-  - key: ASIAN
-    name: Asian population
-  - key: AMIN
-    name: Native American and Alaskan Native population
-  - key: NHPI
-    name: Native Hawaiian and Pacific Islander population
-  - key: 2MORE
-    name: Two or more races
-  - key: OTHER
-    name: Other races
-  - key: VAP
-    name: Voting age population
-  total:
-    key: TOTPOP
-    name: Total population
-  type: population
-- metadata:
-    race: Presidential
-    year: 2012
-  subgroups:
-  - key: PRES12R
-    name: Republican
-  - key: PRES12D
-    name: Democratic
-  type: election
-- metadata:
-    race: Senate
-    year: 2012
-  subgroups:
-  - key: SEN12R
-    name: Republican
-  - key: SEN12D
-    name: Democratic
-  type: election
-- metadata:
-    race: U.S. House
-    year: 2012
-  subgroups:
-  - key: USH12R
-    name: Republican
-  - key: USH12D
-    name: Democratic
-  type: election
-- metadata:
-    race: U.S. House
-    year: 2014
-  subgroups:
-  - key: USH14R
-    name: Republican
-  - key: USH14D
-    name: Democratic
-  type: election
-- metadata:
-    race: Presidential
-    year: 2016
-  subgroups:
-  - key: PRES16R
-    name: Republican
-  - key: PRES16D
-    name: Democratic
-  type: election
-- metadata:
-    race: Senate
-    year: 2016
-  subgroups:
-  - key: SEN16R
-    name: Republican
-  - key: SEN16D
-    name: Democratic
-  type: election
+    - name: Population
+      subgroups:
+          - key: WHITE
+            name: White population
+          - key: BLACK
+            name: Black population
+          - key: HISP
+            name: Hispanic population
+          - key: ASIAN
+            name: Asian population
+          - key: AMIN
+            name: Native American and Alaskan Native population
+          - key: NHPI
+            name: Native Hawaiian and Pacific Islander population
+          - key: 2MORE
+            name: Two or more races
+          - key: OTHER
+            name: Other races
+          - key: VAP
+            name: Voting age population
+      total:
+          key: TOTPOP
+          name: Total population
+      type: population
+    - metadata:
+          race: Presidential
+          year: 2012
+      subgroups:
+          - key: PRES12R
+            name: Republican
+          - key: PRES12D
+            name: Democratic
+      type: election
+    - metadata:
+          race: Senate
+          year: 2012
+      subgroups:
+          - key: SEN12R
+            name: Republican
+          - key: SEN12D
+            name: Democratic
+      type: election
+    - metadata:
+          race: U.S. House
+          year: 2012
+      subgroups:
+          - key: USH12R
+            name: Republican
+          - key: USH12D
+            name: Democratic
+      type: election
+    - metadata:
+          race: U.S. House
+          year: 2014
+      subgroups:
+          - key: USH14R
+            name: Republican
+          - key: USH14D
+            name: Democratic
+      type: election
+    - metadata:
+          race: Presidential
+          year: 2016
+      subgroups:
+          - key: PRES16R
+            name: Republican
+          - key: PRES16D
+            name: Democratic
+      type: election
+    - metadata:
+          race: Senate
+          year: 2016
+      subgroups:
+          - key: SEN16R
+            name: Republican
+          - key: SEN16D
+            name: Democratic
+      type: election
 districting_problems:
-- name: State Senate
-  numberOfParts: 10
-  pluralNoun: Three-Member Senate Districts
-- name: State Senate
-  numberOfParts: 30
-  pluralNoun: State Senate Seats
-  type: multimember
+    - name: State Senate
+      numberOfParts: 10
+      pluralNoun: Three-Member Senate Districts
+    - name: State Senate
+      numberOfParts: 30
+      pluralNoun: State Senate Seats
+      type: multimember
 id: vermont
 id_column:
-  key: GEOID10
-  name: Census GEOID
+    key: GEOID10
+    name: Census GEOID
 name: Vermont
 unit_type: town
+source: ./shapes/VT_town_results/VT_town_results.shp

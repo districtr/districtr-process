@@ -1,7 +1,9 @@
 import json
 import logging
 import pathlib
-import sys
+from tqdm import tqdm
+
+from glob import glob
 
 import yaml
 
@@ -25,16 +27,33 @@ def load(place_filename):
     return place
 
 
-def many(pairs, output_file):
-    records = [main(filename, place_filename) for filename, place_filename in pairs]
+def fill_in_nones(pairs):
+    for pair in pairs:
+        if isinstance(pair, tuple) and len(pair) == 2:
+            yield pair
+        else:
+            yield (pair, None)
+
+
+def many(pairs, output_file, upload=True):
+    pairs = list(fill_in_nones(pairs))
+    records = [
+        main(place_filename=place_filename, shapefile=shapefile, upload=upload)
+        for place_filename, shapefile in tqdm(pairs)
+    ]
     print(records)
     with open(output_file, "w") as f:
         json.dump(records, f)
 
 
-def main(filename, place_filename):
+def main(place_filename, shapefile=None, upload=True):
     place = load(place_filename)
-    place_record = process(filename, place)
+    if shapefile is None:
+        if place.source is not None:
+            shapefile = place.source
+        else:
+            raise ValueError("Must provide a shapefile source")
+    place_record = process(shapefile, place, upload=upload)
     return place_record
 
 
@@ -56,5 +75,6 @@ if __name__ == "__main__":
     # ]
     # many(pairs, "./output.json")
     # result = main(*sys.argv[1:3])
-    result = many([tuple(sys.argv[1:3])], "./output.json")
-    print(result)
+    filenames = glob("./data/*.yml")
+    many(filenames, "./output.json", upload=False)
+    # print(result)

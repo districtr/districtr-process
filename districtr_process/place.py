@@ -20,6 +20,7 @@ class Place:
         column_sets=None,
         id_column=None,
         districting_problems=None,
+        source=None,
     ):
         if id_column is None:
             warnings.warn('ID column is None for place "{}" ({})'.format(name, id))
@@ -29,10 +30,15 @@ class Place:
         self.id_column = id_column
         self.unit_type = unit_type
         self.districting_problems = districting_problems
+        self.source = source
 
         if column_sets is None:
             column_sets = []
         self.column_sets = column_sets
+
+        assert len(set(column.key for column in self.columns)) == len(
+            self.columns
+        ), "No duplicate columns are allowed"
 
     @property
     def columns(self):
@@ -129,6 +135,7 @@ def missing_columns(df, columns):
 
 class PlaceSchema(Schema):
     id = fields.String(required=True)
+    source = fields.String()
     name = fields.String(required=True)
     unit_type = fields.String(validate=OneOf(list(unit_types)))
     districting_problems = fields.Nested(

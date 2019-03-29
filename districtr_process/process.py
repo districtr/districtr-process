@@ -10,8 +10,9 @@ from .upload import upload
 wgs84 = "+init=epsg:4326"
 
 
-def process(filename, place):
-    df = read_in_wgs84(filename)
+def process(filename, place, upload=True):
+    print(place)
+    df = read_file(filename, project=upload)
 
     place.raise_for_problems(df)
 
@@ -23,22 +24,25 @@ def process(filename, place):
             place.id_column.key, inplace=True, drop=False, verify_integrity=True
         )
 
-    with tempfile.TemporaryDirectory() as tempdir:
-        print("Generating point geometry")
-        save_points(df, place, tempdir)
+    if upload:
+        with tempfile.TemporaryDirectory() as tempdir:
+            print("Generating point geometry")
+            save_points(df, place, tempdir)
 
-        mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
+            mbtiles_filename = "{}/{}.mbtiles".format(tempdir, place.id)
 
-        # Need to catch TippecanoeErrors here
-        print("Creating tiles")
-        filename = pathlib.Path(tempdir) / "{}.geojson".format(place.id)
-        add_id_attribute_and_dump(df, filename)
-        result = create_tiles(str(filename.absolute()), place, target=mbtiles_filename)
-        result.check_returncode()
+            # Need to catch TippecanoeErrors here
+            print("Creating tiles")
+            filename = pathlib.Path(tempdir) / "{}.geojson".format(place.id)
+            add_id_attribute_and_dump(df, filename)
+            result = create_tiles(
+                str(filename.absolute()), place, target=mbtiles_filename
+            )
+            result.check_returncode()
 
-        print("Uploading to Mapbox")
-        upload_response = upload(mbtiles_filename, place.id)
-        print(upload_response.json())
+            print("Uploading to Mapbox")
+            upload_response = upload(mbtiles_filename, place.id)
+            print(upload_response.json())
 
     # TODO: Create database records.
     return place.record(df)
@@ -58,9 +62,9 @@ def add_id_attribute_and_dump(df, filename):
         json.dump(geojson, f)
 
 
-def read_in_wgs84(filename):
+def read_file(filename, project=True):
     df = geopandas.read_file(filename)
-    if df.crs != wgs84:
+    if project and df.crs != wgs84:
         df.to_crs(wgs84, inplace=True)
     return df
 

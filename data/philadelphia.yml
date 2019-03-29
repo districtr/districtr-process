@@ -1,29 +1,30 @@
 column_sets:
-- name: Population
-  subgroups:
-  - key: NH_WHITE
-    name: White population
-  - key: NH_BLACK
-    name: Black population
-  - key: HPOP
-    name: Hispanic population
-  - key: NH_ASIAN
-    name: Asian population
-  - key: NH_AMIN
-    name: American Indian population
-  - key: NH_NAHI
-    name: Hawaiian Native population
-  total:
-    key: TOTPOP
-    name: Total Population
-  type: population
+    - name: Population
+      subgroups:
+          - key: NH_WHITE
+            name: White population
+          - key: NH_BLACK
+            name: Black population
+          - key: HPOP
+            name: Hispanic population
+          - key: NH_ASIAN
+            name: Asian population
+          - key: NH_AMIN
+            name: American Indian population
+          - key: NH_NAHI
+            name: Hawaiian Native population
+      total:
+          key: TOTPOP
+          name: Total Population
+      type: population
 districting_problems:
-- name: City Council
-  numberOfParts: 10
-  pluralNoun: City Council Districts
+    - name: City Council
+      numberOfParts: 10
+      pluralNoun: City Council Districts
 id: philadelphia_blocks
 id_column:
-  key: GEOID10
-  name: 2010 Census GEOID
+    key: GEOID10
+    name: 2010 Census GEOID
 name: Philadelphia
 unit_type: block
+source: ./shapes/philadelphia_blocks/philadelphia_blocks.shp

@@ -33,7 +33,11 @@ class ColumnSet:
         return [self.total] + self.subgroups
 
     def record(self, df=None):
-        result = {}
+        result = {"type": self.type}
+
+        if self.name is not None:
+            result["name"] = self.name
+
         if hasattr(self, "total"):
             result["total"] = summarize_column(self.total, df)
 
@@ -49,12 +53,15 @@ class ColumnSet:
 
 def summarize_column(column, df=None):
     if df is not None:
+        col_sum = df[column.key].sum()
+        col_min = df[column.key].min()
+        col_max = df[column.key].max()
         return {
             "key": column.key,
             "name": column.name,
-            "sum": int(df[column.key].sum()),
-            "min": int(df[column.key].min()),
-            "max": int(df[column.key].max()),
+            "sum": int(col_sum),
+            "min": int(col_min),
+            "max": int(col_max),
         }
     else:
         return {"key": column.key, "name": column.name}
@@ -74,6 +81,9 @@ class ColumnSetSchema(Schema):
         result = {"type": data["type"]}
         if "metadata" in data:
             result["metadata"] = data["metadata"]
+
+        if "name" in data:
+            result["name"] = data["name"]
 
         if "total" in data:
             result["total"] = ColumnModel(**data["total"])

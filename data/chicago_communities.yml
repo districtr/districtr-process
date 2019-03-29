@@ -54,3 +54,4 @@ id_column:
     name: Area Number
 name: Chicago
 unit_type: community_area
+source: ./shapes/chicago/chicago_comareas_economic.shp
