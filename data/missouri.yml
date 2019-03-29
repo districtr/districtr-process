@@ -70,6 +70,10 @@ column_sets:
   - key: AG_DV08
     name: Democratic
   type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 8
+  pluralNoun: Congressional Districts
 id: missouri
 id_column:
   key: GEOID10

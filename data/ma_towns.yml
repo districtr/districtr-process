@@ -112,6 +112,10 @@ column_sets:
   - key: Pres12R
     name: Republican
   type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 9
+  pluralNoun: Congressional Districts
 id: ma_towns
 id_column:
   key: TOWN_ID

@@ -6,12 +6,21 @@ from marshmallow.validate import OneOf
 from .exceptions import MissingColumnsError
 from .column_set import ColumnSetSchema
 from .columns import IdColumnSchema
+from .districting_problems import DistrictingProblemSchema
 
 
 class Place:
     """A place where you might draw a districting plan."""
 
-    def __init__(self, id, name, unit_type=None, column_sets=None, id_column=None):
+    def __init__(
+        self,
+        id,
+        name,
+        unit_type=None,
+        column_sets=None,
+        id_column=None,
+        districting_problems=None,
+    ):
         if id_column is None:
             warnings.warn('ID column is None for place "{}" ({})'.format(name, id))
 
@@ -19,6 +28,7 @@ class Place:
         self.name = name
         self.id_column = id_column
         self.unit_type = unit_type
+        self.districting_problems = districting_problems
 
         if column_sets is None:
             column_sets = []
@@ -58,8 +68,10 @@ class Place:
         record = {
             "id": self.id,
             "name": self.name,
+            "unitType": unit_types[self.unit_type],
             "tilesets": tileset_records(self),
             "columnSets": [column_set.record(df) for column_set in self.column_sets],
+            "districtingProblems": self.districting_problems,
         }
 
         if self.id_column is not None:
@@ -98,6 +110,15 @@ def tileset_records(place):
     ]
 
 
+unit_types = {
+    "precinct": "Precincts",
+    "block": "Blocks",
+    "block_group": "Block Groups",
+    "town": "Towns",
+    "community_area": "Community Areas",
+}
+
+
 def missing_columns(df, columns):
     missing = []
     for column in columns:
@@ -109,8 +130,9 @@ def missing_columns(df, columns):
 class PlaceSchema(Schema):
     id = fields.String(required=True)
     name = fields.String(required=True)
-    unit_type = fields.String(
-        validate=OneOf(["precinct", "block", "block_group", "town"])
+    unit_type = fields.String(validate=OneOf(list(unit_types)))
+    districting_problems = fields.Nested(
+        DistrictingProblemSchema, many=True, required=True
     )
     column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)

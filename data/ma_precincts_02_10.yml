@@ -58,6 +58,10 @@ column_sets:
   - key: SEN10R
     name: Republican
   type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 9
+  pluralNoun: Congressional Districts
 id: ma_precincts_02_10
 id_column:
   key: GEOID10

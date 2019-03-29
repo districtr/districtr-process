@@ -77,6 +77,14 @@ column_sets:
   - key: SEN16D
     name: Democratic
   type: election
+districting_problems:
+- name: State Senate
+  numberOfParts: 10
+  pluralNoun: Three-Member Senate Districts
+- name: State Senate
+  numberOfParts: 30
+  pluralNoun: State Senate Seats
+  type: multimember
 id: vermont
 id_column:
   key: GEOID10

@@ -17,6 +17,14 @@ column_sets:
     key: TOTPOP
     name: Total Population
   type: population
+districting_problems:
+- name: City Council
+  numberOfParts: 6
+  pluralNoun: City Council Districts
+- name: City Council
+  numberOfParts: 6
+  pluralNoun: City Council Seats
+  type: multimember
 id: santa_clara_blocks
 id_column:
   key: GEOID10

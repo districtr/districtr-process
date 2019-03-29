@@ -17,6 +17,10 @@ column_sets:
     key: TOTPOP
     name: Total Population
   type: population
+districting_problems:
+- name: Town Council
+  numberOfParts: 4
+  pluralNoun: Town Council Districts
 id: islip_blocks
 id_column:
   key: GEOID10

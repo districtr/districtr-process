@@ -70,6 +70,10 @@ column_sets:
   - key: PRES16R
     name: Republican
   type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 9
+  pluralNoun: Congressional Districts
 id: ma_precincts_12_16
 id_column:
   key: Name

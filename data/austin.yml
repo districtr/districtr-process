@@ -17,6 +17,10 @@ column_sets:
     key: TOTPOP
     name: Total Population
   type: population
+districting_problems:
+- name: City Council
+  numberOfParts: 10
+  pluralNoun: City Council Districts
 id: austin_blocks
 id_column:
   key: GEOID10

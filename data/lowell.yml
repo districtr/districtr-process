@@ -19,6 +19,10 @@ column_sets:
     key: P0010001
     name: Total Population
   type: population
+districting_problems:
+- name: City Council
+  numberOfParts: 9
+  pluralNoun: City Council Districts
 id: lowell_blocks
 id_column:
   key: GEOID10

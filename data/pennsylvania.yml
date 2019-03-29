@@ -96,6 +96,10 @@ column_sets:
   - key: T16SENR
     name: Republican
   type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 18
+  pluralNoun: Congressional Districts
 id: pa_vtds
 id_column:
   key: GEOID10

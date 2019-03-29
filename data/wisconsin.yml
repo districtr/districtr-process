@@ -94,6 +94,10 @@ column_sets:
   - key: GOVREP12
     name: Republican
   type: election
+districting_problems:
+- name: Congress
+  numberOfParts: 8
+  pluralNoun: Congressional Districts
 id: wisconsin_12_16
 id_column:
   key: GEOID10

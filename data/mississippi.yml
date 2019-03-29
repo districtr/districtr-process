@@ -1,41 +1,44 @@
 column_sets:
-  - name: Population
-    subgroups:
-      - key: NH_WHITE
-        name: White population
-      - key: NH_BLACK
-        name: Black population
-      - key: HPOP
-        name: Hispanic population
-      - key: NH_ASIAN
-        name: Asian population
-      - key: NH_AMIN
-        name: American Indian population
-      - key: NH_NAHI
-        name: Hawaiian Native population
-    total:
-      key: TOTPOP
-      name: Total Population
-    type: population
-  - name: Voting Age Population
-    type: population
-    subgroups:
-      - key: WVAP
-        name: White voting age population
-      - key: BVAP
-        name: Black voting age population
-      - key: HVAP
-        name: Hispanic voting age population
-      - key: NAHIVAP
-        name: Native Hawaiian voting age population
-      - key: ASIANVAP
-        name: Asian voting age population
-      - key: AMINVAP
-        name: American Indian voting age population
-    total:
-      key: VAP
-      name: Voting age population
-
+- name: Population
+  subgroups:
+  - key: NH_WHITE
+    name: White population
+  - key: NH_BLACK
+    name: Black population
+  - key: HPOP
+    name: Hispanic population
+  - key: NH_ASIAN
+    name: Asian population
+  - key: NH_AMIN
+    name: American Indian population
+  - key: NH_NAHI
+    name: Hawaiian Native population
+  total:
+    key: TOTPOP
+    name: Total Population
+  type: population
+- name: Voting Age Population
+  subgroups:
+  - key: WVAP
+    name: White voting age population
+  - key: BVAP
+    name: Black voting age population
+  - key: HVAP
+    name: Hispanic voting age population
+  - key: NAHIVAP
+    name: Native Hawaiian voting age population
+  - key: ASIANVAP
+    name: Asian voting age population
+  - key: AMINVAP
+    name: American Indian voting age population
+  total:
+    key: VAP
+    name: Voting age population
+  type: population
+districting_problems:
+- name: Congress
+  numberOfParts: 4
+  pluralNoun: Congressional Districts
 id: mississippi_block_groups
 id_column:
   key: GEOID10
