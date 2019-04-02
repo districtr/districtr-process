@@ -1,6 +1,7 @@
-column_sets:
-    - name: Population
-      subgroups:
+unit_sets:
+  - column_sets:
+      - name: Population
+        subgroups:
           - key: NH_WHITE
             name: White population
           - key: NH_BLACK
@@ -13,18 +14,20 @@ column_sets:
             name: American Indian population
           - key: NH_NAHI
             name: Hawaiian Native population
-      total:
+        total:
           key: TOTPOP
           name: Total Population
-      type: population
+        type: population
+    unit_type: block
+    source: ./shapes/philadelphia_blocks/philadelphia_blocks.shp
+    id_column:
+      key: GEOID10
+      name: 2010 Census GEOID
+    id: blocks
+    name: Blocks
 districting_problems:
-    - name: City Council
-      numberOfParts: 10
-      pluralNoun: City Council Districts
-id: philadelphia_blocks
-id_column:
-    key: GEOID10
-    name: 2010 Census GEOID
+  - name: City Council
+    numberOfParts: 10
+    pluralNoun: City Council Districts
+id: philadelphia
 name: Philadelphia
-unit_type: block
-source: ./shapes/philadelphia_blocks/philadelphia_blocks.shp

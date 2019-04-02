@@ -21,7 +21,7 @@ def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):
     )
 
 
-def create_tiles(filename, place, target, tippecanoe_args=None):
+def create_tiles(filename, units, target, tippecanoe_args=None):
     if tippecanoe_args is None:
         tippecanoe_args = {}
 
@@ -29,7 +29,7 @@ def create_tiles(filename, place, target, tippecanoe_args=None):
     source_absolute = str(pathlib.Path(filename).absolute())
 
     command = tippecanoe_shell_command(
-        source_absolute, place, target_absolute, **tippecanoe_args
+        source_absolute, units, target_absolute, **tippecanoe_args
     )
     result = subprocess.run(command)
 

@@ -1,7 +1,8 @@
-source: ./shapes/austin_blocks/austin_blocks.shp
-column_sets:
-    - name: Population
-      subgroups:
+unit_sets:
+  - source: ./shapes/austin_blocks/austin_blocks.shp
+    column_sets:
+      - name: Population
+        subgroups:
           - key: NH_WHITE
             name: White population
           - key: NH_BLACK
@@ -14,17 +15,19 @@ column_sets:
             name: American Indian population
           - key: NH_NAHI
             name: Hawaiian Native population
-      total:
+        total:
           key: TOTPOP
           name: Total Population
-      type: population
+        type: population
+    unit_type: block
+    id: blocks
+    name: Blocks
+    id_column:
+      key: GEOID10
+      name: 2010 Census GEOID
 districting_problems:
-    - name: City Council
-      numberOfParts: 10
-      pluralNoun: City Council Districts
-id: austin_blocks
-id_column:
-    key: GEOID10
-    name: 2010 Census GEOID
+  - name: City Council
+    numberOfParts: 10
+    pluralNoun: City Council Districts
+id: austin
 name: Austin
-unit_type: block

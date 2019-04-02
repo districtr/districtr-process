@@ -9,7 +9,7 @@ from .columns import IdColumnSchema
 from .districting_problems import DistrictingProblemSchema
 
 
-class Place:
+class UnitSet:
     """A place where you might draw a districting plan."""
 
     def __init__(
@@ -122,6 +122,7 @@ unit_types = {
     "block_group": "Block Groups",
     "town": "Towns",
     "community_area": "Community Areas",
+    "ward": "Wards",
 }
 
 
@@ -133,17 +134,22 @@ def missing_columns(df, columns):
     return missing
 
 
-class PlaceSchema(Schema):
+class UnitSetSchema(Schema):
     id = fields.String(required=True)
+    name = fields.String()
     source = fields.String()
-    name = fields.String(required=True)
     unit_type = fields.String(validate=OneOf(list(unit_types)))
-    districting_problems = fields.Nested(
-        DistrictingProblemSchema, many=True, required=True
-    )
     column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)
 
     @post_load
-    def create_place(self, data):
-        return Place(**data)
+    def create_unit_set(self, data):
+        return UnitSet(**data)
+
+
+class PlaceSchema(Schema):
+    id = fields.String(required=True)
+    name = fields.Str(required=True)
+    description = fields.Str()
+    unit_sets = fields.Nested(UnitSetSchema, many=True)
+    districting_problems = fields.Nested(DistrictingProblemSchema, many=True)

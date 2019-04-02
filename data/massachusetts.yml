@@ -1,0 +1,274 @@
+unit_sets:
+  - source: ./shapes/MA_towns/FinalMass.shp
+    column_sets:
+      - name: Population
+        total:
+          key: POP2010
+          name: 2010 Census population
+        type: population
+      - metadata:
+          race: Presidential
+          year: 2000
+        subgroups:
+          - key: Pres00D
+            name: Democratic
+          - key: Pres00R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2000
+        subgroups:
+          - key: Sen00D
+            name: Democratic
+          - key: Sen00R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2002
+        subgroups:
+          - key: Sen02D
+            name: Democratic
+          - key: Sen02R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2004
+        subgroups:
+          - key: Pres04D
+            name: Democratic
+          - key: Pres04R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2006
+        subgroups:
+          - key: Sen06D
+            name: Democratic
+          - key: Sen06R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2008
+        subgroups:
+          - key: Pres08D
+            name: Democratic
+          - key: Pres08R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2010
+        subgroups:
+          - key: Sen10D
+            name: Democratic
+          - key: Sen10R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2012
+        subgroups:
+          - key: Pres12D
+            name: Democratic
+          - key: Pres12R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2012
+        subgroups:
+          - key: Sen12D
+            name: Democratic
+          - key: Sen12R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2013
+        subgroups:
+          - key: Sen13D
+            name: Democratic
+          - key: Sen13R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2014
+        subgroups:
+          - key: Sen14D
+            name: Democratic
+          - key: Sen14R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2016
+        subgroups:
+          - key: Pres16D
+            name: Democratic
+          - key: Pres16R
+            name: Republican
+        type: election
+    id: towns
+    id_column:
+      key: TOWN_ID
+      name: Town ID
+    unit_type: town
+    name: Towns
+  - column_sets:
+      - name: Population
+        total:
+          key: POP2000
+          name: 2000 Census Population
+        type: population
+      - metadata:
+          race: Senate
+          year: 2002
+        subgroups:
+          - key: SEN02D
+            name: Democratic
+          - key: SEN02R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2004
+        subgroups:
+          - key: PRES04D
+            name: Democratic
+          - key: PRES04R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2006
+        subgroups:
+          - key: SEN06D
+            name: Democratic
+          - key: SEN06R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2008
+        subgroups:
+          - key: PRES08D
+            name: Democratic
+          - key: PRES08R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2008
+        subgroups:
+          - key: SEN08D
+            name: Democratic
+          - key: SEN08R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2010
+        subgroups:
+          - key: SEN10D
+            name: Democratic
+          - key: SEN10R
+            name: Republican
+        type: election
+    id: precincts-02-10
+    id_column:
+      key: GEOID10
+      name: 2000 Census GEOID
+    name: Precincts, 2002-2010
+    unit_type: precinct
+    source: ./shapes/MA_precincts_02_10/MA_precincts_02_10.shp
+  - column_sets:
+      - name: Population
+        subgroups:
+          - key: White
+            name: White population
+          - key: Black
+            name: Black/African American population
+          - key: AmIndian
+            name: American Indian and Alaska Native population
+          - key: Asian
+            name: Asian population
+          - key: Hawaiian
+            name: Native Hawaiian and other Pacific Islander population
+          - key: Other
+            name: Population of other race
+          - key: _1_Race
+            name: Population of one race
+          - key: _2__Races
+            name: Population of two or more races
+          - key: Hispanic_O
+            name: Population of Hispanic origin
+          - key: Not_Hispan
+            name: Population not of Hispanic origin
+        total:
+          key: POP10
+          name: 2010 Census Population
+        type: population
+      - metadata:
+          race: Senate
+          year: 2012
+        subgroups:
+          - key: SEN12D
+            name: Democratic
+          - key: SEN12R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2012
+        subgroups:
+          - key: PRES12D
+            name: Democratic
+          - key: PRES12R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2013
+        subgroups:
+          - key: SEN13D
+            name: Democratic
+          - key: SEN13R
+            name: Republican
+        type: election
+      - metadata:
+          race: Senate
+          year: 2014
+        subgroups:
+          - key: SEN14D
+            name: Democratic
+          - key: SEN14R
+            name: Republican
+        type: election
+      - metadata:
+          race: Presidential
+          year: 2016
+        subgroups:
+          - key: PRES16D
+            name: Democratic
+          - key: PRES16R
+            name: Republican
+        type: election
+    id: precincts-12-16
+    id_column:
+      key: Name
+      name: Precinct name
+    name: Precincts, 2012-2016
+    unit_type: precinct
+    source: ./shapes/MA_precincts_12_16/MA_precincts_12_16.shp
+name: Massachusetts
+districting_problems:
+  - name: Congress
+    numberOfParts: 9
+    pluralNoun: Congressional Districts
+id: massachusetts

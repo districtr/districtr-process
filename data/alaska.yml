@@ -1,6 +1,7 @@
-column_sets:
-    - name: Population
-      subgroups:
+unit_sets:
+  - column_sets:
+      - name: Population
+        subgroups:
           - key: WHITE
             name: White population
           - key: BLACK
@@ -15,12 +16,12 @@ column_sets:
             name: Two or more races
           - key: OTHER
             name: Other races
-      total:
+        total:
           key: TOTPOP
           name: Total population
-      type: population
-    - name: Voting Age Population
-      subgroups:
+        type: population
+      - name: Voting Age Population
+        subgroups:
           - key: WVAP
             name: White voting age population
           - key: BVAP
@@ -35,63 +36,65 @@ column_sets:
             name: Other races voting age population
           - key: 2MOREVAP
             name: Two or more races voting age population
-      total:
+        total:
           key: VAP
           name: Voting age population
-      type: population
-    - metadata:
+        type: population
+      - metadata:
           race: U.S. House
           year: 2014
-      subgroups:
+        subgroups:
           - key: USH14R
             name: Republican
           - key: USH14D
             name: Democratic
-      type: election
-    - metadata:
+        type: election
+      - metadata:
           race: Presidential
           year: 2016
-      subgroups:
+        subgroups:
           - key: PRES16R
             name: Republican
           - key: PRES16D
             name: Democratic
-      type: election
-    - metadata:
+        type: election
+      - metadata:
           race: Senate
           year: 2016
-      subgroups:
+        subgroups:
           - key: SEN16R
             name: Republican
           - key: SEN16D
             name: Democratic
-      type: election
-    - metadata:
+        type: election
+      - metadata:
           race: U.S. House
           year: 2018
-      subgroups:
+        subgroups:
           - key: USH18R
             name: Republican
           - key: USH18D
             name: Democratic
-      type: election
-    - metadata:
+        type: election
+      - metadata:
           race: Governor
           year: 2018
-      subgroups:
+        subgroups:
           - key: GOV18R
             name: Republican
           - key: GOV18D
             name: Democratic
-      type: election
+        type: election
+    unit_type: precinct
+    name: Precincts
+    id: precincts
 districting_problems:
-    - name: State Senate
-      numberOfParts: 20
-      pluralNoun: State Senate Districts
+  - name: State Senate
+    numberOfParts: 20
+    pluralNoun: State Senate Districts
 id: alaska
 id_column:
-    key: ID
-    name: ID
+  key: ID
+  name: ID
 name: Alaska
-unit_type: precinct
 source: ./shapes/AK_precincts/alaska_precincts.shp
