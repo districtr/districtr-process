@@ -1,6 +1,7 @@
 import pytest
 
-from districtr_process.process import convert_to_integer_ids, read_file, wgs84
+from districtr_process.process import read_file, wgs84
+from districtr_process.tileset import convert_to_integer_ids
 
 
 def test_wgs84_works(shapefile):

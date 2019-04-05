@@ -1,115 +1,120 @@
-unit_sets:
-  - column_sets:
-      - name: Population
-        subgroups:
-          - key: WHITE
-            name: White population from 2010 Census
-          - key: BLACK
-            name: Black/African American population from 2010 Census
-          - key: HISPANIC
-            name: Population of Hispanic origin from 2010 Census
-          - key: ASIAN
-            name: Asian population from 2010 Census
-          - key: AMINDIAN
-            name: American Indian or Alaska Native population from 2010 Census
-          - key: PISLAND
-            name:
-              Native Hawaiian or other Pacific Islander population from 2010
-              Census
-          - key: OTHER
-            name: Population of other race from 2010 Census
-          - key: OTHERMLT
-            name: Population of other multiple races from 2010 Census
-          - key: PERSONS18
-            name: Population over the age of 18 from the 2010 Census
-          - key: WHITE18
-            name: White population over 18 from the 2010 Census
-          - key: BLACK18
-            name: Black population over 18 from the 2010 Census
-          - key: HISPANIC18
-            name: Population of Hispanic origin over 18 from the 2010 Census
-          - key: ASIAN18
-            name: Asian population over 18 from the 2010 Census
-          - key: AMINDIAN18
-            name:
-              American Indian or Alaska Native population over 18 from the 2010
-              Census
-          - key: PISLAND18
-            name:
-              Native Hawaiian or other Pacific Islander population over 18 from
-              the 2010 Census
-          - key: OTHER18
-            name: Population of other race over 18 from the 2010 Census
-          - key: OTHERMLT18
-            name:
-              Population of other multiple races over 18 from the 2010 Census
-        total:
-          key: PERSONS
-          name: Population from 2010 Census
-        type: population
-      - metadata:
-          race: Presidential
-          year: 2016
-        subgroups:
-          - key: PREDEM16
-            name: Democratic
-          - key: PREREP16
-            name: Republican
-        type: election
-      - metadata:
-          race: Presidential
-          year: 2012
-        subgroups:
-          - key: PREDEM12
-            name: Democratic
-          - key: PREREP12
-            name: Republican
-        type: election
-      - metadata:
-          race: Senate
-          year: 2016
-        subgroups:
-          - key: USSDEM16
-            name: Democratic
-          - key: USSREP16
-            name: Republican
-        type: election
-      - metadata:
-          race: Senate
-          year: 2012
-        subgroups:
-          - key: USSDEM12
-            name: Democratic
-          - key: USSREP12
-            name: Republican
-        type: election
-      - metadata:
-          race: Governor
-          year: 2014
-        subgroups:
-          - key: GOVDEM14
-            name: Democratic
-          - key: GOVREP14
-            name: Republican
-        type: election
-      - metadata:
-          race: Governor
-          year: 2012
-        subgroups:
-          - key: GOVDEM12
-            name: Democratic
-          - key: GOVREP12
-            name: Republican
-        type: election
-    id: wards
-    unit_type: ward
-    source: ./shapes/WI_wards_12_16/WI_ltsb_corrected_final.shp
-    id_column:
-      key: GEOID10
-      name: Ward FIPS code
+state: Wisconsin
+units:
+    - column_sets:
+          - name: Population
+            subgroups:
+                - key: WHITE
+                  name: White population from 2010 Census
+                - key: BLACK
+                  name: Black/African American population from 2010 Census
+                - key: HISPANIC
+                  name: Population of Hispanic origin from 2010 Census
+                - key: ASIAN
+                  name: Asian population from 2010 Census
+                - key: AMINDIAN
+                  name:
+                      American Indian or Alaska Native population from 2010
+                      Census
+                - key: PISLAND
+                  name:
+                      Native Hawaiian or other Pacific Islander population from
+                      2010 Census
+                - key: OTHER
+                  name: Population of other race from 2010 Census
+                - key: OTHERMLT
+                  name: Population of other multiple races from 2010 Census
+                - key: PERSONS18
+                  name: Population over the age of 18 from the 2010 Census
+                - key: WHITE18
+                  name: White population over 18 from the 2010 Census
+                - key: BLACK18
+                  name: Black population over 18 from the 2010 Census
+                - key: HISPANIC18
+                  name:
+                      Population of Hispanic origin over 18 from the 2010 Census
+                - key: ASIAN18
+                  name: Asian population over 18 from the 2010 Census
+                - key: AMINDIAN18
+                  name:
+                      American Indian or Alaska Native population over 18 from
+                      the 2010 Census
+                - key: PISLAND18
+                  name:
+                      Native Hawaiian or other Pacific Islander population over
+                      18 from the 2010 Census
+                - key: OTHER18
+                  name: Population of other race over 18 from the 2010 Census
+                - key: OTHERMLT18
+                  name:
+                      Population of other multiple races over 18 from the 2010
+                      Census
+            total:
+                key: PERSONS
+                name: Population from 2010 Census
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PREDEM16
+                  name: Democratic
+                - key: PREREP16
+                  name: Republican
+            type: election
+          - metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: PREDEM12
+                  name: Democratic
+                - key: PREREP12
+                  name: Republican
+            type: election
+          - metadata:
+                race: Senate
+                year: 2016
+            subgroups:
+                - key: USSDEM16
+                  name: Democratic
+                - key: USSREP16
+                  name: Republican
+            type: election
+          - metadata:
+                race: Senate
+                year: 2012
+            subgroups:
+                - key: USSDEM12
+                  name: Democratic
+                - key: USSREP12
+                  name: Republican
+            type: election
+          - metadata:
+                race: Governor
+                year: 2014
+            subgroups:
+                - key: GOVDEM14
+                  name: Democratic
+                - key: GOVREP14
+                  name: Republican
+            type: election
+          - metadata:
+                race: Governor
+                year: 2012
+            subgroups:
+                - key: GOVDEM12
+                  name: Democratic
+                - key: GOVREP12
+                  name: Republican
+            type: election
+      id: wards
+      unit_type: ward
+      source: ./shapes/WI_wards_12_16/WI_ltsb_corrected_final.shp
+      id_column:
+          key: GEOID10
+          name: Ward FIPS code
 districting_problems:
-  - name: Congress
-    numberOfParts: 8
-    pluralNoun: Congressional Districts
+    - name: Congress
+      numberOfParts: 8
+      pluralNoun: Congressional Districts
 id: wisconsin
 name: Wisconsin

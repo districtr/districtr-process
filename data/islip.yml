@@ -1,33 +1,34 @@
-unit_sets:
-  - column_sets:
-      - name: Population
-        subgroups:
-          - key: NH_WHITE
-            name: White population
-          - key: NH_BLACK
-            name: Black population
-          - key: HPOP
-            name: Hispanic population
-          - key: NH_ASIAN
-            name: Asian population
-          - key: NH_AMIN
-            name: American Indian population
-          - key: NH_NAHI
-            name: Hawaiian Native population
-        total:
-          key: TOTPOP
-          name: Total Population
-        type: population
-    unit_type: block
-    id_column:
-      key: GEOID10
-      name: 2010 Census GEOID
-    id: blocks
-    name: Blocks
+units:
+    - column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HPOP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NAHI
+                  name: Hawaiian Native population
+            total:
+                key: TOTPOP
+                name: Total Population
+            type: population
+      unit_type: block
+      id_column:
+          key: GEOID10
+          name: 2010 Census GEOID
+      id: blocks
+      name: Blocks
 districting_problems:
-  - name: Town Council
-    numberOfParts: 4
-    pluralNoun: Town Council Districts
+    - name: Town Council
+      numberOfParts: 4
+      pluralNoun: Town Council Districts
 id: islip
 name: Islip
 source: ./shapes/islip_blocks/islip_blocks.shp
+state: New York

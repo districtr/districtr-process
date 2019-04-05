@@ -7,10 +7,11 @@ from .exceptions import MissingColumnsError
 from .column_set import ColumnSetSchema
 from .columns import IdColumnSchema
 from .districting_problems import DistrictingProblemSchema
+from .states import states
 
 
-class UnitSet:
-    """A place where you might draw a districting plan."""
+class Units:
+    """A set of units with which you might draw a districting plan."""
 
     def __init__(
         self,
@@ -134,7 +135,7 @@ def missing_columns(df, columns):
     return missing
 
 
-class UnitSetSchema(Schema):
+class UnitsSchema(Schema):
     id = fields.String(required=True)
     name = fields.String()
     source = fields.String()
@@ -144,12 +145,13 @@ class UnitSetSchema(Schema):
 
     @post_load
     def create_unit_set(self, data):
-        return UnitSet(**data)
+        return Units(**data)
 
 
 class PlaceSchema(Schema):
     id = fields.String(required=True)
     name = fields.Str(required=True)
+    state = fields.Str(validate=OneOf(states))
     description = fields.Str()
-    unit_sets = fields.Nested(UnitSetSchema, many=True)
+    unit_sets = fields.Nested(UnitsSchema, many=True)
     districting_problems = fields.Nested(DistrictingProblemSchema, many=True)

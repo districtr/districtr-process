@@ -1,4 +1,4 @@
-unit_sets:
+units:
   - column_sets:
       - name: Population
         subgroups:

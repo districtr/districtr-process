@@ -6,7 +6,7 @@ import yaml
 
 from districtr_process.columns import Column
 from districtr_process.exceptions import MissingColumnsError
-from districtr_process.place import PlaceSchema, UnitSet
+from districtr_process.place import PlaceSchema, Units
 from districtr_process.column_set import summarize_column, ColumnSetSchema, ColumnSet
 
 
@@ -26,7 +26,7 @@ def mass():
 
 @pytest.fixture
 def ma_precincts(mass):
-    for units in mass["unit_sets"]:
+    for units in mass["units"]:
         if units.id == "precincts-02-10":
             return units
     raise RuntimeError
@@ -61,19 +61,18 @@ def test_lists_of_columns_deserialize():
 
 
 def test_parse_lowell_yaml(lowell):
-    assert isinstance(lowell["unit_sets"][0], UnitSet)
+    assert isinstance(lowell["units"][0], Units)
 
 
 def test_raise_for_missing(lowell, geodataframe):
     with pytest.raises(MissingColumnsError):
-        lowell["unit_sets"][0].raise_for_missing_columns(geodataframe)
+        lowell["units"][0].raise_for_missing_columns(geodataframe)
 
 
 def test_data_files_are_valid(data_files):
     for data in data_files():
         assert all(
-            isinstance(units, UnitSet)
-            for units in PlaceSchema().load(data)["unit_sets"]
+            isinstance(units, Units) for units in PlaceSchema().load(data)["units"]
         )
 
 

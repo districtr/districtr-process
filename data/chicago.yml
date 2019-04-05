@@ -1,120 +1,123 @@
 id: chicago
 name: Chicago
+state: Illinois
 districting_problems:
-  - name: City Council
-    numberOfParts: 10
-    pluralNoun: Five-Member Wards
-  - name: City Council
-    numberOfParts: 50
-    pluralNoun: City Council Seats
-    type: multimember
-  - name: City Council
-    numberOfParts: 50
-    pluralNoun: Wards
-  - name: City Council
-    numberOfParts: 50
-    pluralNoun: City Council Seats
-    type: multimember
-unit_sets:
-  - id: precincts
-    source: ./shapes/chicago/chicago_precincts_economic.shp
-    id_column:
-      key: JOINID
-      name: ID
-    unit_type: precinct
-    column_sets:
-      - name: Population
-        subgroups:
-          - key: NH_WHITE
-            name: White population
-          - key: NH_BLACK
-            name: Black population
-          - key: HISP
-            name: Hispanic population
-          - key: NH_ASIAN
-            name: Asian population
-          - key: NH_AMIN
-            name: American Indian population
-          - key: NH_NHPI
-            name: Native Hawaiian and Pacific Islander population
-          - key: NH_2MORE
-            name: Two or more races
-          - key: NH_OTHER
-            name: Other races
-        total:
-          key: TOTPOP
-          name: Total population
-        type: population
-      - name: Voting Age Population
-        subgroups:
-          - key: WVAP
-            name: White voting age population
-          - key: BVAP
-            name: Black voting age population
-          - key: HVAP
-            name: Hispanic voting age population
-          - key: AMINVAP
-            name: Native American voting age population
-          - key: NHPIVAP
-            name: Native Hawaiian and Pacific Islander voting age population
-          - key: ASIANVAP
-            name: Asian voting age population
-          - key: OTHERVAP
-            name: Other races voting age population
-          - key: 2MOREVAP
-            name: Two or more races voting age population
-        total:
-          key: VAP
-          name: Voting age population
-        type: population
-  - id: community_areas
-    id_column:
-      key: area_num_1
-      name: Area Number
-    unit_type: community_area
-    source: ./shapes/chicago/chicago_comareas_economic.shp
-    column_sets:
-      - name: Population
-        subgroups:
-          - key: NH_WHITE
-            name: White population
-          - key: NH_BLACK
-            name: Black population
-          - key: HISP
-            name: Hispanic population
-          - key: NH_ASIAN
-            name: Asian population
-          - key: NH_AMIN
-            name: American Indian population
-          - key: NH_NHPI
-            name: Native Hawaiian and Pacific Islander population
-          - key: NH_2MORE
-            name: Two or more races
-          - key: NH_OTHER
-            name: Other races
-        total:
-          key: TOTPOP
-          name: Total population
-        type: population
-      - name: Voting Age Population
-        subgroups:
-          - key: WVAP
-            name: White voting age population
-          - key: BVAP
-            name: Black voting age population
-          - key: HVAP
-            name: Hispanic voting age population
-          - key: AMINVAP
-            name: Native American voting age population
-          - key: NHPIVAP
-            name: Native Hawaiian and Pacific Islander voting age population
-          - key: ASIANVAP
-            name: Asian voting age population
-          - key: OTHERVAP
-            name: Other races voting age population
-          - key: 2MOREVAP
-            name: Two or more races voting age population
-        total:
-          key: VAP
-          name: Voting age population
-        type: population
+    - name: City Council
+      numberOfParts: 10
+      pluralNoun: Five-Member Wards
+    - name: City Council
+      numberOfParts: 50
+      pluralNoun: City Council Seats
+      type: multimember
+    - name: City Council
+      numberOfParts: 50
+      pluralNoun: Wards
+    - name: City Council
+      numberOfParts: 50
+      pluralNoun: City Council Seats
+      type: multimember
+units:
+    - id: precincts
+      source: ./shapes/chicago/chicago_precincts_economic.shp
+      id_column:
+          key: JOINID
+          name: ID
+      unit_type: precinct
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+    - id: community_areas
+      id_column:
+          key: area_num_1
+          name: Area Number
+      unit_type: community_area
+      source: ./shapes/chicago/chicago_comareas_economic.shp
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
