@@ -1,5 +1,6 @@
 units:
-    - column_sets:
+    - id: precincts
+      column_sets:
           - name: Population
             subgroups:
                 - key: HISP_POP

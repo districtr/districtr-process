@@ -12,13 +12,23 @@ class Units:
     """A set of units with which you might draw a districting plan."""
 
     def __init__(
-        self, id, name, unit_type=None, column_sets=None, id_column=None, source=None
+        self,
+        id,
+        name=None,
+        unit_type=None,
+        column_sets=None,
+        id_column=None,
+        source=None,
     ):
         if id_column is None:
             warnings.warn('ID column is None for place "{}" ({})'.format(name, id))
 
         self.id = id
+
+        if name is None:
+            name = unit_types[unit_type]
         self.name = name
+
         self.id_column = id_column
         self.unit_type = unit_type
         self.source = source
@@ -59,16 +69,14 @@ class Units:
             raise MissingColumnsError(missing)
 
     def __repr__(self):
-        return "<Place id={} name={}>".format(self.id, self.name)
+        return "<Units id={} name={}>".format(self.id, self.name)
 
     def record(self, df=None):
         record = {
             "id": self.id,
             "name": self.name,
             "unitType": unit_types[self.unit_type],
-            "tilesets": tileset_records(self),
             "columnSets": [column_set.record(df) for column_set in self.column_sets],
-            "districtingProblems": self.districting_problems,
         }
 
         if self.id_column is not None:
@@ -84,27 +92,6 @@ def bounds(df):
     # Convert minx, miny, maxx, maxy to [[minx, miny], [maxx, maxy]]
     array = [round(n, 4) for n in df.geometry.total_bounds]
     return [[array[0], array[1]], [array[2], array[3]]]
-
-
-def tileset_records(place):
-    return [
-        {
-            "type": "fill",
-            "source": {
-                "type": "vector",
-                "url": "mapbox://districtr.{}".format(place.id),
-            },
-            "sourceLayer": place.id,
-        },
-        {
-            "type": "circle",
-            "source": {
-                "type": "vector",
-                "url": "mapbox://districtr.{}".format(place.id + "_points"),
-            },
-            "sourceLayer": place.id + "_points",
-        },
-    ]
 
 
 unit_types = {
@@ -128,7 +115,7 @@ def missing_columns(df, columns):
 class UnitsSchema(Schema):
     id = fields.String(required=True)
     name = fields.String()
-    source = fields.String()
+    source = fields.String(required=True)
     unit_type = fields.String(validate=OneOf(list(unit_types)))
     column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)

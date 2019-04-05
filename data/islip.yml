@@ -1,5 +1,6 @@
 units:
-    - column_sets:
+    - source: ./shapes/islip_blocks/islip_blocks.shp
+      column_sets:
           - name: Population
             subgroups:
                 - key: NH_WHITE
@@ -30,5 +31,4 @@ districting_problems:
       pluralNoun: Town Council Districts
 id: islip
 name: Islip
-source: ./shapes/islip_blocks/islip_blocks.shp
 state: New York

@@ -17,12 +17,30 @@ class Tileset:
         # only keep the data that you need
         self.df = df[[df.geometry.name] + [col.key for col in units.columns]]
 
+        geometry_types = set(
+            geom_type.replace("Multi", "") for geom_type in set(df.geometry.geom_type)
+        )
+        if len(geometry_types) > 1:
+            raise TypeError(
+                "Can only create Tilesets with one geometry type. "
+                f"This GeoDataFrame has types {geometry_types}"
+            )
+
+        geometry_type = next(iter(geometry_types))
+        if "Polygon" in geometry_type:
+            self.source_type = "fill"
+        elif "Point" in geometry_type:
+            self.source_type = "circle"
+        else:
+            raise ValueError(f"Unsupported geometry type {geometry_type}")
+
         if units.id_column is not None:
             self.df.set_index(
                 units.id_column.key, inplace=True, drop=False, verify_integrity=True
             )
 
         self.units = units
+        self.upload_id = upload_id
 
     def upload(self):
         with tempfile.TemporaryDirectory() as tempdir:
@@ -40,6 +58,16 @@ class Tileset:
             log.info("Uploading %s to Mapbox", self.upload_id)
             upload_response = upload(mbtiles_filename, self.upload_id)
             log.info("Upload response: %s", upload_response.json())
+
+    def record(self):
+        return {
+            "type": self.source_type,
+            "source": {
+                "type": "vector",
+                "url": "mapbox://districtr.{}".format(self.upload_id),
+            },
+            "sourceLayer": self.upload_id,
+        }
 
 
 def add_id_attribute_and_dump(df, filename):

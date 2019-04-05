@@ -3,21 +3,13 @@ units:
       column_sets:
           - name: Population
             subgroups:
-                - key: NH_WHITE
+                - key: WHITE
                   name: White population
-                - key: NH_BLACK
+                - key: BLACK
                   name: Black population
-                - key: HISP
+                - key: HISPANIC
                   name: Hispanic population
-                - key: NH_ASIAN
-                  name: Asian population
-                - key: NH_AMIN
-                  name: American Indian population
-                - key: NH_NHPI
-                  name: Native Hawaiian and Pacific Islander population
-                - key: NH_2MORE
-                  name: Two or more races
-                - key: NH_OTHER
+                - key: OTHER
                   name: Other races
             total:
                 key: TOTPOP
@@ -29,23 +21,50 @@ units:
                   name: White voting age population
                 - key: BVAP
                   name: Black voting age population
-                - key: HVAP
+                - key: HISPVAP
                   name: Hispanic voting age population
-                - key: AMINVAP
-                  name: Native American voting age population
-                - key: NHPIVAP
-                  name:
-                      Native Hawaiian and Pacific Islander voting age population
-                - key: ASIANVAP
-                  name: Asian voting age population
-                - key: OTHERVAP
+                - key: OTHVAP
                   name: Other races voting age population
-                - key: 2MOREVAP
-                  name: Two or more races voting age population
             total:
                 key: VAP
                 name: Voting age population
             type: population
+          - metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: PRES12R
+                  name: Republican
+                - key: PRES12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Senate
+                year: 2012
+            subgroups:
+                - key: SEN12R
+                  name: Republican
+                - key: SEN12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Senate
+                year: 2014
+            subgroups:
+                - key: SEN14R
+                  name: Republican
+                - key: SEN14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2014
+            subgroups:
+                - key: GOV14R
+                  name: Republican
+                - key: GOV14D
+                  name: Democratic
+            type: election
           - metadata:
                 race: Presidential
                 year: 2016
@@ -55,24 +74,15 @@ units:
                 - key: PRES16D
                   name: Democratic
             type: election
-          - metadata:
-                race: Senate
-                year: 2016
-            subgroups:
-                - key: SEN16R
-                  name: Republican
-                - key: SEN16D
-                  name: Democratic
-            type: election
       id_column:
-          key: ID
+          key: CNTYVTD
           name: ID
       unit_type: precinct
-      source: ./shapes/GA_precincts16/GA_precincts16.shp
+      source: ./shapes/TX_vtds/TX_vtds.shp
 districting_problems:
     - name: Congress
-      numberOfParts: 14
+      numberOfParts: 36
       pluralNoun: Congressional Districts
-id: georgia
-name: Georgia
-state: Georgia
+id: texas
+name: Texas
+state: Texas

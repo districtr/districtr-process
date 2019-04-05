@@ -18,14 +18,6 @@ units:
                 key: TOTPOP
                 name: Total Population
             type: population
-      districting_problems:
-          - name: City Council
-            numberOfParts: 6
-            pluralNoun: City Council Districts
-          - name: City Council
-            numberOfParts: 6
-            pluralNoun: City Council Seats
-            type: multimember
       unit_type: block
       source: ./shapes/santa_clara_blocks/santa_clara_blocks.shp
       id: blocks
@@ -36,3 +28,11 @@ units:
 id: santa_clara
 name: Santa Clara
 state: California
+districting_problems:
+    - name: City Council
+      numberOfParts: 6
+      pluralNoun: City Council Districts
+    - name: City Council
+      numberOfParts: 6
+      pluralNoun: City Council Seats
+      type: multimember

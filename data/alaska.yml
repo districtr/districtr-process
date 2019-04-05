@@ -1,5 +1,9 @@
 units:
-    - column_sets:
+    - source: ./shapes/AK_precincts/alaska_precincts.shp
+      id_column:
+          key: ID
+          name: ID
+      column_sets:
           - name: Population
             subgroups:
                 - key: WHITE
@@ -94,9 +98,5 @@ districting_problems:
       numberOfParts: 20
       pluralNoun: State Senate Districts
 id: alaska
-id_column:
-    key: ID
-    name: ID
 name: Alaska
 state: Alaska
-source: ./shapes/AK_precincts/alaska_precincts.shp
