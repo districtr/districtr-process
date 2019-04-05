@@ -181,7 +181,7 @@ units:
                 - key: SEN10R
                   name: Republican
             type: election
-      id: precincts-02-10
+      id: precincts_02_10
       id_column:
           key: GEOID10
           name: 2000 Census GEOID
@@ -260,7 +260,7 @@ units:
                 - key: PRES16R
                   name: Republican
             type: election
-      id: precincts-12-16
+      id: precincts_12_16
       id_column:
           key: Name
           name: Precinct name
@@ -272,4 +272,4 @@ districting_problems:
     - name: Congress
       numberOfParts: 9
       pluralNoun: Congressional Districts
-id: massachusetts
+id: ma

@@ -11,8 +11,8 @@ from .place import PlaceSchema
 from .process import process
 
 logging.captureWarnings(True)
+logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
-log.setLevel(logging.INFO)
 
 
 def load(place_filename):
@@ -20,7 +20,7 @@ def load(place_filename):
     place_file = pathlib.Path(place_filename)
     if place_file.suffix == ".yaml" or place_file.suffix == ".yml":
         with open(place_file) as f:
-            place = schema.load(yaml.load(f))
+            place = schema.load(yaml.load(f, Loader=yaml.SafeLoader))
     elif place_file.suffix == ".json":
         with open(place_file) as f:
             place = schema.load(json.load(f))
@@ -62,5 +62,5 @@ def main(place_filename, upload=True):
 
 if __name__ == "__main__":
     filenames = glob("./data/*.yml")
-    many(filenames, "./output.json", upload=False)
+    many(filenames, "./output.json", upload=True)
     # main("./data/texas.yml")
