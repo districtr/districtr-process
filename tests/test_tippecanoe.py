@@ -1,6 +1,6 @@
 from tempfile import TemporaryDirectory
 
-from districtr_process.place import Units
+from districtr_process.units import Units
 from districtr_process.tippecanoe import create_tiles
 
 

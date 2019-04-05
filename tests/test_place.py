@@ -6,7 +6,8 @@ import yaml
 
 from districtr_process.columns import Column
 from districtr_process.exceptions import MissingColumnsError
-from districtr_process.place import PlaceSchema, Units
+from districtr_process.place import PlaceSchema
+from districtr_process.units import Units
 from districtr_process.column_set import summarize_column, ColumnSetSchema, ColumnSet
 
 
