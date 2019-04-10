@@ -19,7 +19,7 @@ def process(units, place_id, upload=True):
     if upload:
         assert df.crs == wgs84
         points_tileset.upload()
-        polygons_tileset.upload()
+        # polygons_tileset.upload()
 
     record = units.record(df)
     record["tilesets"] = [polygons_tileset.record(), points_tileset.record()]
