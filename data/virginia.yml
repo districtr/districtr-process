@@ -113,7 +113,7 @@ units:
           key: loc_prec
           name: Locality and precinct names
       unit_type: precinct
-      source: ./shapes/UT_precincts/UT_precincts.shp
+      source: ./shapes/VA_precincts/VA_precincts.shp
 districting_problems:
     - name: Congress
       numberOfParts: 11
