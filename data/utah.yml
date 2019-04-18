@@ -74,8 +74,8 @@ units:
                   name: Democratic
             type: election
       id_column:
-          key: VistaID
-          name: Vista ID
+          key: DsslvID
+          name: Precinct unique identifier
       unit_type: precinct
       source: ./shapes/UT_precincts/UT_precincts.shp
 districting_problems:
