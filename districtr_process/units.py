@@ -19,6 +19,7 @@ class Units:
         column_sets=None,
         id_column=None,
         source=None,
+        bounds=None,
     ):
         if id_column is None:
             warnings.warn('ID column is None for place "{}" ({})'.format(name, id))
@@ -32,6 +33,7 @@ class Units:
         self.id_column = id_column
         self.unit_type = unit_type
         self.source = source
+        self.bounds = bounds
 
         if column_sets is None:
             column_sets = []
@@ -81,7 +83,9 @@ class Units:
 
         if self.id_column is not None:
             record["idColumn"] = self.id_column.record()
-        if df is not None:
+        if self.bounds is not None:
+            record["bounds"] = self.bounds
+        elif df is not None:
             record["bounds"] = bounds(df)
 
         return record
@@ -119,6 +123,7 @@ class UnitsSchema(Schema):
     unit_type = fields.String(validate=OneOf(list(unit_types)))
     column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)
+    bounds = fields.List(fields.List(fields.Float()))
 
     @post_load
     def create_unit_set(self, data):

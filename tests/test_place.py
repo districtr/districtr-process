@@ -28,7 +28,7 @@ def mass():
 @pytest.fixture
 def ma_precincts(mass):
     for units in mass["units"]:
-        if units.id == "precincts-02-10":
+        if units.id == "precincts_02_10":
             return units
     raise RuntimeError
 

@@ -93,6 +93,7 @@ units:
       unit_type: precinct
       name: Precincts
       id: precincts
+      bounds: [[-179.228, 51.1753], [-129.98, 71.4411]]
 districting_problems:
     - name: State Senate
       numberOfParts: 20

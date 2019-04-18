@@ -1,5 +1,5 @@
 units:
-    - id: block-groups
+    - id: block_groups
       name: Block Groups
       unit_type: block_group
       source: ./shapes/ms_bg_hvap/ms_bg_hvap.shp

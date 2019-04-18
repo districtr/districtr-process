@@ -7,3 +7,4 @@ class DistrictingProblemSchema(Schema):
     numberOfParts = fields.Int(validate=Range(min=0))
     pluralNoun = fields.Str()
     type = fields.Str(validate=OneOf(["multimember", "singlemember"]))
+    units = fields.List(fields.Str())
