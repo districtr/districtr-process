@@ -116,11 +116,11 @@ units:
       source: ./shapes/UT_precincts/UT_precincts.shp
 districting_problems:
     - name: Congress
-      numberOfParts: 4
+      numberOfParts: 11
       pluralNoun: Congressional Districts
     - name: State Senate
-      numberOfParts: 29
+      numberOfParts: 40
       pluralNoun: State Senate Districts
-id: utah
-name: Utah
-state: Utah
+id: virginia
+name: Virginia
+state: Virginia
