@@ -18,6 +18,7 @@ class Units:
         unit_type=None,
         column_sets=None,
         id_column=None,
+        name_column=None,
         source=None,
         bounds=None,
     ):
@@ -31,6 +32,7 @@ class Units:
         self.name = name
 
         self.id_column = id_column
+        self.name_column = name_column
         self.unit_type = unit_type
         self.source = source
         self.bounds = bounds
@@ -49,6 +51,9 @@ class Units:
 
         if self.id_column is not None:
             columns += [self.id_column]
+
+        if self.name_column is not None:
+            columns += [self.name_column]
 
         return columns
 
@@ -83,6 +88,8 @@ class Units:
 
         if self.id_column is not None:
             record["idColumn"] = self.id_column.record()
+        if self.id_column is not None:
+            record["nameColumn"] = self.name_column.record()
         if self.bounds is not None:
             record["bounds"] = self.bounds
         elif df is not None:
@@ -123,6 +130,7 @@ class UnitsSchema(Schema):
     unit_type = fields.String(validate=OneOf(list(unit_types)))
     column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)
+    name_column = fields.Nested(IdColumnSchema)
     bounds = fields.List(fields.List(fields.Float()))
 
     @post_load

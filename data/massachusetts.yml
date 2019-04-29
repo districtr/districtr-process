@@ -1,6 +1,6 @@
 state: Massachusetts
 units:
-    - source: ./shapes/MA_towns/FinalMass.shp
+    - source: ./shapes/MA_towns/MA_towns_named.shp
       column_sets:
           - name: Population
             total:
@@ -119,6 +119,9 @@ units:
       id_column:
           key: TOWN_ID
           name: Town ID
+      name_column:
+          key: town_name
+          name: Town Name
       unit_type: town
       name: Towns
     - column_sets:

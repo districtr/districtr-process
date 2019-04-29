@@ -11,7 +11,8 @@ log = logging.getLogger(__name__)
 
 def process(units, place_id, upload=True):
     log.info("Processing %s_%s", place_id, units.id)
-    df = read_file(units.source, project=upload)
+    df = read_file(units.source, project=True)
+    df.to_file(units.source)
 
     points_tileset = Tileset(points(df), units, f"{place_id}_{units.id}_points")
     polygons_tileset = Tileset(df, units, f"{place_id}_{units.id}")

@@ -1,7 +1,7 @@
 import json
 import logging
 import pathlib
-from tqdm import tqdm
+from multiprocessing import Pool
 
 from glob import glob
 
@@ -38,10 +38,9 @@ def fill_in_nones(pairs):
 
 
 def many(filenames, output_file, upload=True):
-    records = [
-        main(place_filename=place_filename, upload=upload)
-        for place_filename in tqdm(filenames)
-    ]
+    args = [(filename, upload) for filename in filenames]
+    with Pool(8) as pool:
+        records = pool.starmap(main, args)
     print(records)
     with open(output_file, "w") as f:
         json.dump(records, f)
@@ -61,6 +60,6 @@ def main(place_filename, upload=True):
 
 
 if __name__ == "__main__":
-    filenames = list(glob("./data/*.yml"))
-    main("./data/mississippi.yml", upload=True)
-    many(filenames, "./output.json", upload=False)
+    # filenames = list(glob("./data/*.yml"))
+    # many(filenames, "output.json", upload=True)
+    main("./data/virginia.yml", upload=True)

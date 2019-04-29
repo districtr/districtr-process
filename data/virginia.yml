@@ -1,5 +1,8 @@
 units:
     - id: precincts
+      name_column:
+          key: precinct
+          name: Precinct Name
       column_sets:
           - name: Population
             subgroups:
@@ -64,15 +67,15 @@ units:
                 - key: G18DSEN
                   name: Democratic
             type: election
-          - metadata:
-                race: Governor
-                year: 2017
-            subgroups:
-                - key: G17RSEN
-                  name: Republican
-                - key: G17DSEN
-                  name: Democratic
-            type: election
+          # - metadata:
+          #       race: Governor
+          #       year: 2017
+          #   subgroups:
+          #       - key: G17RGOV
+          #         name: Republican
+          #       - key: G17DGOV
+          #         name: Democratic
+          #   type: election
           - metadata:
                 race: Lt. Governor
                 year: 2017
@@ -88,7 +91,7 @@ units:
             subgroups:
                 - key: G17RATG
                   name: Republican
-                - key: G16DATG
+                - key: G17DATG
                   name: Democratic
             type: election
           - metadata:

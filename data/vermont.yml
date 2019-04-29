@@ -6,6 +6,9 @@ units:
       source: ./shapes/VT_town_results/VT_town_results.shp
       id: towns
       name: Towns
+      name_column:
+          key: NAME10
+          name: Town Name
       column_sets:
           - name: Population
             subgroups:
