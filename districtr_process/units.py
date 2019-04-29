@@ -5,7 +5,7 @@ from marshmallow.validate import OneOf
 
 from .exceptions import MissingColumnsError
 from .column_set import ColumnSetSchema
-from .columns import IdColumnSchema
+from .columns import IdColumnSchema, NameColumnSchema
 
 
 class Units:
@@ -130,7 +130,7 @@ class UnitsSchema(Schema):
     unit_type = fields.String(validate=OneOf(list(unit_types)))
     column_sets = fields.Nested(ColumnSetSchema, many=True)
     id_column = fields.Nested(IdColumnSchema)
-    name_column = fields.Nested(IdColumnSchema)
+    name_column = fields.Nested(NameColumnSchema)
     bounds = fields.List(fields.List(fields.Float()))
 
     @post_load

@@ -64,6 +64,16 @@ class IdColumn(Column):
     tests = [has_unique_values]
 
 
+class NameColumn(Column):
+    tests = []
+
+
+class NameColumnSchema(ColumnSchema):
+    @post_load
+    def make_column(self, data):
+        return NameColumn(**data)
+
+
 class IdColumnSchema(ColumnSchema):
     @post_load
     def make_column(self, data):
