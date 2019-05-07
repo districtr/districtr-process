@@ -21,9 +21,9 @@ units:
                 - key: ASIAN
                   name: Asian population
                 - key: AMIN
-                  name: Native American and Alaskan Native population
+                  name: Native American and Alaskan Native
                 - key: NHPI
-                  name: Native Hawaiian and Pacific Islander population
+                  name: Native Hawaiian and Pacific Islander
                 - key: 2MORE
                   name: Two or more races
                 - key: OTHER

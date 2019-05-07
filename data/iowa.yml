@@ -1,16 +1,16 @@
-id: michigan
-state: Michigan
-name: Michigan
+id: iowa
+state: Iowa
+name: Iowa
 units:
-    - id: precincts
-      unit_type: precinct
-      source: ./shapes/MI_precincts/MI_precincts.shp
+    - id: counties
+      unit_type: county
+      source: ./shapes/IA_counties/IA_counties.shp
       id_column:
-          key: VTD
-          name: Precinct ID
+          key: GEOID10
+          name: 2010 Census GEOID
       name_column:
-          key: name
-          name: Precinct Name
+          key: NAME10
+          name: County Name
       column_sets:
           - type: election
             metadata:
@@ -20,6 +20,42 @@ units:
                 - key: PRES16D
                   name: Democratic
                 - key: PRES16R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2000
+            subgroups:
+                - key: PRES00D
+                  name: Democratic
+                - key: PRES00R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2004
+            subgroups:
+                - key: PRES04D
+                  name: Democratic
+                - key: PRES04R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2008
+            subgroups:
+                - key: PRES08D
+                  name: Democratic
+                - key: PRES08R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: PRES12D
+                  name: Democratic
+                - key: PRES12R
                   name: Republican
           - name: Population
             subgroups:
@@ -66,8 +102,5 @@ units:
             type: population
 districting_problems:
     - name: Congress
-      numberOfParts: 14
+      numberOfParts: 4
       pluralNoun: Congressional Districts
-    - name: State Senate
-      numberOfParts: 38
-      pluralNoun: State Senate Districts

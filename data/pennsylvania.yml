@@ -4,18 +4,18 @@ units:
           - name: Population
             subgroups:
                 - key: HISP_POP
-                  name: 2010 Hispanic or Latino population
+                  name: Hispanic population
                 - key: WHITE_POP
-                  name: 2010 White alone population
+                  name: White population
                 - key: BLACK_POP
-                  name: 2010 Black/African American alone population
+                  name: Black population
                 - key: NATIVE_POP
-                  name: 2010 American Indian or Alaska Native alone population
+                  name: American Indian population
                 - key: ASIAN_POP
-                  name: 2010 Asian alone population
+                  name: Asian population
             total:
                 key: TOT_POP
-                name: 2010 Census Population
+                name: Total population
             type: population
           - metadata:
                 race: Attorney General

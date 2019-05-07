@@ -88,7 +88,7 @@ class Units:
 
         if self.id_column is not None:
             record["idColumn"] = self.id_column.record()
-        if self.id_column is not None:
+        if self.name_column is not None:
             record["nameColumn"] = self.name_column.record()
         if self.bounds is not None:
             record["bounds"] = self.bounds
@@ -109,6 +109,7 @@ unit_types = {
     "precinct": "Precincts",
     "block": "Blocks",
     "block_group": "Block Groups",
+    "county": "Counties",
     "town": "Towns",
     "community_area": "Community Areas",
     "ward": "Wards",

@@ -83,6 +83,9 @@ districting_problems:
     - name: Congress
       numberOfParts: 36
       pluralNoun: Congressional Districts
+    - name: State Senate
+      numberOfParts: 31
+      pluralNoun: State Senate Districts
 id: texas
 name: Texas
 state: Texas

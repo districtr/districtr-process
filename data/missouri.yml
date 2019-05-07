@@ -5,10 +5,10 @@ units:
           - name: Population
             subgroups:
                 - key: VAP
-                  name: 2010 Voting age population
+                  name: Voting age population
             total:
                 key: POP100
-                name: 2010 Census Population
+                name: Census Population
             type: population
           - metadata:
                 race: Presidential
