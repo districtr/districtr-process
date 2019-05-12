@@ -1,11 +1,49 @@
 state: Massachusetts
 units:
-    - source: ./shapes/MA_towns/MA_towns_named.shp
+    - source: ./shapes/MA_towns/MA_towns_with_2010_census_demographics.shp
       column_sets:
           - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_OTHER
+                  name: Other races
             total:
-                key: POP2010
-                name: 2010 Census population
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
             type: population
           - metadata:
                 race: Presidential
@@ -126,10 +164,53 @@ units:
       name: Towns
     - column_sets:
           - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_OTHER
+                  name: Other races
             total:
-                key: POP2000
-                name: 2000 Census Population
+                key: TOTPOP
+                name: Total population
             type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          # - name: Population
+          # total:
+          # key: POP2000
+          # name: 2000 Census Population
+          # type: population
           - metadata:
                 race: Senate
                 year: 2002
@@ -190,34 +271,78 @@ units:
           name: 2000 Census GEOID
       name: Precincts, 2002-2010
       unit_type: precinct
-      source: ./shapes/MA_precincts_02_10/MA_precincts_02_10.shp
+      source: ./shapes/MA_precincts_02_10/MA_precincts_02_10_with_2010_census_demographics.shp
     - column_sets:
           - name: Population
             subgroups:
-                - key: White
+                - key: NH_WHITE
                   name: White population
-                - key: Black
-                  name: Black/African American population
-                - key: AmIndian
-                  name: American Indian and Alaska Native population
-                - key: Asian
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
                   name: Asian population
-                - key: Hawaiian
-                  name: Native Hawaiian and other Pacific Islander population
-                - key: Other
-                  name: Population of other race
-                - key: _1_Race
-                  name: Population of one race
-                - key: _2__Races
-                  name: Population of two or more races
-                - key: Hispanic_O
-                  name: Population of Hispanic origin
-                - key: Not_Hispan
-                  name: Population not of Hispanic origin
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_OTHER
+                  name: Other races
             total:
-                key: POP10
-                name: 2010 Census Population
+                key: TOTPOP
+                name: Total population
             type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+
+          # - name: Population
+          # subgroups:
+          #     - key: White
+          #       name: White population
+          #     - key: Black
+          #       name: Black population
+          #     - key: AmIndian
+          #       name: American Indian and Alaska Native population
+          #     - key: Asian
+          #       name: Asian population
+          #     - key: Hawaiian
+          #       name: Native Hawaiian and other Pacific Islander population
+          #     - key: Other
+          #       name: Other races
+          #     # - key: _1_Race
+          #     # name: Population of one race
+          #     - key: _2__Races
+          #       name: Two or more races
+          #     - key: Hispanic_O
+          #       name: Hispanic population
+          #     # - key: Not_Hispan
+          #     #   name: Population not of Hispanic origin
+          # total:
+          # key: POP10
+          # name: 2010 Census Population
+          # type: population
           - metadata:
                 race: Senate
                 year: 2012
@@ -269,7 +394,7 @@ units:
           name: Precinct name
       name: Precincts, 2012-2016
       unit_type: precinct
-      source: ./shapes/MA_precincts_12_16/MA_precincts_12_16.shp
+      source: ./shapes/MA_precincts_12_16/MA_precincts_12_16_with_2010_census_demographics.shp
 name: Massachusetts
 districting_problems:
     - name: Congress
