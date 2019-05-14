@@ -60,7 +60,5 @@ def main(place_filename, upload=True):
 
 
 if __name__ == "__main__":
-    # filenames = list(glob("./data/*.yml"))
-    filenames = ["./data/massachusetts.yml"]
-    many(filenames, "output.json", upload=True)
-    # many(["./data/michigan.yml"], "output.json", upload=False)
+    filenames = list(glob("./data/*.yml"))
+    many(filenames, "output.json", upload=False)
