@@ -1,11 +1,16 @@
+id: providence_ri
+state: Rhode Island
+name: Providence
 units:
-    - id: block_groups
-      name: Block Groups
-      unit_type: block_group
-      source: ./shapes/ms_bg_hvap/ms_bg_hvap.shp
+    - id: blocks
+      unit_type: block
+      source: ./shapes/Providence_blocks/Providence_blocks.shp
       id_column:
           key: GEOID10
-          name: 2010 Census GEOID
+          name: Census GEOID
+      name_column:
+          key: NAME10
+          name: Block Name
       column_sets:
           - name: Population
             subgroups:
@@ -13,17 +18,19 @@ units:
                   name: White population
                 - key: NH_BLACK
                   name: Black population
-                - key: HPOP
+                - key: HISP
                   name: Hispanic population
                 - key: NH_ASIAN
                   name: Asian population
                 - key: NH_AMIN
                   name: American Indian population
-                - key: NH_NAHI
-                  name: Hawaiian Native population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_OTHER
+                  name: Other races
             total:
                 key: TOTPOP
-                name: Total Population
+                name: Total population
             type: population
           - name: Voting Age Population
             subgroups:
@@ -33,20 +40,22 @@ units:
                   name: Black voting age population
                 - key: HVAP
                   name: Hispanic voting age population
-                - key: NAHIVAP
-                  name: Native Hawaiian voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
                 - key: ASIANVAP
                   name: Asian voting age population
-                - key: AMINVAP
-                  name: American Indian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
             total:
                 key: VAP
                 name: Voting age population
             type: population
 districting_problems:
-    - name: Congress
-      numberOfParts: 4
-      pluralNoun: Congressional Districts
-id: mississippi
-name: Mississippi
-state: Mississippi
+    - name: City Council
+      numberOfParts: 15
+      pluralNoun: City Council Wards

@@ -1,83 +1,87 @@
-column_sets:
-    - name: Population
-      subgroups:
-          - key: VAP
-            name: 2010 Voting age population
-      total:
-          key: POP100
-          name: 2010 Census Population
-      type: population
-    - metadata:
-          race: Presidential
-          year: 2008
-      subgroups:
-          - key: PR_RV08
-            name: Republican
-          - key: PR_DV08
-            name: Democratic
-      type: election
-    - metadata:
-          race: Governor
-          year: 2008
-      subgroups:
-          - key: GOV_RV08
-            name: Republican
-          - key: GOV_DV08
-            name: Democratic
-      type: election
-    - metadata:
-          race: US House
-          year: 2008
-      subgroups:
-          - key: USH_RV08
-            name: Republican
-          - key: USH_DV08
-            name: Democratic
-      type: election
-    - metadata:
-          race: Lt. Governor
-          year: 2008
-      subgroups:
-          - key: LG_RV08
-            name: Republican
-          - key: LG_DV08
-            name: Democratic
-      type: election
-    - metadata:
-          race: Secretary of State
-          year: 2008
-      subgroups:
-          - key: SS_RV08
-            name: Republican
-          - key: SS_DV08
-            name: Democratic
-      type: election
-    - metadata:
-          race: Treasurer
-          year: 2008
-      subgroups:
-          - key: TR_RV08
-            name: Republican
-          - key: TR_DV08
-            name: Democratic
-      type: election
-    - metadata:
-          race: Attorney General
-          year: 2008
-      subgroups:
-          - key: AG_RV08
-            name: Republican
-          - key: AG_DV08
-            name: Democratic
-      type: election
+units:
+    - id: precincts
+      name: Precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: VAP
+                  name: Voting age population
+            total:
+                key: POP100
+                name: Census Population
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2008
+            subgroups:
+                - key: PR_RV08
+                  name: Republican
+                - key: PR_DV08
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2008
+            subgroups:
+                - key: GOV_RV08
+                  name: Republican
+                - key: GOV_DV08
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2008
+            subgroups:
+                - key: USH_RV08
+                  name: Republican
+                - key: USH_DV08
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Lt. Governor
+                year: 2008
+            subgroups:
+                - key: LG_RV08
+                  name: Republican
+                - key: LG_DV08
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Secretary of State
+                year: 2008
+            subgroups:
+                - key: SS_RV08
+                  name: Republican
+                - key: SS_DV08
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Treasurer
+                year: 2008
+            subgroups:
+                - key: TR_RV08
+                  name: Republican
+                - key: TR_DV08
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2008
+            subgroups:
+                - key: AG_RV08
+                  name: Republican
+                - key: AG_DV08
+                  name: Democratic
+            type: election
+      id_column:
+          key: GEOID10
+          name: 2010 Census GEOID
+      unit_type: precinct
+      source: ./shapes/MO_vtds/MO_vtds.shp
 districting_problems:
     - name: Congress
       numberOfParts: 8
       pluralNoun: Congressional Districts
 id: missouri
-id_column:
-    key: GEOID10
-    name: 2010 Census GEOID
 name: Missouri
-unit_type: precinct
-source: ./shapes/MO_vtds/MO_vtds.shp
+state: Missouri

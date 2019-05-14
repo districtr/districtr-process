@@ -1,0 +1,73 @@
+id: michigan
+state: Michigan
+name: Michigan
+units:
+    - id: precincts
+      unit_type: precinct
+      source: ./shapes/MI_precincts/MI_precincts.shp
+      id_column:
+          key: VTD
+          name: Precinct ID
+      name_column:
+          key: name
+          name: Precinct Name
+      column_sets:
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16D
+                  name: Democratic
+                - key: PRES16R
+                  name: Republican
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+districting_problems:
+    - name: Congress
+      numberOfParts: 14
+      pluralNoun: Congressional Districts
+    - name: State Senate
+      numberOfParts: 38
+      pluralNoun: State Senate Districts

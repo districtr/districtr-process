@@ -1,24 +1,26 @@
 units:
-    - source: ./shapes/AK_precincts/alaska_precincts.shp
-      id_column:
-          key: ID
-          name: ID
+    - id: precincts
+      name_column:
+          key: precinct
+          name: Precinct Name
       column_sets:
           - name: Population
             subgroups:
-                - key: WHITE
+                - key: NH_WHITE
                   name: White population
-                - key: BLACK
+                - key: NH_BLACK
                   name: Black population
-                - key: ASIAN
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
                   name: Asian population
-                - key: AMIN
-                  name: Native American and Alaskan Native population
-                - key: NHPI
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
                   name: Native Hawaiian and Pacific Islander population
-                - key: 2MORE
+                - key: NH_2MORE
                   name: Two or more races
-                - key: OTHER
+                - key: NH_OTHER
                   name: Other races
             total:
                 key: TOTPOP
@@ -30,6 +32,8 @@ units:
                   name: White voting age population
                 - key: BVAP
                   name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
                 - key: AMINVAP
                   name: Native American voting age population
                 - key: NHPIVAP
@@ -46,61 +50,80 @@ units:
                 name: Voting age population
             type: population
           - metadata:
-                race: U.S. House
-                year: 2014
-            subgroups:
-                - key: USH14R
-                  name: Republican
-                - key: USH14D
-                  name: Democratic
-            type: election
-          - metadata:
                 race: Presidential
                 year: 2016
             subgroups:
-                - key: PRES16R
+                - key: G16RPRS
                   name: Republican
-                - key: PRES16D
+                - key: G16DPRS
                   name: Democratic
             type: election
           - metadata:
                 race: Senate
+                year: 2018
+            subgroups:
+                - key: G18RSEN
+                  name: Republican
+                - key: G18DSEN
+                  name: Democratic
+            type: election
+          # - metadata:
+          #       race: Governor
+          #       year: 2017
+          #   subgroups:
+          #       - key: G17RGOV
+          #         name: Republican
+          #       - key: G17DGOV
+          #         name: Democratic
+          #   type: election
+          - metadata:
+                race: Lt. Governor
+                year: 2017
+            subgroups:
+                - key: G17RLTG
+                  name: Republican
+                - key: G17DLTG
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2017
+            subgroups:
+                - key: G17RATG
+                  name: Republican
+                - key: G17DATG
+                  name: Democratic
+            type: election
+          - metadata:
+                race: House of Delegates
+                year: 2017
+            subgroups:
+                - key: G17RHOD
+                  name: Republican
+                - key: G17DHOD
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
                 year: 2016
             subgroups:
-                - key: SEN16R
+                - key: G16RHOR
                   name: Republican
-                - key: SEN16D
+                - key: G16DHOR
                   name: Democratic
             type: election
-          - metadata:
-                race: U.S. House
-                year: 2018
-            subgroups:
-                - key: USH18R
-                  name: Republican
-                - key: USH18D
-                  name: Democratic
-            type: election
-          - metadata:
-                race: Governor
-                year: 2018
-            subgroups:
-                - key: GOV18R
-                  name: Republican
-                - key: GOV18D
-                  name: Democratic
-            type: election
+      id_column:
+          key: loc_prec
+          name: Locality and precinct names
       unit_type: precinct
-      name: Precincts
-      id: precincts
-      bounds: [[-179.228, 51.1753], [-129.98, 71.4411]]
+      source: ./shapes/VA_precincts/VA_precincts.shp
 districting_problems:
+    - name: Congress
+      numberOfParts: 11
+      pluralNoun: Congressional Districts
     - name: State Senate
-      numberOfParts: 20
-      pluralNoun: State Senate Districts
-    - name: State House
       numberOfParts: 40
-      pluralNoun: State House Districts
-id: alaska
-name: Alaska
-state: Alaska
+      pluralNoun: State Senate Districts
+id: virginia
+name: Virginia
+state: Virginia

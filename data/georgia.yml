@@ -1,6 +1,8 @@
-column_sets:
-    - name: Population
-      subgroups:
+units:
+  - id: precincts
+    column_sets:
+      - name: Population
+        subgroups:
           - key: NH_WHITE
             name: White population
           - key: NH_BLACK
@@ -17,12 +19,12 @@ column_sets:
             name: Two or more races
           - key: NH_OTHER
             name: Other races
-      total:
+        total:
           key: TOTPOP
           name: Total population
-      type: population
-    - name: Voting Age Population
-      subgroups:
+        type: population
+      - name: Voting Age Population
+        subgroups:
           - key: WVAP
             name: White voting age population
           - key: BVAP
@@ -39,36 +41,37 @@ column_sets:
             name: Other races voting age population
           - key: 2MOREVAP
             name: Two or more races voting age population
-      total:
+        total:
           key: VAP
           name: Voting age population
-      type: population
-    - metadata:
+        type: population
+      - metadata:
           race: Presidential
           year: 2016
-      subgroups:
+        subgroups:
           - key: PRES16R
             name: Republican
           - key: PRES16D
             name: Democratic
-      type: election
-    - metadata:
+        type: election
+      - metadata:
           race: Senate
           year: 2016
-      subgroups:
+        subgroups:
           - key: SEN16R
             name: Republican
           - key: SEN16D
             name: Democratic
-      type: election
+        type: election
+    id_column:
+      key: ID
+      name: ID
+    unit_type: precinct
+    source: ./shapes/GA_precincts16/GA_precincts16.shp
 districting_problems:
-    - name: Congress
-      numberOfParts: 14
-      pluralNoun: Congressional Districts
+  - name: Congress
+    numberOfParts: 14
+    pluralNoun: Congressional Districts
 id: georgia
-id_column:
-    key: ID
-    name: ID
 name: Georgia
-unit_type: precinct
-source: ./shapes/GA_precincts16/GA_precincts16.shp
+state: Georgia

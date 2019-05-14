@@ -1,24 +1,23 @@
 units:
-    - source: ./shapes/AK_precincts/alaska_precincts.shp
-      id_column:
-          key: ID
-          name: ID
+    - id: precincts
       column_sets:
           - name: Population
             subgroups:
-                - key: WHITE
+                - key: NH_WHITE
                   name: White population
-                - key: BLACK
+                - key: NH_BLACK
                   name: Black population
-                - key: ASIAN
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
                   name: Asian population
-                - key: AMIN
-                  name: Native American and Alaskan Native population
-                - key: NHPI
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
                   name: Native Hawaiian and Pacific Islander population
-                - key: 2MORE
+                - key: NH_2MORE
                   name: Two or more races
-                - key: OTHER
+                - key: NH_OTHER
                   name: Other races
             total:
                 key: TOTPOP
@@ -30,6 +29,8 @@ units:
                   name: White voting age population
                 - key: BVAP
                   name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
                 - key: AMINVAP
                   name: Native American voting age population
                 - key: NHPIVAP
@@ -45,15 +46,6 @@ units:
                 key: VAP
                 name: Voting age population
             type: population
-          - metadata:
-                race: U.S. House
-                year: 2014
-            subgroups:
-                - key: USH14R
-                  name: Republican
-                - key: USH14D
-                  name: Democratic
-            type: election
           - metadata:
                 race: Presidential
                 year: 2016
@@ -73,34 +65,26 @@ units:
                   name: Democratic
             type: election
           - metadata:
-                race: U.S. House
-                year: 2018
-            subgroups:
-                - key: USH18R
-                  name: Republican
-                - key: USH18D
-                  name: Democratic
-            type: election
-          - metadata:
                 race: Governor
-                year: 2018
+                year: 2016
             subgroups:
-                - key: GOV18R
+                - key: GOV16R
                   name: Republican
-                - key: GOV18D
+                - key: GOV16D
                   name: Democratic
             type: election
+      id_column:
+          key: DsslvID
+          name: Precinct unique identifier
       unit_type: precinct
-      name: Precincts
-      id: precincts
-      bounds: [[-179.228, 51.1753], [-129.98, 71.4411]]
+      source: ./shapes/UT_precincts/UT_precincts.shp
 districting_problems:
+    - name: Congress
+      numberOfParts: 4
+      pluralNoun: Congressional Districts
     - name: State Senate
-      numberOfParts: 20
+      numberOfParts: 29
       pluralNoun: State Senate Districts
-    - name: State House
-      numberOfParts: 40
-      pluralNoun: State House Districts
-id: alaska
-name: Alaska
-state: Alaska
+id: utah
+name: Utah
+state: Utah

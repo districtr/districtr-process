@@ -34,12 +34,20 @@ class Column:
             raise MissingColumnsError("Missing column {}".format(self))
 
         if self.require_numeric is True:
-            df[self.key] = pandas.to_numeric(df[self.key]).astype(int)
+            try:
+                df[self.key] = pandas.to_numeric(df[self.key]).astype(int)
+            except Exception:
+                failed.append("require_numeric")
 
         column = df[self.key]
 
         for assertion in self.tests:
-            if not assertion(column):
+            passed = False
+            try:
+                passed = assertion(column)
+            except Exception:
+                passed = False
+            if not passed:
                 failed.append(assertion.__name__)
         return failed
 
@@ -54,6 +62,16 @@ class ColumnSchema(Schema):
 
 class IdColumn(Column):
     tests = [has_unique_values]
+
+
+class NameColumn(Column):
+    tests = []
+
+
+class NameColumnSchema(ColumnSchema):
+    @post_load
+    def make_column(self, data):
+        return NameColumn(**data)
 
 
 class IdColumnSchema(ColumnSchema):

@@ -1,0 +1,106 @@
+id: iowa
+state: Iowa
+name: Iowa
+units:
+    - id: counties
+      unit_type: county
+      source: ./shapes/IA_counties/IA_counties.shp
+      id_column:
+          key: GEOID10
+          name: 2010 Census GEOID
+      name_column:
+          key: NAME10
+          name: County Name
+      column_sets:
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16D
+                  name: Democratic
+                - key: PRES16R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2000
+            subgroups:
+                - key: PRES00D
+                  name: Democratic
+                - key: PRES00R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2004
+            subgroups:
+                - key: PRES04D
+                  name: Democratic
+                - key: PRES04R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2008
+            subgroups:
+                - key: PRES08D
+                  name: Democratic
+                - key: PRES08R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: PRES12D
+                  name: Democratic
+                - key: PRES12R
+                  name: Republican
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+districting_problems:
+    - name: Congress
+      numberOfParts: 4
+      pluralNoun: Congressional Districts

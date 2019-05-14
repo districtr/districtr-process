@@ -1,7 +1,7 @@
 import json
 import logging
 import pathlib
-from tqdm import tqdm
+from multiprocessing import Pool
 
 from glob import glob
 
@@ -11,6 +11,8 @@ from .place import PlaceSchema
 from .process import process
 
 logging.captureWarnings(True)
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__name__)
 
 
 def load(place_filename):
@@ -18,7 +20,7 @@ def load(place_filename):
     place_file = pathlib.Path(place_filename)
     if place_file.suffix == ".yaml" or place_file.suffix == ".yml":
         with open(place_file) as f:
-            place = schema.load(yaml.load(f))
+            place = schema.load(yaml.load(f, Loader=yaml.SafeLoader))
     elif place_file.suffix == ".json":
         with open(place_file) as f:
             place = schema.load(json.load(f))
@@ -35,46 +37,28 @@ def fill_in_nones(pairs):
             yield (pair, None)
 
 
-def many(pairs, output_file, upload=True):
-    pairs = list(fill_in_nones(pairs))
-    records = [
-        main(place_filename=place_filename, shapefile=shapefile, upload=upload)
-        for place_filename, shapefile in tqdm(pairs)
-    ]
+def many(filenames, output_file, upload=True):
+    args = [(filename, upload) for filename in filenames]
+    with Pool(8) as pool:
+        records = pool.starmap(main, args)
     print(records)
     with open(output_file, "w") as f:
         json.dump(records, f)
 
 
-def main(place_filename, shapefile=None, upload=True):
+def main(place_filename, upload=True):
+    print(place_filename)
     place = load(place_filename)
-    if shapefile is None:
-        if place.source is not None:
-            shapefile = place.source
-        else:
-            raise ValueError("Must provide a shapefile source")
-    place_record = process(shapefile, place, upload=upload)
+
+    units_records = [
+        process(units, place["id"], upload=upload) for units in place["units"]
+    ]
+    place_record = place.copy()
+    place_record["units"] = units_records
+
     return place_record
 
 
-def find_shp(folder):
-    for item in folder.iterdir():
-        if item.suffix == ".shp":
-            return str(item.absolute())
-
-
 if __name__ == "__main__":
-    # with open("./places.txt") as f:
-    #     args = [tuple(line.strip().split(" ")) for line in f if line[0] != "#"]
-    # pairs = [
-    #     (
-    #         find_shp(pathlib.Path(f"./shapes/{shapefile_folder}")),
-    #         f"./data/{place_name}.yml",
-    #     )
-    #     for place_name, shapefile_folder in args
-    # ]
-    # many(pairs, "./output.json")
-    # result = main(*sys.argv[1:3])
-    filenames = glob("./data/*.yml")
-    many(filenames, "./output.json", upload=False)
-    # print(result)
+    filenames = list(glob("./data/*.yml"))
+    many(filenames, "output.json", upload=False)

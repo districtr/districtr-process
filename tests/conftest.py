@@ -21,6 +21,7 @@ def geodataframe():
 def gdf_with_data(geodataframe):
     geodataframe["data"] = list(range(len(geodataframe)))
     geodataframe["data2"] = list(range(len(geodataframe)))
+    geodataframe["data3"] = "a"
     return geodataframe
 
 

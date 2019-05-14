@@ -1,10 +1,11 @@
 import pytest
 
-from districtr_process.process import convert_to_integer_ids, read_in_wgs84, wgs84
+from districtr_process.process import read_file, wgs84
+from districtr_process.tileset import convert_to_integer_ids
 
 
 def test_wgs84_works(shapefile):
-    assert read_in_wgs84(shapefile).crs == wgs84
+    assert read_file(shapefile).crs == wgs84
 
 
 def test_to_crs_does_nothing_if_already_in_the_requested_crs(geodataframe):
