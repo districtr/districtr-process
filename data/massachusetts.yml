@@ -200,8 +200,8 @@ units:
                   name: Asian voting age population
                 - key: OTHERVAP
                   name: Other races voting age population
-                - key: 2MOREVAP
-                  name: Two or more races voting age population
+                # - key: 2MOREVAP
+                  # name: Two or more races voting age population
             total:
                 key: VAP
                 name: Voting age population
@@ -221,6 +221,15 @@ units:
                   name: Republican
             type: election
           - metadata:
+                race: Governor
+                year: 2002
+            subgroups:
+                - key: GOV02R
+                  name: Republican
+                - key: GOV02D
+                  name: Democratic
+            type: election
+          - metadata:
                 race: Presidential
                 year: 2004
             subgroups:
@@ -237,6 +246,15 @@ units:
                   name: Democratic
                 - key: SEN06R
                   name: Republican
+            type: election
+          - metadata:
+                race: Governor
+                year: 2006
+            subgroups:
+                - key: GOV06R
+                  name: Republican
+                - key: GOV06D
+                  name: Democratic
             type: election
           - metadata:
                 race: Presidential
@@ -265,13 +283,22 @@ units:
                 - key: SEN10R
                   name: Republican
             type: election
+          - metadata:
+                race: Governor
+                year: 2010
+            subgroups:
+                - key: GOV10R
+                  name: Republican
+                - key: GOV10D
+                  name: Democratic
+            type: election
       id: precincts_02_10
       id_column:
           key: GEOID10
           name: 2000 Census GEOID
       name: Precincts, 2002-2010
       unit_type: precinct
-      source: ./shapes/MA_precincts_02_10/MA_precincts_02_10_with_2010_census_demographics.shp
+      source: ./shapes/MA_precincts_02_10/MA_precincts_02_10.shp
     - column_sets:
           - name: Population
             subgroups:
@@ -380,6 +407,15 @@ units:
                   name: Republican
             type: election
           - metadata:
+                race: Governor
+                year: 2014
+            subgroups:
+                - key: GOV14R
+                  name: Republican
+                - key: GOV14D
+                  name: Democratic
+            type: election
+          - metadata:
                 race: Presidential
                 year: 2016
             subgroups:
@@ -388,16 +424,34 @@ units:
                 - key: PRES16R
                   name: Republican
             type: election
+          - metadata:
+                race: Governor
+                year: 2018
+            subgroups:
+                - key: GOV18R
+                  name: Republican
+                - key: GOV18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Senate
+                year: 2018
+            subgroups:
+                - key: SEN18D
+                  name: Democratic
+                - key: SEN18R
+                  name: Republican
+            type: election
       id: precincts_12_16
       id_column:
-          key: Name
+          key: NAME
           name: Precinct name
       name: Precincts, 2012-2016
       unit_type: precinct
-      source: ./shapes/MA_precincts_12_16/MA_precincts_12_16_with_2010_census_demographics.shp
+      source: ./shapes/MA_precincts_12_16/MA_precincts12_16.shp
 name: Massachusetts
 districting_problems:
     - name: Congress
-      numberOfParts: 9
-      pluralNoun: Congressional Districts
+      number_of_parts: 9
+      plural_noun: Congressional Districts
 id: ma

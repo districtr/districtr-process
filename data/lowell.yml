@@ -3,25 +3,37 @@ units:
       column_sets:
           - name: Population
             subgroups:
-                # - key: P0030002
-                # name: White Population
-                - key: P0050003
+                - key: NH_WHITE
                   name: White population
-                - key: P0040003
+                - key: HISP
                   name: Hispanic population
-                - key: P0070006
+                - key: NH_ASIAN
                   name: Asian population
-                # - key: P0030005
-                #   name: Asian Population
-                - key: P0030003
+                - key: NH_BLACK
                   name: Black Population
-                # - key: H0160002
-                # name: Owner occupied housing units
+                # - key: COALTNPOP
+                #   name: Coalition population
             total:
-                key: P0010001
+                key: TOTPOP
                 name: Total Population
             type: population
-      source: ./shapes/Lowell_blocks/lowell_bl_pop.shp
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                # - key: COALTNVAP
+                #   name: Coalition voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+      source: ./shapes/lowell_blocks/lowell_blocks.shp
       id: blocks
       name: Blocks
       id_column:
@@ -29,8 +41,17 @@ units:
           name: 2010 Census GEOID
 districting_problems:
     - name: City Council
-      numberOfParts: 9
-      pluralNoun: City Council Districts
+      number_of_parts: 3
+      plural_noun: City Council Districts
+    - name: City Council
+      number_of_parts: 7
+      plural_noun: City Council Districts
+    - name: City Council
+      number_of_parts: 8
+      plural_noun: City Council Districts
+    - name: City Council
+      number_of_parts: 9
+      plural_noun: City Council Districts
 name: Lowell
 id: lowell
 state: Massachusetts

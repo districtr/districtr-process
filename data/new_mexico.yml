@@ -1,0 +1,117 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16R
+                  name: Republican
+                - key: PRES16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Secretary of State
+                year: 2016
+            subgroups:
+                - key: SOS16R
+                  name: Republican
+                - key: SOS16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2018
+            subgroups:
+                - key: GOV18R
+                  name: Republican
+                - key: GOV18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Senate
+                year: 2018
+            subgroups:
+                - key: SEN18R
+                  name: Republican
+                - key: SEN18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Secretary of State
+                year: 2018
+            subgroups:
+                - key: SOS18R
+                  name: Republican
+                - key: SOS18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2018
+            subgroups:
+                - key: AG18R
+                  name: Republican
+                - key: AG18D
+                  name: Democratic
+            type: election
+      id_column:
+          key: NAME10
+          name: Precinct unique identifier
+      unit_type: precinct
+      source: ./shapes/new_mexico_precincts/new_mexico_precincts.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 3
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 42
+      plural_noun: State Senate Districts
+id: new_mexico
+name: New Mexico
+state: New Mexico

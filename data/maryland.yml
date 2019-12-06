@@ -1,0 +1,198 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: PRES12R
+                  name: Republican
+                - key: PRES12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Senate
+                year: 2012
+            subgroups:
+                - key: SEN12R
+                  name: Republican
+                - key: SEN12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2012
+            subgroups:
+                - key: USH12R
+                  name: Republican
+                - key: USH12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2014
+            subgroups:
+                - key: GOV14R
+                  name: Republican
+                - key: GOV14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2014
+            subgroups:
+                - key: AG14D
+                  name: Republican
+                - key: AG14R
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Comptroller
+                year: 2014
+            subgroups:
+                - key: COMP14R
+                  name: Republican
+                - key: COMP14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2014
+            subgroups:
+                - key: USH14R
+                  name: Republican
+                - key: USH14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16R
+                  name: Republican
+                - key: PRES16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Senate
+                year: 2016
+            subgroups:
+                - key: SEN16R
+                  name: Republican
+                - key: SEN16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2016
+            subgroups:
+                - key: USH16R
+                  name: Republican
+                - key: USH16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2018
+            subgroups:
+                - key: GOV18R
+                  name: Republican
+                - key: GOV18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Senate
+                year: 2018
+            subgroups:
+                - key: SEN18R
+                  name: Republican
+                - key: SEN18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2018
+            subgroups:
+                - key: USH18R
+                  name: Republican
+                - key: USH18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2018
+            subgroups:
+                - key: AG18R
+                  name: Republican
+                - key: AG18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Comptroller
+                year: 2018
+            subgroups:
+                - key: COMP18R
+                  name: Republican
+                - key: COMP18D
+                  name: Democratic
+            type: election
+      id_column:
+          key: NAME
+          name: Precinct unique identifier
+      unit_type: precinct
+      source: ./shapes/MD_precincts/MD_precincts.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 8
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 47
+      plural_noun: State Senate Districts
+id: maryland
+name: Maryland
+state: Maryland

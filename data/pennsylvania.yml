@@ -1,112 +1,143 @@
-units:
-    - id: precincts
-      column_sets:
-          - name: Population
-            subgroups:
-                - key: HISP_POP
-                  name: Hispanic population
-                - key: WHITE_POP
-                  name: White population
-                - key: BLACK_POP
-                  name: Black population
-                - key: NATIVE_POP
-                  name: American Indian population
-                - key: ASIAN_POP
-                  name: Asian population
-            total:
-                key: TOT_POP
-                name: Total population
-            type: population
-          - metadata:
-                race: Attorney General
-                year: 2012
-            subgroups:
-                - key: ATG12D
-                  name: Democratic
-                - key: ATG12R
-                  name: Republican
-            type: election
-          - metadata:
-                race: Governor
-                year: 2014
-            subgroups:
-                - key: F2014GOVD
-                  name: Democratic
-                - key: F2014GOVR
-                  name: Republican
-            type: election
-          - metadata:
-                race: Governor
-                year: 2010
-            subgroups:
-                - key: GOV10D
-                  name: Democratic
-                - key: GOV10R
-                  name: Republican
-            type: election
-          - metadata:
-                race: Presidential
-                year: 2012
-            subgroups:
-                - key: PRES12D
-                  name: Democratic
-                - key: PRES12R
-                  name: Republican
-            type: election
-          - metadata:
-                race: Presidential
-                year: 2016
-            subgroups:
-                - key: T16PRESD
-                  name: Democratic
-                - key: T16PRESR
-                  name: Republican
-            type: election
-          - metadata:
-                race: Senate
-                year: 2010
-            subgroups:
-                - key: SEN10D
-                  name: Democratic
-                - key: SEN10R
-                  name: Republican
-            type: election
-          - metadata:
-                race: Attorney General
-                year: 2016
-            subgroups:
-                - key: T16ATGD
-                  name: Democratic
-                - key: T16ATGR
-                  name: Republican
-            type: election
-          - metadata:
-                race: Senate
-                year: 2012
-            subgroups:
-                - key: USS12D
-                  name: Democratic
-                - key: USS12R
-                  name: Republican
-            type: election
-          - metadata:
-                race: Senate
-                year: 2016
-            subgroups:
-                - key: T16SEND
-                  name: Democratic
-                - key: T16SENR
-                  name: Republican
-            type: election
-      unit_type: precinct
-      source: ./shapes/PA_VTD/PA_VTD.shp
-      id_column:
-          key: GEOID10
-          name: 2010 Census GEOID
 districting_problems:
-    - name: Congress
-      numberOfParts: 18
-      pluralNoun: Congressional Districts
+- name: Congress
+  number_of_parts: 18
+  plural_noun: Congressional Districts
+- name: Congress, 2021-
+  number_of_parts: 17
+  plural_noun: Congressional Districts
 id: pennsylvania
 name: Pennsylvania
 state: Pennsylvania
+units:
+- column_sets:
+  - name: Population
+    subgroups:
+    - key: NH_WHITE
+      name: White population
+    - key: NH_BLACK
+      name: Black population
+    - key: HISP
+      name: Hispanic population
+    - key: NH_ASIAN
+      name: Asian population
+    - key: NH_AMIN
+      name: American Indian population
+    - key: NH_NHPI
+      name: Native Hawaiian and Pacific Islander population
+    - key: NH_2MORE
+      name: Two or more races
+    - key: NH_OTHER
+      name: Other races
+    total:
+      key: TOTPOP
+      name: Total population
+    type: population
+  - name: Voting Age Population
+    subgroups:
+    - key: WVAP
+      name: White voting age population
+    - key: BVAP
+      name: Black voting age population
+    - key: HVAP
+      name: Hispanic voting age population
+    - key: AMINVAP
+      name: Native American voting age population
+    - key: NHPIVAP
+      name: Native Hawaiian and Pacific Islander voting age population
+    - key: ASIANVAP
+      name: Asian voting age population
+    - key: OTHERVAP
+      name: Other races voting age population
+    - key: 2MOREVAP
+      name: Two or more races voting age population
+    total:
+      key: VAP
+      name: Voting age population
+    type: population
+  - metadata:
+      race: Attorney General
+      year: 2012
+    subgroups:
+    - key: ATG12D
+      name: Democratic
+    - key: ATG12R
+      name: Republican
+    type: election
+  - metadata:
+      race: Governor
+      year: 2014
+    subgroups:
+    - key: F2014GOVD
+      name: Democratic
+    - key: F2014GOVR
+      name: Republican
+    type: election
+  - metadata:
+      race: Governor
+      year: 2010
+    subgroups:
+    - key: GOV10D
+      name: Democratic
+    - key: GOV10R
+      name: Republican
+    type: election
+  - metadata:
+      race: Presidential
+      year: 2012
+    subgroups:
+    - key: PRES12D
+      name: Democratic
+    - key: PRES12R
+      name: Republican
+    type: election
+  - metadata:
+      race: Presidential
+      year: 2016
+    subgroups:
+    - key: T16PRESD
+      name: Democratic
+    - key: T16PRESR
+      name: Republican
+    type: election
+  - metadata:
+      race: Senate
+      year: 2010
+    subgroups:
+    - key: SEN10D
+      name: Democratic
+    - key: SEN10R
+      name: Republican
+    type: election
+  - metadata:
+      race: Attorney General
+      year: 2016
+    subgroups:
+    - key: T16ATGD
+      name: Democratic
+    - key: T16ATGR
+      name: Republican
+    type: election
+  - metadata:
+      race: Senate
+      year: 2012
+    subgroups:
+    - key: USS12D
+      name: Democratic
+    - key: USS12R
+      name: Republican
+    type: election
+  - metadata:
+      race: Senate
+      year: 2016
+    subgroups:
+    - key: T16SEND
+      name: Democratic
+    - key: T16SENR
+      name: Republican
+    type: election
+  id: precincts
+  id_column:
+    key: GEOID10
+    name: 2010 Census GEOID
+  source: ./shapes/PA_VTDs/PA_VTD_PLANS.shp
+  unit_type: precinct
