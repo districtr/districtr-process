@@ -35,7 +35,7 @@ class Column:
 
         if self.require_numeric is True:
             try:
-                df[self.key] = pandas.to_numeric(df[self.key]).astype(int)
+                df[self.key] = pandas.to_numeric(df[self.key]).round(0).astype(int)
             except Exception:
                 failed.append("require_numeric")
 

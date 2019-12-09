@@ -97,6 +97,10 @@ class Units:
 
         return record
 
+    def keys(self, df):
+        id_column = df[self.id_column.key]
+        return list(id_column)
+
 
 def bounds(df):
     """Give [[minx, miny], [maxx, maxy]] for a GeoDataFrame"""

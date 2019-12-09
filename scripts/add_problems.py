@@ -23,7 +23,7 @@ def add_problems(name_to_problems):
         with open(filename) as f:
             record = yaml.safe_load(f)
         problems = name_to_problems[record["id"]]
-        record["districting_problems"] = problems
+        record["districtingProblems"] = problems
         with open(filename, "w") as f:
             yaml.safe_dump(record, f)
 

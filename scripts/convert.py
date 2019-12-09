@@ -25,7 +25,7 @@ def column_sets(data):
 
 
 def convert(data):
-    new_data = {key: data[key] for key in ["id", "name", "unit_type", "id_column"]}
+    new_data = {key: data[key] for key in ["id", "name", "unitType", "idColumn"]}
     new_data["column_sets"] = column_sets(data)
     return new_data
 

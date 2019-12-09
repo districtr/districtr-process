@@ -1,5 +1,17 @@
+id: little_rock
+state: Arkansas
+name: Little Rock
 units:
-    - id: precincts
+    - id: blocks
+      name: Blocks
+      unit_type: block
+      source: ./shapes/little_rock/little_rock_blocks.shp
+      id_column:
+          key: GEOID10
+          name: 2010 Census GEOID
+      name_column:
+          key: NAME10
+          name: Block Name
       column_sets:
           - name: Population
             subgroups:
@@ -46,51 +58,7 @@ units:
                 key: VAP
                 name: Voting age population
             type: population
-          - metadata:
-                race: Presidential
-                year: 2016
-            subgroups:
-                - key: PRES16R
-                  name: Republican
-                - key: PRES16D
-                  name: Democratic
-            type: election
-          - metadata:
-                race: Senate
-                year: 2016
-            subgroups:
-                - key: SEN16R
-                  name: Republican
-                - key: SEN16D
-                  name: Democratic
-            type: election
-          - metadata:
-                race: Governor
-                year: 2016
-            subgroups:
-                - key: GOV16R
-                  name: Republican
-                - key: GOV16D
-                  name: Democratic
-            type: election
-      id_column:
-          key: DsslvID
-          name: Precinct unique identifier
-      unit_type: precinct
-      source: ./shapes/UT_precincts/UT_precincts.shp
 districting_problems:
-    - name: Congress
+    - name: School Attendance Zones
       number_of_parts: 4
-      plural_noun: Congressional Districts
-    - name: State Senate
-      number_of_parts: 29
-      plural_noun: State Senate Districts
-    - name: State House
-      number_of_parts: 75
-      plural_noun: Districts
-    - name: State Board of Education
-      number_of_parts: 15
-      plural_noun: Districts
-id: utah
-name: Utah
-state: Utah
+      plural_noun: School Attendance Zones
