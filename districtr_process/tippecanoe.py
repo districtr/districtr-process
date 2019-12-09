@@ -17,7 +17,12 @@ def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):
         ["tippecanoe", "-o", target]
         + zoom_options
         + accumulate_columns
-        + ["--extend-zooms-if-still-dropping", filename]
+        + [
+            "--extend-zooms-if-still-dropping",
+            "--no-tiny-polygon-reduction",
+            "--detect-shared-borders",
+            filename
+        ]
     )
 
 
@@ -31,6 +36,7 @@ def create_tiles(filename, units, target, tippecanoe_args=None):
     command = tippecanoe_shell_command(
         source_absolute, units, target_absolute, **tippecanoe_args
     )
+    print(command)
     result = subprocess.run(command)
 
     return result

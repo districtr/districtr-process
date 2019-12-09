@@ -15,9 +15,9 @@ class ColumnSet:
         if subgroups is None:
             subgroups = []
         self.subgroups = subgroups
-        if metadata is None:
-            metadata = dict()
-        self.metadata = metadata
+        # if metadata is None:
+        # metadata = dict()
+        # self.metadata = metadata
 
     def __repr__(self):
         subgroups_string = ", ".join(subgroup.key for subgroup in self.subgroups)
@@ -45,8 +45,8 @@ class ColumnSet:
             summarize_column(subgroup, df) for subgroup in self.subgroups
         ]
 
-        if len(self.metadata) > 0:
-            result["metadata"] = self.metadata
+        # if len(self.metadata) > 0:
+        # result["metadata"] = self.metadata
 
         return result
 
@@ -79,8 +79,11 @@ class ColumnSetSchema(Schema):
         ColumnModel = column_types[data["type"]]
 
         result = {"type": data["type"]}
-        if "metadata" in data:
-            result["metadata"] = data["metadata"]
+        if "metadata" in data and "name" not in data:
+            # result["metadata"] = data["metadata"]
+            result["name"] = " ".join(
+                [str(data["metadata"]["year"]), data["metadata"]["race"]]
+            )
 
         if "name" in data:
             result["name"] = data["name"]

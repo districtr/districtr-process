@@ -44,8 +44,8 @@ class Tileset:
 
     def upload(self):
         with tempfile.TemporaryDirectory() as tempdir:
-            mbtiles_filename = "{}/{}.mbtiles".format(tempdir, self.upload_id)
-            # mbtiles_filename = "./{}.mbtiles".format(self.upload_id)
+            # mbtiles_filename = "{}/{}.mbtiles".format(tempdir, self.upload_id)
+            mbtiles_filename = "./{}.mbtiles".format(self.upload_id)
             log.info("Creating tiles in %s", mbtiles_filename)
             filename = pathlib.Path(tempdir) / "{}.geojson".format(self.upload_id)
             add_id_attribute_and_dump(self.df, filename)

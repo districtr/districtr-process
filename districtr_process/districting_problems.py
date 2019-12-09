@@ -4,7 +4,9 @@ from marshmallow.validate import Range, OneOf
 
 class DistrictingProblemSchema(Schema):
     name = fields.Str(required=True)
-    numberOfParts = fields.Int(validate=Range(min=0))
-    pluralNoun = fields.Str()
-    type = fields.Str(validate=OneOf(["multimember", "districts", "community"]))
+    number_of_parts = fields.Int(validate=Range(min=0))
+    plural_noun = fields.Str()
+    type = fields.Str(
+        validate=OneOf(["multimember", "districts", "community"]), default="districts"
+    )
     units = fields.List(fields.Str())
