@@ -9,7 +9,7 @@ wgs84 = "+init=epsg:4326"
 log = logging.getLogger(__name__)
 
 
-def process(units, place_id, upload=True, project=True):
+def process(units, place_id, upload=True, overwrite=False, project=True):
     log.info("Processing %s_%s", place_id, units.id)
     df = read_file(units.source, project=project)
     
@@ -18,8 +18,8 @@ def process(units, place_id, upload=True, project=True):
 
     if upload:
         # assert df.crs == wgs84
-        points_tileset.upload()
-        polygons_tileset.upload()
+        points_tileset.upload(overwrite=overwrite)
+        polygons_tileset.upload(overwrite=overwrite)
 
     record = units.record(df)
     record["tilesets"] = [polygons_tileset.record(), points_tileset.record()]

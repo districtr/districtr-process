@@ -2,7 +2,8 @@ import pathlib
 import subprocess
 
 
-def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):
+def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None, 
+                             overwrite=False):
     accumulate_columns = [
         f"--accumulate-attribute={col.key}:sum" for col in place.columns
     ]
@@ -13,10 +14,14 @@ def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):
     else:
         zoom_options += ["-z", str(maxzoom)]
 
+    force_options = []
+    if overwrite: force_options.append("-f")
+
     return (
         ["tippecanoe", "-o", target]
         + zoom_options
         + accumulate_columns
+        + force_options
         + [
             "--extend-zooms-if-still-dropping",
             "--no-tiny-polygon-reduction",
@@ -26,7 +31,7 @@ def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None):
     )
 
 
-def create_tiles(filename, units, target, tippecanoe_args=None):
+def create_tiles(filename, units, target, overwrite=False, tippecanoe_args=None):
     if tippecanoe_args is None:
         tippecanoe_args = {}
 
@@ -34,7 +39,8 @@ def create_tiles(filename, units, target, tippecanoe_args=None):
     source_absolute = str(pathlib.Path(filename).absolute())
 
     command = tippecanoe_shell_command(
-        source_absolute, units, target_absolute, **tippecanoe_args
+        source_absolute, units, target_absolute, overwrite=overwrite,
+        **tippecanoe_args
     )
     print(command)
     result = subprocess.run(command)

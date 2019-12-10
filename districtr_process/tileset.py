@@ -42,7 +42,7 @@ class Tileset:
         self.units = units
         self.upload_id = upload_id
 
-    def upload(self):
+    def upload(self, overwrite=False):
         with tempfile.TemporaryDirectory() as tempdir:
             # mbtiles_filename = "{}/{}.mbtiles".format(tempdir, self.upload_id)
             mbtiles_filename = "./{}.mbtiles".format(self.upload_id)
@@ -51,7 +51,8 @@ class Tileset:
             add_id_attribute_and_dump(self.df, filename)
 
             result = create_tiles(
-                str(filename.absolute()), self.units, target=mbtiles_filename
+                str(filename.absolute()), self.units, target=mbtiles_filename,
+                overwrite=overwrite
             )
             result.check_returncode()
 
