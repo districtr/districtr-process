@@ -1,6 +1,7 @@
 import json
 import logging
 import pathlib
+import argparse
 
 from glob import glob
 from multiprocessing import Pool
@@ -15,12 +16,12 @@ logging.captureWarnings(True)
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
-try:
-    with open("token.json", "r") as f:
-        HEADERS = json.load(f)
-except FileNotFoundError as e:
-    print("Could not import mapbox token.  Please create file `token.json`")
-    exit(0)
+# try:
+#     with open("token.json", "r") as f:
+#         HEADERS = json.load(f)
+# except FileNotFoundError as e:
+#     print("Could not import mapbox token.  Please create file `token.json`")
+#     exit(0)
 
 
 
@@ -46,9 +47,9 @@ def fill_in_nones(pairs):
             yield (pair, None)
 
 
-def many(filenames, output_file, upload=True):
+def many(filenames, output_file, upload=True, overwrite=False):
     # args = [(filename, upload) for filename in filenames]
-    records = [main(filename, upload) for filename in filenames]
+    records = [main(filename, upload, overwrite) for filename in filenames]
     with open(output_file, "w") as f:
         json.dump(records, f, indent=2)
     # with Pool(8) as pool:
@@ -58,12 +59,12 @@ def many(filenames, output_file, upload=True):
             # json.dump(records, f, indent=2)
 
 
-def main(place_filename, upload=True):
+def main(place_filename, upload=True, overwrite=False):
     print(place_filename)
     place = load(place_filename)
 
     units_records = [
-        process(units, place["id"], upload=upload) for units in place["units"]
+        process(units, place["id"], upload=upload, overwrite=overwrite) for units in place["units"]
     ]
     place_record = place.copy()
     place_record["units"] = units_records
@@ -106,5 +107,15 @@ if __name__ == "__main__":
     #     for filename in glob("./data/*.yml")
     #     if all(name not in filename for name in excluded)
     # ]
-    filenames = ["./data/ohio.yml"]
-    many(filenames, "output.json", upload=False)
+
+    parser = argparse.ArgumentParser(description="Upload / Create Districtr modules", prog="districtr_process")
+    parser.add_argument("files", nargs="+", type=str, help=".yml files corresponding to modules to upload")
+    parser.add_argument("--force", action="store_true", help="overwrite existing mbtiles output?")
+    parser.add_argument("--upload", action="store_true", help="upload tiles to mapbox?")
+    args = parser.parse_args()
+
+    filenames = args.files
+    overwrite = args.force
+    upload = args.upload
+
+    many(filenames, "output.json", upload=upload, overwrite=overwrite)
