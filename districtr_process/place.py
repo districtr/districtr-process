@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, EXCLUDE, INCLUDE
 from marshmallow.validate import OneOf
 
 from .districting_problems import DistrictingProblemSchema
@@ -12,5 +12,5 @@ class PlaceSchema(Schema):
     state = fields.Str(validate=OneOf(states))
     description = fields.Str()
     units = fields.Nested(UnitsSchema, many=True)
-    districting_problems = fields.Nested(DistrictingProblemSchema, many=True)
+    districting_problems = fields.Nested(DistrictingProblemSchema, many=True, unknown=INCLUDE)
     landmarks = fields.Dict()

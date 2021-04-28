@@ -50,10 +50,8 @@ class Tileset:
             filename = pathlib.Path(tempdir) / "{}.geojson".format(self.upload_id)
             add_id_attribute_and_dump(self.df, filename)
 
-            result = create_tiles(
-                str(filename.absolute()), self.units, target=mbtiles_filename,
-                overwrite=overwrite
-            )
+            result = create_tiles(str(filename.absolute()), self.units, 
+                                 target=mbtiles_filename, overwrite=overwrite)
             result.check_returncode()
 
             log.info("Uploading %s to Mapbox", self.upload_id)

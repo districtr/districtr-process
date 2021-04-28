@@ -75,7 +75,7 @@ class ColumnSetSchema(Schema):
     metadata = fields.Dict()
 
     @post_load
-    def create_column_set(self, data):
+    def create_column_set(self, data, **kwargs):
         ColumnModel = column_types[data["type"]]
 
         result = {"type": data["type"]}

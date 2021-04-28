@@ -1,6 +1,7 @@
 import logging
 
 import geopandas
+import pandas as pd
 
 from .tileset import Tileset
 
@@ -29,6 +30,16 @@ def process(units, place_id, upload=True, overwrite=False, project=True):
 
 def read_file(filename, project=True):
     df = geopandas.read_file(filename)
+    if filename == "./shapes/LA_precincts_VRA/LA_final.shp":
+        elec_columns = list(pd.read_csv("./shapes/LA_precincts_VRA/LA_column_names.csv")["new"])
+        df.columns = df.columns.str.replace("-", "_")
+        state_gdf_cols = list(df.columns)
+        cand1_index = state_gdf_cols.index('DeatonD_15')
+        cand2_index = state_gdf_cols.index('WolfeD_16P')
+        state_gdf_cols[cand1_index:cand2_index+1] = elec_columns
+        df.columns = state_gdf_cols
+        df['LandrieuI_19P_Governor'] = df['LandrieuI_19P_Governor'].astype(float)
+
     if project and df.crs != wgs84:
         df.to_crs(wgs84, inplace=True)
     return df

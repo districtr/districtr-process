@@ -139,5 +139,5 @@ class UnitsSchema(Schema):
     bounds = fields.List(fields.List(fields.Float()))
 
     @post_load
-    def create_unit_set(self, data):
+    def create_unit_set(self, data, **kwargs):
         return Units(**data)

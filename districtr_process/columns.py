@@ -70,13 +70,13 @@ class NameColumn(Column):
 
 class NameColumnSchema(ColumnSchema):
     @post_load
-    def make_column(self, data):
+    def make_column(self, data, **kwargs):
         return NameColumn(**data)
 
 
 class IdColumnSchema(ColumnSchema):
     @post_load
-    def make_column(self, data):
+    def make_column(self, data, **kwargs):
         return IdColumn(**data)
 
 
