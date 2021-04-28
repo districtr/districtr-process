@@ -27,8 +27,8 @@ units:
       name: Blocks
 districting_problems:
     - name: Town Council
-      numberOfParts: 4
-      pluralNoun: Town Council Districts
+      number_of_parts: 4
+      plural_noun: Town Council Districts
 id: islip
 name: Islip
 state: New York

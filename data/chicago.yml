@@ -3,15 +3,15 @@ name: Chicago
 state: Illinois
 districting_problems:
     - name: City Council
-      numberOfParts: 10
-      pluralNoun: Multi-member Wards
+      number_of_parts: 10
+      plural_noun: Multi-member Wards
     - name: City Council
-      numberOfParts: 50
-      pluralNoun: Wards
+      number_of_parts: 50
+      plural_noun: Wards
       units: [precincts]
     - name: City Council
-      numberOfParts: 50
-      pluralNoun: Wards, any size
+      number_of_parts: 50
+      plural_noun: Wards, any size
       type: multimember
 units:
     - id: precincts

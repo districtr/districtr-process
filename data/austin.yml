@@ -27,8 +27,8 @@ units:
           name: 2010 Census GEOID
 districting_problems:
     - name: City Council
-      numberOfParts: 10
-      pluralNoun: City Council Districts
+      number_of_parts: 10
+      plural_noun: City Council Districts
 id: austin
 name: Austin
 state: Texas

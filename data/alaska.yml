@@ -96,11 +96,11 @@ units:
       bounds: [[-179.228, 51.1753], [-129.98, 71.4411]]
 districting_problems:
     - name: State Senate
-      numberOfParts: 20
-      pluralNoun: State Senate Districts
+      number_of_parts: 20
+      plural_noun: State Senate Districts
     - name: State House
-      numberOfParts: 40
-      pluralNoun: State House Districts
+      number_of_parts: 40
+      plural_noun: State House Districts
 id: alaska
 name: Alaska
 state: Alaska

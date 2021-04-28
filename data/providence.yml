@@ -57,5 +57,5 @@ units:
             type: population
 districting_problems:
     - name: City Council
-      numberOfParts: 15
-      pluralNoun: City Council Wards
+      number_of_parts: 15
+      plural_noun: City Council Wards

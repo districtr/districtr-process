@@ -66,8 +66,8 @@ units:
             type: population
 districting_problems:
     - name: Congress
-      numberOfParts: 14
-      pluralNoun: Congressional Districts
+      number_of_parts: 14
+      plural_noun: Congressional Districts
     - name: State Senate
-      numberOfParts: 38
-      pluralNoun: State Senate Districts
+      number_of_parts: 38
+      plural_noun: State Senate Districts

@@ -102,5 +102,5 @@ units:
             type: population
 districting_problems:
     - name: Congress
-      numberOfParts: 4
-      pluralNoun: Congressional Districts
+      number_of_parts: 4
+      plural_noun: Congressional Districts

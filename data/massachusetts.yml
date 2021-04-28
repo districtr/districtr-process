@@ -200,8 +200,8 @@ units:
                   name: Asian voting age population
                 - key: OTHERVAP
                   name: Other races voting age population
-                # - key: 2MOREVAP
-                  # name: Two or more races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
             total:
                 key: VAP
                 name: Voting age population

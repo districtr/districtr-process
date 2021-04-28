@@ -119,11 +119,11 @@ units:
       source: ./shapes/VA_precincts/VA_precincts.shp
 districting_problems:
     - name: Congress
-      numberOfParts: 11
-      pluralNoun: Congressional Districts
+      number_of_parts: 11
+      plural_noun: Congressional Districts
     - name: State Senate
-      numberOfParts: 40
-      pluralNoun: State Senate Districts
+      number_of_parts: 40
+      plural_noun: State Senate Districts
 id: virginia
 name: Virginia
 state: Virginia

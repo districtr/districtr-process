@@ -70,8 +70,8 @@ units:
     source: ./shapes/GA_precincts16/GA_precincts16.shp
 districting_problems:
   - name: Congress
-    numberOfParts: 14
-    pluralNoun: Congressional Districts
+    number_of_parts: 14
+    plural_noun: Congressional Districts
 id: georgia
 name: Georgia
 state: Georgia

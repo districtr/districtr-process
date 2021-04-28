@@ -30,9 +30,9 @@ name: Santa Clara
 state: California
 districting_problems:
     - name: City Council
-      numberOfParts: 6
-      pluralNoun: City Council Districts
+      number_of_parts: 6
+      plural_noun: City Council Districts
     - name: City Council
-      numberOfParts: 6
-      pluralNoun: City Council Seats
+      number_of_parts: 6
+      plural_noun: City Council Seats
       type: multimember

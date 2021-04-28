@@ -81,11 +81,11 @@ units:
       source: ./shapes/TX_vtds/TX_vtds.shp
 districting_problems:
     - name: Congress
-      numberOfParts: 36
-      pluralNoun: Congressional Districts
+      number_of_parts: 36
+      plural_noun: Congressional Districts
     - name: State Senate
-      numberOfParts: 31
-      pluralNoun: State Senate Districts
+      number_of_parts: 31
+      plural_noun: State Senate Districts
 id: texas
 name: Texas
 state: Texas

@@ -80,8 +80,8 @@ units:
       source: ./shapes/MO_vtds/MO_vtds.shp
 districting_problems:
     - name: Congress
-      numberOfParts: 8
-      pluralNoun: Congressional Districts
+      number_of_parts: 8
+      plural_noun: Congressional Districts
 id: missouri
 name: Missouri
 state: Missouri

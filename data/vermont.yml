@@ -90,11 +90,11 @@ units:
             type: election
 districting_problems:
     - name: State Senate
-      numberOfParts: 10
-      pluralNoun: Three-Member Senate Districts
+      number_of_parts: 10
+      plural_noun: Three-Member Senate Districts
     - name: State Senate
-      numberOfParts: 30
-      pluralNoun: State Senate Seats
+      number_of_parts: 30
+      plural_noun: State Senate Seats
       type: multimember
 id: vermont
 name: Vermont
