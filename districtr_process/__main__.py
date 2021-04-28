@@ -3,11 +3,11 @@ import logging
 import pathlib
 import argparse
 
-from glob import glob
-from multiprocessing import Pool
+# from glob import glob
+# from multiprocessing import Pool
 
 import yaml
-import requests
+# import requests
 
 from .place import PlaceSchema
 from .process import process
@@ -15,14 +15,6 @@ from .process import process
 logging.captureWarnings(True)
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
-
-# try:
-#     with open("token.json", "r") as f:
-#         HEADERS = json.load(f)
-# except FileNotFoundError as e:
-#     print("Could not import mapbox token.  Please create file `token.json`")
-#     exit(0)
-
 
 
 def load(place_filename):

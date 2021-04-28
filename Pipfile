@@ -11,7 +11,7 @@ pytest-cov = "*"
 
 [packages]
 geopandas = "*"
-marshmallow = "~=3.0.0b20"
+marshmallow = "*"
 mapbox = "*"
 pyyaml = "*"
 tqdm = "*"
