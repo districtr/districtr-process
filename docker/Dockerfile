@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM debian:buster-slim
 
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime  # Set timezone
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get install -y --no-install-recommends \
