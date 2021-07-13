@@ -1,21 +1,25 @@
-# Using docker to run districtr-process
-First, install docker.
-macOS:
+# Running districtr-process
+## Installing Docker
+First, install Docker.
+On macOS, you can install Docker like so:
 ```bash
 brew install docker
 ```
-Linux:
+For Linux, you can install Docker with an official script:
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
-Windows: https://docs.docker.com/docker-for-windows/install/
+For Windows, follow the instructions here: https://docs.docker.com/docker-for-windows/install/
 
+## Getting a Docker image
 Then, to fetch the pre-built Docker image, run:
 ```bash
 docker pull innovativeinventor/districtr-process:latest
 ```
+Alternatively, you can build the dockerfile in `docker/Dockerfile` yourself.
 
+## Running
 Finally, to run `districtr-process`, you can either run:
 ```bash
 bash docker/run.sh [args] 
@@ -29,7 +33,7 @@ docker run -it --rm -v $(pwd):/districtr-process innovativeinventor/districtr-pr
 where `$(pwd)` is the path to your `districtr-process` repo.
 
 
-# Create an environment with the neccessary packages
+# Alternate, non-containerized setup
 
 Run the following steps in terminal:
 
@@ -43,7 +47,7 @@ Run the following steps in terminal:
 
 `$ pipenv shell`
 
-# Test the process command on Minnesota
+## Test the process command on Minnesota
 
 `$ python -m districtr_process data/minnesota.yml`
 
