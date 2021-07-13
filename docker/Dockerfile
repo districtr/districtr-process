@@ -15,7 +15,6 @@ RUN cd * && ./configure && make && make install
 
 RUN git clone https://github.com/mapbox/tippecanoe && cd tippecanoe && make -j && make install
 
-RUN git clone https://github.com/districtr/districtr-process
 RUN pip3 install pytest black flake8 pytest-cov geopandas marshmallow mapbox pyyaml tqdm
 
 WORKDIR /districtr-process
