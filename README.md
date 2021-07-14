@@ -32,6 +32,11 @@ docker run -it --rm -v $(pwd):/districtr-process innovativeinventor/districtr-pr
 ```
 where `$(pwd)` is the path to your `districtr-process` repo.
 
+If you want to pass a mapbox API token to the Docker container, simply add it to `.env.list` file. For example, the contents of `.env.list` would look like:
+```
+MAPBOX_ACCESS_TOKEN=SOMESECRETKEY
+```
+where `SOMESECRETKEY` is your API token.
 
 # Alternate, non-containerized setup
 
