@@ -7,10 +7,8 @@ Using Docker allows us to skip the normal convoluted setup process and simply fe
 
 ## Installing Docker
 First, install Docker.
-On macOS, you can install Docker like so:
-```bash
-brew install docker
-```
+On macOS, you can install Docker from here: https://docs.docker.com/docker-for-mac/install/
+
 For Linux, you can install Docker with an official script:
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
