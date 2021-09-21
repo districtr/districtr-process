@@ -1,0 +1,60 @@
+units:
+    - id: blocks20
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: WPOP20
+                  name: White population
+                - key: BPOP20
+                  name: Black population
+                - key: HISP20
+                  name: Hispanic population
+                - key: ASIANPOP20
+                  name: Asian population
+                - key: AMINPOP20
+                  name: American Indian population
+                - key: NHPIPOP20
+                  name: Native Hawaiian and Pacific Islander population
+                - key: 2MOREPOP20
+                  name: Two or more races
+                - key: OTHERPOP20
+                  name: Other races
+            total:
+                key: TOTPOP20
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP20
+                  name: White voting age population
+                - key: BVAP20
+                  name: Black voting age population
+                - key: HVAP20
+                  name: Hispanic voting age population
+                - key: AMINVAP20
+                  name: Native American voting age population
+                - key: NHPIVAP20
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP20
+                  name: Asian voting age population
+                - key: OTHERVAP20
+                  name: Other races voting age population
+                - key: 2MOREVAP20
+                  name: Two or more races voting age population
+            total:
+                key: VAP20
+                name: Voting age population
+            type: population
+      id_column:
+          key: GEOID20
+          name: Block FIPS code
+      unit_type: block
+      source: ../redistrict/tx_austin.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 5
+      plural_noun: Supervisor Districts
+id: austin
+name: Austin
+state: Texas

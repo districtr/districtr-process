@@ -1,0 +1,40 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            total:
+                key: Pop_EST2019_v1
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            total:
+                key: st1519_m2_totbyagg
+                name: Total population
+            subgroups:
+                - key: st1519_m2_nhw
+                  name: White population
+                - key: st1519_m2_nhb
+                  name: Black population
+                - key: st1519_m2_nha
+                  name: Asian population
+                - key: st1519_m2_h
+                  name: Hispanic population
+                - key: st1519_m2_nhpi
+                  name: Native Hawaiian / Pacific Islander population
+                - key: st1519_m2_nhi
+                  name: American Indian population
+                - key: st1519_m2_nhoth
+                  name: Other population
+            type: population
+      id_column:
+          key: GEOID20
+          name: Geo ID
+      unit_type: block
+      source: ../california/MarinaBlocks2.geojson
+districting_problems:
+    - name: County Supervisors
+      number_of_parts: 5
+      plural_noun: Supervisorial Districts
+id: ca_marina
+name: Marina
+state: California

@@ -1,0 +1,55 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: WHITE
+                  name: White population
+                - key: BLACK
+                  name: Black population
+                - key: AMERIND
+                  name: American Indian population
+                - key: ASIAN
+                  name: Asian population
+                - key: HAWPI
+                  name: Native Hawaiian Pacific Islander population
+                - key: OTHER
+                  name: Other races
+                - key: TWOORMORE
+                  name: Two or more races
+                - key: HISPLATINO
+                  name: Hispanic population
+            total:
+                key: TOTALPOP
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: CVAP19WHT
+                  name: White population
+                - key: CVAP19BLK
+                  name: Black population
+                - key: CVAP19AMN
+                  name: American Indian population
+                - key: CVAP19ASN
+                  name: Asian population
+                - key: CVAP19HWP
+                  name: Native Hawaiian Pacific Islander population
+                - key: CVAP19HSP
+                  name: Hispanic population
+            total:
+                key: CVAP19TOT
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID
+          name: Geo ID
+      unit_type: block
+      source: ../pasorobles/pasorobles.geojson
+districting_problems:
+    - name: City Council
+      number_of_parts: 8
+      plural_noun: Council Districts
+id: pasorobles
+name: Paso Robles School District
+state: California

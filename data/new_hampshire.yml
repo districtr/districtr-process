@@ -1,0 +1,180 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - metadata:
+              race: President
+              year: 2012
+            subgroups:
+            - key: PRES12D
+              name: Democratic
+            - key: PRES12R
+              name: Republican
+            type: election
+          - metadata:
+              race: Governor
+              year: 2012
+            subgroups:
+            - key: GOV12D
+              name: Democratic
+            - key: GOV12R
+              name: Republican
+            type: election
+          - metadata:
+              race: Governor
+              year: 2014
+            subgroups:
+            - key: GOV14D
+              name: Democratic
+            - key: GOV14R
+              name: Republican
+            type: election
+          - metadata:
+              race: State Senate
+              year: 2014
+            subgroups:
+            - key: SSEN14D
+              name: Democratic
+            - key: SSEN14R
+              name: Republican
+            type: election
+          - metadata:
+              race: President
+              year: 2016
+            subgroups:
+            - key: PRES16D
+              name: Democratic
+            - key: PRES16R
+              name: Republican
+            type: election
+          - metadata:
+              race: US Senate
+              year: 2016
+            subgroups:
+            - key: SEN16D
+              name: Democratic
+            - key: SEN16R
+              name: Republican
+            type: election
+          - metadata:
+              race: State Senate
+              year: 2016
+            subgroups:
+            - key: SSEN16D
+              name: Democratic
+            - key: SSEN16R
+              name: Republican
+            type: election
+          - metadata:
+              race: Governor
+              year: 2016
+            subgroups:
+            - key: GOV16D
+              name: Democratic
+            - key: GOV16R
+              name: Republican
+            type: election
+          - metadata:
+              race: Governor
+              year: 2018
+            subgroups:
+            - key: GOV18D
+              name: Democratic
+            - key: GOV18R
+              name: Republican
+            type: election
+          - metadata:
+              race: President
+              year: 2020
+            subgroups:
+            - key: PRES20D
+              name: Democratic
+            - key: PRES20R
+              name: Republican
+            type: election
+          - metadata:
+              race: US Senate
+              year: 2020
+            subgroups:
+            - key: SEN20D
+              name: Democratic
+            - key: SEN20R
+              name: Republican
+            type: election
+          - metadata:
+              race: State Senate
+              year: 2020
+            subgroups:
+            - key: SSEN20D
+              name: Democratic
+            - key: SSEN20R
+              name: Republican
+            type: election
+          - metadata:
+              race: Governor
+              year: 2020
+            subgroups:
+            - key: GOV20D
+              name: Democratic
+            - key: GOV20R
+              name: Republican
+            type: election
+      id_column:
+          key: Precinct
+          name: Precinct name
+      unit_type: precinct
+      source: ../NH.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 2
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 24
+      plural_noun: State Senate Districts
+id: newhampshire
+name: New Hampshire
+state: New Hampshire

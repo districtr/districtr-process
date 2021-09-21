@@ -1,0 +1,38 @@
+id: norcar2
+state: North Carolina
+name: North Carolina
+units:
+  - id: precincts
+    unit_type: precinct
+    source: ../../Downloads/Voting_Precincts.shp
+    id_column:
+      key: id
+      name: VTD id
+    column_sets:
+      - name: Registered Voters
+        type: population
+        subgroups:
+          - key: v_inactive
+            name: Inactive Voters
+          - key: v_active
+            name: Active Voters
+          - key: v_white
+            name: Voter IDd as White
+          - key: v_black
+            name: Voter IDd as Black
+          - key: v_hisp
+            name: Voter IDd as Hispanic ethnicity (any race)
+          - key: v_in_perso
+            name: Voter ever voted in person
+          - key: v_provisio
+            name: Voter only voted provisional
+        total:
+          key: voters
+          name: Registered Voters
+districting_problems:
+  - name: Congress
+    number_of_parts: 13
+    plural_noun: Congressional Districts
+  - name: State Senate
+    number_of_parts: 50
+    plural_noun: State Senate Districts

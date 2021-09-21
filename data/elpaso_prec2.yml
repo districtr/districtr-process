@@ -1,0 +1,58 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: WPOP19
+                  name: White population
+                - key: BPOP19
+                  name: Black population
+                - key: HPOP19
+                  name: Hispanic population
+                - key: NHPIPOP19
+                  name: Native Hawaiian Pacific Islander population
+                - key: 2MOREPOP19
+                  name: Two or more races population
+                - key: ASIANPOP19
+                  name: Asian population
+                - key: AMINPOP19
+                  name: American Indian population
+            total:
+                key: TOTPOP19
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: WCVAP19
+                  name: White voting age population
+                - key: BCVAP19
+                  name: Black voting age population
+                - key: HCVAP19
+                  name: Hispanic voting age population
+                - key: NHPICVAP19
+                  name: Native Hawaiian Pacific Islander voting age population
+                - key: 2MORECVAP1
+                  name: Two or more races voting age population
+                - key: ASIANCVAP1
+                  name: Asian voting age population
+                - key: AMINCVAP19
+                  name: American Indian voting age population
+            total:
+                key: CVAP19
+                name: Voting age population
+            type: population
+      id_column:
+          key: CURRENT_PC
+          name: ID
+      unit_type: precinct
+      source: ../EP_COUNTY_dropped_pop.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 36
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 31
+      plural_noun: State Senate Districts
+id: elpaso2
+name: El Paso
+state: Texas

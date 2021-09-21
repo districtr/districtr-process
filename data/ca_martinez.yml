@@ -1,0 +1,45 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: ACS_15-19_AfAm
+                  name: Black population
+                - key: ACS_15-19_Asian
+                  name: Asian population
+                - key: ACS_15-19_Hispanic_or_Latino
+                  name: Hispanic population
+            total:
+                key: ACS_15-19_Total
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: CVAP_15-19_NH_White
+                  name: White population
+                - key: CVAP_15-19_AfAm
+                  name: Black population
+                - key: CVAP_15-19_AiAn
+                  name: American Indian population
+                - key: CVAP_15-19_Asian
+                  name: Asian population
+                - key: CVAP_15-19_Hawaiian_API
+                  name: Native Hawaiian Pacific Islander population
+                - key: CVAP_15-19_Hispanic_or_Latino
+                  name: Hispanic population
+            total:
+                key: CVAP_15-19_Total
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID10
+          name: Geo ID
+      unit_type: block
+      source: ../california/City_of_Martinez_Blocks.geojson
+districting_problems:
+    - name: County
+      number_of_parts: 5
+      plural_noun: Council Districts
+id: ca_martinez
+name: Martinez
+state: California

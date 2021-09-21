@@ -1,0 +1,279 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: PRES12R
+                  name: Republican
+                - key: PRES12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US Senate
+                year: 2012
+            subgroups:
+                - key: SEN12R
+                  name: Republican
+                - key: SEN12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2012
+            subgroups:
+                - key: USH12R
+                  name: Republican
+                - key: USH12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2012
+            subgroups:
+                - key: GOV12R
+                  name: Republican
+                - key: GOV12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Lieutenant Governor
+                year: 2012
+            subgroups:
+                - key: LG12R
+                  name: Republican
+                - key: LG12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: State House
+                year: 2012
+            subgroups:
+                - key: SH12R
+                  name: Republican
+                - key: SH12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: State Senate
+                year: 2012
+            subgroups:
+                - key: SSEN12R
+                  name: Republican
+                - key: SSEN12D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US Senate
+                year: 2014
+            subgroups:
+                - key: SEN14R
+                  name: Republican
+                - key: SEN14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2014
+            subgroups:
+                - key: USH14R
+                  name: Republican
+                - key: USH14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2014
+            subgroups:
+                - key: AG14R
+                  name: Republican
+                - key: AG14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Auditor
+                year: 2014
+            subgroups:
+                - key: AUD14R
+                  name: Republican
+                - key: AUD14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Treasurer
+                year: 2014
+            subgroups:
+                - key: TRE14R
+                  name: Republican
+                - key: TRE14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: State House
+                year: 2014
+            subgroups:
+                - key: SH14R
+                  name: Republican
+                - key: SH14D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16R
+                  name: Republican
+                - key: PRES16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2016
+            subgroups:
+                - key: USH16R
+                  name: Republican
+                - key: USH16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2016
+            subgroups:
+                - key: GOV16R
+                  name: Republican
+                - key: GOV16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Lieutenant Governor
+                year: 2016
+            subgroups:
+                - key: LG16R
+                  name: Republican
+                - key: LG16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: State House
+                year: 2016
+            subgroups:
+                - key: SH16R
+                  name: Republican
+                - key: SH16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US Senate
+                year: 2018
+            subgroups:
+                - key: SEN18R
+                  name: Republican
+                - key: SEN18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2018
+            subgroups:
+                - key: USH18R
+                  name: Republican
+                - key: USH18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Treasurer
+                year: 2018
+            subgroups:
+                - key: TRE18R
+                  name: Republican
+                - key: TRE18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Auditor
+                year: 2018
+            subgroups:
+                - key: AUD18R
+                  name: Republican
+                - key: AUD18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2018
+            subgroups:
+                - key: AG18R
+                  name: Republican
+                - key: AG18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: State House
+                year: 2018
+            subgroups:
+                - key: SH18R
+                  name: Republican
+                - key: SH18D
+                  name: Democratic
+            type: election
+      id_column:
+          key: EDRD_2012
+          name: Precinct unique identifier
+      unit_type: precinct
+      source: ../../Downloads/DE_precincts/DE_precincts.shp
+districting_problems:
+    - name: State Senate
+      number_of_parts: 21
+      plural_noun: State Senate Districts
+    - name: State House
+      number_of_parts: 41
+      plural_noun: State House Districts
+id: delaware
+name: Delaware
+state: Delaware

@@ -1,0 +1,37 @@
+units:
+    - id: blockgroups
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID
+          name: Geo ID
+      unit_type: block_group
+      source: ../fortworth_tx_bg_processed/fortworth_tx_bg_calc.shp
+districting_problems:
+    - name: Board of Supervisors
+      number_of_parts: 5
+      plural_noun: Supervisorial Districts
+id: fortworth
+name: Fort Worth
+state: Texas

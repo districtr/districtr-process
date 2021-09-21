@@ -1,0 +1,20 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            type: population
+            total:
+                key: centroid_y
+                name: Total population
+      id_column:
+          key: label
+          name: Geo ID
+      unit_type: block
+      source: ../lax.geojson
+districting_problems:
+    - name: Board of Supervisors
+      number_of_parts: 5
+      plural_noun: Supervisorial Districts
+id: lax
+name: Los Angeles County
+state: California

@@ -1,0 +1,40 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            total:
+                key: PopEst2020
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: CVAP_white
+                  name: White population
+                - key: CVAP_black
+                  name: Black population
+                - key: CVAP_asian_amer
+                  name: Asian population
+                - key: CVAP_latino
+                  name: Hispanic population
+                - key: CVAP_native_amer
+                  name: Native American population
+                - key: CVAP_pac_isl
+                  name: Native Hawaiian Pacific Islander population
+                - key: CVAP_other
+                  name: Other population
+            total:
+                key: CVAP_total
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID20
+          name: Geo ID
+      unit_type: block
+      source: ../sacramento.geojson
+districting_problems:
+    - name: City Council
+      number_of_parts: 8
+      plural_noun: Council Districts
+id: sacramento3
+name: Sacramento
+state: California

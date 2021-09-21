@@ -1,0 +1,39 @@
+units:
+    - id: blockgroups
+      column_sets:
+          - name: Population
+            total:
+                key: STATEFP20
+                name: Total population
+            type: population
+            subgroups:
+                - key: ChildAtHome
+                  name: Children home percent
+                - key: Renters
+                  name: Renter percent
+                - key: Apts
+                  name: Multi-family residents percent
+                - key: HSGrads
+                  name: High school grad percent
+                - key: CollegeGrads
+                  name: College grad percent
+                - key: Inc75
+                  name: Upper income percent
+                - key: SpanishAtHome
+                  name: Spanish spoken at home percent
+                - key: AsnLangAtHome
+                  name: Asian languages spoken at home percent
+                - key: OthLangAtHome
+                  name: Other languages spoken at home percent
+      id_column:
+          key: BLKGRP20
+          name: Geo ID
+      unit_type: block_group
+      source: ../california/lavernedata.geojson
+districting_problems:
+    - name: City Council
+      number_of_parts: 8
+      plural_noun: Council Districts
+id: lavernedata
+name: La Verne
+state: California

@@ -1,0 +1,51 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: ACS_15-1_1
+                  name: White population
+                - key: ACS_15-1_2
+                  name: Black population
+                - key: ACS_15-1_3
+                  name: American Indian population
+                - key: ACS_15-1_4
+                  name: Asian population
+                - key: ACS_15-1_5
+                  name: Native Hawaiian Pacific Islander population
+                - key: ACS_15-1_6
+                  name: Hispanic population
+            total:
+                key: ACS_15-19_
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: CVAP_15-12
+                  name: White population
+                - key: CVAP_15-_5
+                  name: Black population
+                - key: CVAP_15-19
+                  name: American Indian population
+                - key: CVAP_15-_3
+                  name: Asian population
+                - key: CVAP_15-_8
+                  name: Native Hawaiian Pacific Islander population
+                - key: CVAP_15-_7
+                  name: Hispanic population
+            total:
+                key: CVAP_15-11
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID10
+          name: Geo ID
+      unit_type: block
+      source: ../mesa2.shp
+districting_problems:
+    - name: City Council
+      number_of_parts: 8
+      plural_noun: Council Districts
+id: mesaaz2
+name: Mesa
+state: Arizona

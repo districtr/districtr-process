@@ -1,0 +1,41 @@
+units:
+    - source: ../../Downloads/aggregate.shp
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HPOP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NAHI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_OTH
+                  name: Other races
+                - key: NH_2MORE
+                  name: Two or more races
+            total:
+                key: TOTPOP
+                name: Total Population
+            type: population
+      unit_type: precinct
+      id_column:
+          key: TC_ED
+          name: Election District
+      id: precincts
+      name: Election Districts
+districting_problems:
+    - name: Town Council
+      number_of_parts: 4
+      plural_noun: Town Council Districts
+    - name: Town Council
+      number_of_parts: 6
+      plural_noun: Town Council Districts
+id: islip
+name: Islip
+state: New York

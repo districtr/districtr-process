@@ -1,0 +1,20 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            total:
+                key: POPULATION
+                name: Total population
+            type: population
+      id_column:
+          key: BLOCK
+          name: Census block FIPS code
+      unit_type: block
+      source: ../NVUSD_AllBlocks.shp
+districting_problems:
+    - name: Board of Education Trustees
+      number_of_parts: 8
+      plural_noun: Trustee Districts
+id: napaschools2
+name: Napa USD
+state: California
