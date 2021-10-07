@@ -1,44 +1,23 @@
-id: michigan
-state: Michigan
-name: Michigan
 units:
-    - id: precincts2
-      unit_type: precinct
-      source: ../MI/MI.shp
-      id_column:
-          key: VTD
-          name: Precinct ID
-      name_column:
-          key: precinct
-          name: Precinct Name
-      name_column:
-          key: county_nam
-          name: County Name
+    - id: blockgroups
       column_sets:
-          - type: election
-            metadata:
-                race: Presidential
-                year: 2016
-            subgroups:
-                - key: PRES16D
-                  name: Democratic
-                - key: PRES16R
-                  name: Republican
           - name: Population
             subgroups:
-                - key: NH_WHITE
+                - key: WHITE
                   name: White population
-                - key: NH_BLACK
+                - key: BLACK
                   name: Black population
                 - key: HISP
                   name: Hispanic population
-                - key: NH_ASIAN
+                - key: ASIAN
                   name: Asian population
-                - key: NH_AMIN
+                - key: AMIN
                   name: American Indian population
-                - key: NH_NHPI
+                - key: NHPI
                   name: Native Hawaiian and Pacific Islander population
-                - key: NH_OTHER
+                - key: 2MORE
+                  name: Two or more races
+                - key: OTHER
                   name: Other races
             total:
                 key: TOTPOP
@@ -67,10 +46,21 @@ units:
                 key: VAP
                 name: Voting age population
             type: population
+      id_column:
+          key: GEOID20
+          name: Block group FIPS code
+      unit_type: block_group
+      source: ../ca_prison_bg.geojson
 districting_problems:
     - name: Congress
-      number_of_parts: 14
+      number_of_parts: 7
       plural_noun: Congressional Districts
+    - name: State House
+      number_of_parts: 105
+      plural_noun: State House Districts
     - name: State Senate
-      number_of_parts: 38
+      number_of_parts: 35
       plural_noun: State Senate Districts
+id: ca_20
+name: California
+state: California
