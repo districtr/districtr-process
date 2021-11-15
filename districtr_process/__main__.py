@@ -109,5 +109,6 @@ if __name__ == "__main__":
     filenames = args.files
     overwrite = args.force
     upload = args.upload
+    print(filenames)
 
     many(filenames, "output.json", upload=upload, overwrite=overwrite)
