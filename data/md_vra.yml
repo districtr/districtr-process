@@ -1,0 +1,83 @@
+id: md_vra
+state: Maryland
+name: Maryland
+units:
+    - id: Precinct
+      name: Precinct
+      unit_type: precinct
+      source: ./shapes/MD/precincts-adjoined-populated/precincts-adjoined-populated.shp
+      id_column:
+          key: VTD
+          name: Precinct Identifier
+      column_sets:
+          - type: election
+            metadata:
+                race: Governor (Primary)
+                year: 2014
+            subgroups:
+                - key: GOV14D
+                  name: Anthony Brown
+                - key: GOV14R
+                  name: Larry Hogan
+          - type: election
+            metadata:
+                race: Governor (Primary)
+                year: 2014
+            subgroups:
+                - key: GOV14PD_AB
+                  name: Anthony Brown
+                - key: GOV14PD_DG
+                  name: Doug Gansler
+                - key: GOV14PD_HM
+                  name: Heather Mizeur
+          - type: election
+            metadata:
+                race: United States Senate (Primary)
+                year: 2016
+            subgroups:
+                - key: SEN16PD_CV
+                  name: Chris Van Hollen
+                - key: SEN16PD_DE
+                  name: Donna Edwards
+          - type: election
+            metadata:
+                race: Governor (General)
+                year: 2018
+            subgroups:
+                - key: GOV18D
+                  name: Ben Jealous
+                - key: GOV18R
+                  name: Larry Hogan
+          - type: election
+            metadata:
+                race: Governor (Primary)
+                year: 2018
+            subgroups:
+                - key: GOV18PD_BJ
+                  name: Ben Jealous
+                - key: GOV18PD_JS
+                  name: Jim Shea
+                - key: GOV18PD_KV
+                  name: Krish Vignarajah
+                - key: GOV18PD_RM
+                  name: Rich Madaleno
+          - name: Voting-Age Population
+            subgroups:
+                - key: BVAP
+                  name: Black Voting-AGe Population
+            total:
+                key: VAP
+                name: Voting-Age Population
+            type: population
+          - name: Population
+            total:
+              key: ADJ_POP
+              name: Prison-Adjusted Population
+            type: population
+districting_problems:
+    - name: Congress
+      number_of_parts: 8
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 47
+      plural_noun: State Senate Districts

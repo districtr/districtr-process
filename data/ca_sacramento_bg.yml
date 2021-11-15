@@ -1,0 +1,37 @@
+id: sacdatabg
+name: Sacramento
+state: California
+units:
+    - id: blockgroups20
+      column_sets:
+          - name: Population
+            total:
+                key: ChildAtHome
+                name: Children at home
+            type: population
+            subgroups:
+                - key: Renters
+                  name: Renter percent
+                - key: Apts
+                  name: Multi-family residents
+                - key: HSGrads
+                  name: High school graduate
+                - key: CollegeGrads
+                  name: College graduate
+                - key: Inc75
+                  name: \>$75k income
+                - key: SpanishAtHome
+                  name: Spanish spoken at home
+                - key: AsnLangAtHome
+                  name: Asian languages spoken at home
+                - key: OthLangAtHome
+                  name: Other languages spoken at home
+      id_column:
+          key: BlockGroup
+          name: Geo ID
+      unit_type: block_group
+      source: shapes/sacramento_bg.json
+districting_problems:
+    - name: County Board
+      number_of_parts: 5
+      plural_noun: Board Districts

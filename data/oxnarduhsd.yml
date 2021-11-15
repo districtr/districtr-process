@@ -1,0 +1,57 @@
+units:
+  - id: blocks20
+    column_sets:
+      - name: Population
+        total:
+            key: POP_TOTAL
+            name: Total Population
+        subgroups:
+            - key: POP_HISP
+              name: Hispanic or Latino Population
+            - key: POP_WHITE
+              name: White Alone Population
+            - key: POP_BLACK
+              name: Black Population
+            - key: POP_AMIND
+              name: American Indian Population
+            - key: POP_ASIAN
+              name: Asian Population
+            - key: POP_HAWPI
+              name: Native Hawaiian and Pacific Islander Population
+            - key: POP_OTHER
+              name: Other Population
+            - key: POP_2MR
+              name: 2+ races Population
+        type: population
+      - name: Citizen Voting-Age Population
+        subgroups:
+            - key: CVAP19_WHT
+              name: White Alone Population
+            - key: CVAP19_HSP
+              name: Hispanic or Latino Population
+            - key: CVAP19_BLK
+              name: Black Population
+            - key: CVAP19_AMN
+              name: American Indian population
+            - key: CVAP19_ASN
+              name: Asian Population
+            - key: CVAP19_HWP
+              name: Native Hawaiian and Pacific Islander Population
+            - key: CVAP19_2MR
+              name: 2+ Races Population
+        total:
+            key: "CVAP19_TOT"
+            name: Total Citizen Voting-Age Population
+        type: population
+    id_column:
+        key: GEOID
+        name: Geo ID
+    unit_type: block
+    source: ./shapes/CA/oxnarduhsd/blocks.geojson
+districting_problems:
+  - name: Board of Trustees
+    number_of_parts: 5
+    plural_noun: Trustee Districts
+id: oxnarduhsd
+name: Oxnard Union High School
+state: California

@@ -1,0 +1,55 @@
+units:
+  - id: blocks20
+    column_sets:
+      - name: Population
+        total:
+            key: Population2020
+            name: Total population
+        subgroups:
+            - key: OMB_Latino
+              name: Hispanic or Latino OMB population
+            - key: OMB_NH_Wht
+              name: White Alone OMB population
+            - key: OMB_Blk
+              name: Black OMB Population
+            - key: OMB_Native
+              name: American Indian OMB population
+            - key: OMB_AsnPI
+              name: Asian, Native Hawaiian, and Pacific Islander OMB Population
+            - key: OMB_Other
+              name: Other OMB population
+            - key: OMB_MultiRace
+              name: 2+ races OMB population
+        type: population
+      - name: Voting Age Population
+        subgroups:
+            - key: OMB_VAP_NH_Wht
+              name: White Alone OMB Population
+            - key: OMB_VAP_Latino
+              name: Hispanic or Latino OMB Population
+            - key: OMB_VAP_Blk
+              name: Black OMB Population
+            - key: OMB_VAP_Native
+              name: American Indian OMB population
+            - key: OMB_VAP_AsnPI
+              name: Asian, Native Hawaiian, and Pacific Islander OMB Population
+            - key: OMB_VAP_Other
+              name: Other OMB population
+            - key: OMB_VAP_MultiRace
+              name: 2+ races OMB population
+        total:
+            key: 18+_Pop
+            name: Total population
+        type: population
+    id_column:
+        key: Block
+        name: Geo ID
+    unit_type: block
+    source: ./shapes/CA/placentia/blocks.geojson
+districting_problems:
+  - name: City Council
+    number_of_parts: 5
+    plural_noun: City Council Districts
+id: placentia
+name: La Placentia
+state: California

@@ -1,0 +1,39 @@
+id: goletadata3
+name: Goleta
+state: California
+units:
+    - id: blockgroups20
+      column_sets:
+          - name: Percentages
+            total:
+              key: State
+              name: Total population
+            type: population
+            subgroups:
+                - key: ChildAtHome
+                  name: Children at home
+                - key: Renters
+                  name: Renter percent
+                - key: Apts
+                  name: Multi-family residents
+                - key: HSGrads
+                  name: High school graduate
+                - key: CollegeGrads
+                  name: College graduate
+                - key: Inc75
+                  name: \>$75k income
+                - key: SpanishAtHome
+                  name: Spanish spoken at home
+                - key: AsnLangAtHome
+                  name: Asian languages spoken at home
+                - key: OthLangAtHome
+                  name: Other languages spoken at home
+      id_column:
+          key: BlockGroup
+          name: Geo ID
+      unit_type: block_group
+      source: shapes/ca_updates/ca_goleta_bg.json
+districting_problems:
+    - name: City Council
+      number_of_parts: 4
+      plural_noun: City Council Districts

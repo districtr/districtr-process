@@ -1,0 +1,167 @@
+id: in_vtds20
+state: Indiana
+name: Indiana
+units:
+    - id: VTD
+      name: VTDs
+      unit_type: VTD
+      source: ./shapes/IN/IN_vtd20/IN_vtd20.shp
+      id_column:
+          key: GEOID20
+          name: VTD Identifier
+      column_sets:
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16D
+                  name: Democratic
+                - key: PRES16R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Governor
+                year: 2016
+            subgroups:
+                - key: GOV16D
+                  name: Democratic
+                - key: GOV16R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Senate
+                year: 2016
+            subgroups:
+                - key: SEN16D
+                  name: Democratic
+                - key: SEN16R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Attorney General
+                year: 2016
+            subgroups:
+                - key: AG16D
+                  name: Democratic
+                - key: AG16R
+                  name: Republican
+          - type: election
+            metadata:
+                race: Senate
+                year: 2018
+            subgroups:
+                - key: G18USSDDON
+                  name: Democratic
+                - key: G18USSRBRA
+                  name: Republican
+          - type: election
+            metadata:
+                race: Secretary of State
+                year: 2018
+            subgroups:
+                - key: G18SOSDHAR
+                  name: Democratic
+                - key: G18SOSRLAW
+                  name: Republican
+          - type: election
+            metadata:
+                race: State Auditor
+                year: 2018
+            subgroups:
+                - key: G18AUDDWHI
+                  name: Democratic
+                - key: G18AUDRKLU
+                  name: Republican
+          - type: election
+            metadata:
+                race: State Treasurer
+                year: 2018
+            subgroups:
+                - key: G18TREDAGU
+                  name: Democratic
+                - key: G18TRERMIT
+                  name: Republican
+          
+          - type: election
+            metadata:
+                race: Presidential
+                year: 2020
+            subgroups:
+                - key: G20PREDBID
+                  name: Democratic
+                - key: G20PRERTRU
+                  name: Republican
+          - type: election
+            metadata:
+                race: Governor
+                year: 2020
+            subgroups:
+                - key: G20GOVDMYE
+                  name: Democratic
+                - key: G20GOVRHOL
+                  name: Republican
+          - type: election
+            metadata:
+                race: Attorney General
+                year: 2020
+            subgroups:
+                - key: G20ATGDWEI
+                  name: Democratic
+                - key: G20ATGRROK
+                  name: Republican
+          - name: Population
+            subgroups:
+                - key: WHITE
+                  name: White population
+                - key: BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: ASIAN
+                  name: Asian population
+                - key: AMIN
+                  name: American Indian population
+                - key: NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: 2MORE
+                  name: Two or more races
+                - key: OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+districting_problems:
+    - name: Congress
+      number_of_parts: 9
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 50
+      plural_noun: State Senate Districts
+    - name: State House
+      number_of_parts: 100
+      plural_noun: State House Districts

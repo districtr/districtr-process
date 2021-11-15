@@ -1,0 +1,229 @@
+id: yakima_elections
+state: Washington
+name: Yakima County
+[
+    "VTD", "PRES12R", "PRES12D", "SEN12R", "SEN12D", "GOV14R", "GOV14D", "AG14D",
+    "AG14R", "COMP14R", "COMP14D", "PRES16R", "PRES16D", "SEN16R", "SEN16D",
+    "GOV18R", "GOV18D", "SEN18R", "SEN18D", "AG18R", "AG18D", "COMP18R",
+    "COMP18D", "SEN12PD_BC", "SEN12PD_CM", "AG14PD_ABR", "AG14PD_BFR",
+    "AG14PD_JCA", "GOV14PD_AB", "GOV14PD_DG", "GOV14PD_HM", "SEN16PD_CV",
+    "SEN16PD_DE", "GOV18PD_BJ", "GOV18PD_JS", "GOV18PD_KV", "GOV18PD_RM",
+    "GOV18PD_RB", "BVAP", "BCVAP12", "BCVAP14", "BCVAP16", "BCVAP18", "VAP"
+]
+units:
+    - id: blocks
+      name: Blocks
+      unit_type: block
+      source: ./shapes/WA/yakima_elections/disaggregated.shp
+      id_column:
+          key: GEOID10
+          name: 2020 Census GEOID
+      column_sets:
+          - type: election
+            metadata:
+                race: Legislative District 15 Representative Position 2 (General)
+                year: 2012
+            subgroups:
+                - key: 12LEGGGONZ
+                  name: Pablo Gonzalez
+                - key: 12LEGGTAYL
+                  name: David V. Taylor
+          - type: election
+            metadata:
+                race: Legislative District 15 Representative Position 2 (Primary)
+                year: 2012
+            subgroups:
+                - key: 12LEGPGONZ
+                  name: Pablo Gonzalez
+                - key: 12LEGPTAYL
+                  name: David V. Taylor
+          - type: election
+            metadata:
+                race: State Supreme Court Justice Position 8 (Primary)
+                year: 2012
+            subgroups:
+                - key: 12SCOPDANI
+                  name: Bruce O. Danielson
+                - key: 12SCOPSGON
+                  name: Steve Gonzalez
+          - type: election
+            metadata:
+                race: County Commissioner District 1 (General)
+                year: 2012
+            subgroups:
+                - key: 16D1GGEARY
+                  name: Eric Geary
+                - key: 16D1GLEITA
+                  name: Mike Leita
+          - type: election
+            metadata:
+                race: County Commissioner District 1 (Primary)
+                year: 2016
+            subgroups:
+                - key: 16D1PGEARY
+                  name: Eric Geary
+                - key: 16D1PLEITA
+                  name: Mike Leita
+                - key: 16D1PSTAMB
+                  name: Zach Stambaugh
+                - key: 16D1PCHARL
+                  name: Douglas Charles
+          - type: election
+            metadata:
+                race: County Commissioner District 2 (Primary)
+                year: 2016
+            subgroups:
+                - key: 16D2PMANJA
+                  name: Debra Manjarrez
+                - key: 16D2PANDER
+                  name: Ron Anderson
+                - key: 16D2PWATSO
+                  name: David Watson
+                - key: 16D2PEFFLE
+                  name: Keith Caffery Effler
+          - type: election
+            metadata:
+                race: County Commissioner District 2 (General)
+                year: 2016
+            subgroups:
+                - key: 16D2GMANJA
+                  name: Debra Manjarrez
+                - key: 16D2GANDER
+                  name: Ron Anderson
+          - type: election
+            metadata:
+                race: Governor (General)
+                year: 2016
+            subgroups:
+                - key: 16GGINSLEE
+                  name: Democratic
+                - key: 16GGBRYANT
+                  name: Republican
+          - type: election
+            metadata:
+                race: Legislative District 14 Representative Position 1 (General)
+                year: 2016
+            subgroups:
+                - key: 16LEGGJOHN
+                  name: Norm Johnson
+                - key: 16LEGGSOTO
+                  name: Susan Soto Palmer
+          - type: election
+            metadata:
+                race: Legislative District 14 Representative Position 1 (Primary)
+                year: 2016
+            subgroups:
+                - key: 16LEGPJOHN
+                  name: Norm Johnson
+                - key: 16LEGPSOTO
+                  name: Susan Soto Palmer
+          - type: election
+            metadata:
+                race: Lieutenant Governor (General)
+                year: 2016
+            subgroups:
+                - key: 16LGGHABIB
+                  name: Democratic
+                - key: 16LGGMCCLE
+                  name: Republican
+          - type: election
+            metadata:
+                race: United States Senate (General)
+                year: 2016
+            subgroups:
+                - key: 16SGMURRAY
+                  name: Democratic
+                - key: 16SGVANCE
+                  name: Republican
+          - type: election
+            metadata:
+                race: County Commissioner District 3 (General)
+                year: 2018
+            subgroups:
+                - key: 18D3GCHILD
+                  name: Norm Childress
+                - key: 18D3GSOTOP
+                  name: Susan Soto Palmer
+          - type: election
+            metadata:
+                race: County Commissioner District 3 (Primary)
+                year: 2018
+            subgroups:
+                - key: 18D3PDERRE
+                  name: Summer Derrey
+                - key: 18D3PCHILD
+                  name: Norm Childress
+                - key: 18D3PCHANG
+                  name: Stephen Changala
+                - key: 18D3PSOTOP
+                  name: Susan Soto Palmer
+                - key: 18D3PHOMER
+                  name: Lisa A. Homer
+                - key: 18D3PKNAUT
+                  name: Brent Knautz
+          - type: election
+            metadata:
+                race: Legislative District 15 Senate (General)
+                year: 2018
+            subgroups:
+                - key: 18LEGGAGUI
+                  name: Bengie Aguilar
+                - key: 18LEGGHONE
+                  name: Jim Honeyford
+          - type: election
+            metadata:
+                race: Legislative District 15 Senate (Primary)
+                year: 2018
+            subgroups:
+                - key: 18LEGPAGUI
+                  name: Bengie Aguilar
+                - key: 18LEGPHONE
+                  name: Jim Honeyford
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name: Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+districting_problems:
+    - name: County Commissioners
+      number_of_parts: 3
+      plural_noun: Districts
