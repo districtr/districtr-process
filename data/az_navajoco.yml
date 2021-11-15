@@ -1,0 +1,55 @@
+units:
+  - id: blocks20
+    column_sets:
+      - name: Population
+        total:
+            key: Population2020
+            name: Total population
+        subgroups:
+            - key: OMB_Latino
+              name: Hispanic or Latino population
+            - key: OMB_NH_Wht
+              name: White Alone population
+            - key: OMB_Blk
+              name: Black OMB Population
+            - key: OMB_Native
+              name: American Indian population
+            - key: OMB_AsnPI
+              name: Asian, Native Hawaiian, and Pacific Islander Population
+            - key: OMB_Other
+              name: Other population
+            - key: OMB_MultiRace
+              name: 2+ races population
+        type: population
+      - name: Voting Age Population
+        subgroups:
+            - key: OMB_VAP_NH_Wht
+              name: White Alone Population
+            - key: OMB_VAP_Latino
+              name: Hispanic or Latino Population
+            - key: OMB_VAP_Blk
+              name: Black Population
+            - key: OMB_VAP_Native
+              name: American Indian population
+            - key: OMB_VAP_AsnPI
+              name: Asian, Native Hawaiian, and Pacific Islander Population
+            - key: OMB_Other_VAP
+              name: Other population
+            - key: OMB_VAP_MultiRace
+              name: 2+ races population
+        total:
+            key: "[18+_Pop]"
+            name: Total population
+        type: population
+    id_column:
+        key: Block
+        name: Geo ID
+    unit_type: block
+    source: ./shapes/AZ/navajoco/blocks.geojson
+districting_problems:
+  - name: Board of Supervisors
+    number_of_parts: 5
+    plural_noun: Supervisorial Districts
+id: navajoco
+name: Navajo County
+state: Arizona

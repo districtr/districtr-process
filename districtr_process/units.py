@@ -117,6 +117,8 @@ unit_types = {
     "town": "Towns",
     "community_area": "Community Areas",
     "ward": "Wards",
+    "vtd": "VTDs",
+    "VTD": "VTDs"
 }
 
 

@@ -1,0 +1,15 @@
+state: Ohio
+units:
+    - id: bg_clusters
+      name: Block Group Clusters
+      unit_type: block_group
+      source: ./shapes/OH/clusters/clusters.shp
+      id_column:
+          key: cluster
+          name: Cluster Name
+name: Ohio
+id: ohio
+districting_problems:
+  - name: Communities of Interest
+    number_of_parts: 0
+    plural_noun: Communities of Interest
