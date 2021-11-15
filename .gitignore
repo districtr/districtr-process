@@ -80,6 +80,10 @@ Dockerfile
 token.json
 
 # Shapefiles
-shapes/*
+shapes/*/**
+graphs/*/**
 
-graphs/*
+# Ignore .mbtiles and .json files; there's no use for those.
+.json
+.mbtiles
+
