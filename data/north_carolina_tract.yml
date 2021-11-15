@@ -1,0 +1,42 @@
+id: nc_tract
+state: North Carolina
+name: North Carolina
+units:
+  - id: tracts
+    unit_type: tract
+    source: ../nc_tract_combined.geojson
+    id_column:
+      key: GEOID10
+      name: GEOID10
+    column_sets:
+      - name: Households and Food
+        subgroups:
+          - key: TractHUNV
+            name: No vehicle
+          - key: TractSNAP
+            name: Receiving SNAP
+          - key: lasnap1
+            name: Low access 1 mile SNAP
+          - key: lasnap10
+            name: Low access 10 miles SNAP
+        total:
+          key: OHU2010
+          name: Total housing
+        type: population
+      - name: Health issues
+        type: population
+        subgroups:
+          - key: asthma_2016
+            name: Percent adult with asthma
+          - key: PovertyRate
+            name: Percent poverty rate
+        total:
+          key: hundred
+          name: Total fixed to 100
+districting_problems:
+  - name: Congress
+    number_of_parts: 13
+    plural_noun: Congressional Districts
+  - name: State Senate
+    number_of_parts: 50
+    plural_noun: State Senate Districts

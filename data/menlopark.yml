@@ -1,0 +1,55 @@
+units:
+    - id: blocks20
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: WHITE
+                  name: White population
+                - key: BLACK
+                  name: Black population
+                - key: AMIN
+                  name: American Indian population
+                - key: ASIAN
+                  name: Asian population
+                - key: NHPI
+                  name: Native Hawaiian Pacific Islander population
+                - key: OTHER
+                  name: Other races
+                - key: 2MORE
+                  name: Two or more races
+                - key: HISP
+                  name: Hispanic population
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White population
+                - key: BVAP
+                  name: Black population
+                - key: AMINVAP
+                  name: American Indian population
+                - key: ASIANVAP
+                  name: Asian population
+                - key: NHPIVAP
+                  name: Native Hawaiian Pacific Islander population
+                - key: HVAP
+                  name: Hispanic population
+            total:
+                key: VAP
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID20
+          name: Geo ID
+      unit_type: block
+      source: ../redistrict/MenloPark_module.shp
+districting_problems:
+    - name: City Council
+      number_of_parts: 8
+      plural_noun: Council Districts
+id: menlo_park
+name: Menlo Park
+state: California

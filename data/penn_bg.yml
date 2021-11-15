@@ -1,0 +1,66 @@
+units:
+    - id: blockgroups
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+      id_column:
+          key: GEOID10
+          name: Block group FIPS code
+      unit_type: block_group
+      source: ../penn/tl_2010_42_bg10.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 8
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 34
+      plural_noun: State Senate Districts
+    - name: State House
+      number_of_parts: 165
+      plural_noun: State House Districts
+id: pennsylvania
+state: Pennsylvania
+name: Pennsylvania

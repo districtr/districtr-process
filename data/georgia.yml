@@ -63,11 +63,14 @@ units:
           - key: SEN16D
             name: Democratic
         type: election
+    name_column:
+      key: CTYNAME
+      name: County
     id_column:
       key: ID
       name: ID
     unit_type: precinct
-    source: ./shapes/GA_precincts16/GA_precincts16.shp
+    source: ../GA_precincts/gawgs.shp
 districting_problems:
   - name: Congress
     number_of_parts: 14

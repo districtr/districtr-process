@@ -1,0 +1,178 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16R
+                  name: Republican
+                - key: PRES16D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US Senate run-off
+                year: 2016
+            subgroups:
+                - key: SEN16roR
+                  name: Republican
+                - key: SEN16roD
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Secretary of State run-off
+                year: 2018
+            subgroups:
+                - key: SOS18R
+                  name: Republican
+                - key: SOS18D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Secretary of State
+                year: 2015
+            subgroups:
+                - key: SOS15R
+                  name: Republican
+                - key: SOS15D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Secretary of State
+                year: 2019
+            subgroups:
+                - key: SOS19R
+                  name: Republican
+                - key: SOS19D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2019
+            subgroups:
+                - key: AG19R
+                  name: Republican
+                - key: AG19D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2015
+            subgroups:
+                - key: GOV15R
+                  name: Republican
+                - key: GOV15D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2019
+            subgroups:
+                - key: GOV19R
+                  name: Republican
+                - key: GOV19D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Lieutenant Governor
+                year: 2019
+            subgroups:
+                - key: LG19R
+                  name: Republican
+                - key: LG19D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Treasurer
+                year: 2017
+            subgroups:
+                - key: TRE17R
+                  name: Republican
+                - key: TRE17D
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Treasurer
+                year: 2019
+            subgroups:
+                - key: TRE19pR
+                  name: Republican
+                - key: TRE19pD
+                  name: Democratic
+                - key: TRE19pU
+                  name: Unaffiliated
+            type: election
+          - metadata:
+                race: Dem. Presidential Primary
+                year: 2016
+            subgroups:
+                - key: PRES16pD2
+                  name: Clinton
+                - key: PRES16pD7
+                  name: Sanders
+                - key: PRES16pD6
+                  name: O'Malley
+            type: election
+      id_column:
+          key: Code
+          name: Precinct unique identifier
+      unit_type: precinct
+      source: ../LA_1519/LA_1519.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 6
+      plural_noun: Congressional Districts
+    - name: State House
+      number_of_parts: 105
+      plural_noun: State House Districts
+    - name: State Senate
+      number_of_parts: 39
+      plural_noun: State Senate Districts
+id: louisiana
+name: Louisiana
+state: Louisiana

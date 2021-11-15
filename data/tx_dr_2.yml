@@ -1,0 +1,100 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP_x
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: WCVAP
+                  name: White citizen voting age population
+                - key: BCVAP
+                  name: Black citizen voting age population
+                - key: HCVAP
+                  name: Hispanic citizen voting age population
+                - key: AMINCVAP
+                  name: Native American citizen voting age population
+                - key: NHPICVAP
+                  name:
+                      Native Hawaiian and Pacific Islander citizen voting age population
+                - key: ASIANCVAP
+                  name: Asian citizen voting age population
+            total:
+                key: CVAP
+                name: Citizen voting age population
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: RomneyR_12
+                  name: Republican
+                - key: ObamaD_12G
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: TrumpR_16G
+                  name: Republican
+                - key: ClintonD_1
+                  name: Democratic
+            type: election
+      id_column:
+          key: CNTYVTD
+          name: ID
+      unit_type: precinct
+      source: ../2018_vtd_cvap_elec/2018_vtd_cvap_elec.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 36
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 31
+      plural_noun: State Senate Districts
+id: tx_dr_2
+name: tx_dr_2
+state: Texas

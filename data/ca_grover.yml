@@ -1,0 +1,40 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            total:
+                key: Est_Population
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: CVAP_White
+                  name: White population
+                - key: CVAP_Black
+                  name: Black population
+                - key: CVAP_Asian_Amer
+                  name: Asian population
+                - key: CVAP_Latino
+                  name: Hispanic population
+                - key: CVAP_Native_Amer
+                  name: Native American population
+                - key: CVAP_Pacific_Isl
+                  name: Native Hawaiian Pacific Islander population
+                - key: CVAP_Other
+                  name: Other population
+            total:
+                key: CVAP_Total
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID20
+          name: Geo ID
+      unit_type: block
+      source: ../california/ca_grover.geojson
+districting_problems:
+    - name: City Council
+      number_of_parts: 3
+      plural_noun: Council Districts
+id: ca_grover
+name: Grover Beach
+state: California

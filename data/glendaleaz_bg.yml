@@ -1,0 +1,39 @@
+units:
+    - id: blockgroups20
+      column_sets:
+          - name: Population
+            total:
+                key: State
+                name: Total population
+            type: population
+            subgroups:
+                - key: ChildAtHom
+                  name: Children home percent
+                - key: Renters
+                  name: Renter percent
+                - key: Apts
+                  name: Multi-family residents percent
+                - key: HSGrads
+                  name: High school grad percent
+                - key: CollegeGra
+                  name: College grad percent
+                - key: Inc75k
+                  name: Upper income percent
+                - key: SpanishAtH
+                  name: Spanish spoken at home percent
+                - key: AsnLangAtH
+                  name: Asian languages spoken at home percent
+                - key: OthLangAtH
+                  name: Other languages spoken at home percent
+      id_column:
+          key: BlockGroup
+          name: Geo ID
+      unit_type: block_group
+      source: ../redistrict/glendale_bg.geojson
+districting_problems:
+    - name: City Council
+      number_of_parts: 8
+      plural_noun: Council Districts
+id: glndazdata3
+name: Glendale
+state: Arizona

@@ -1,0 +1,34 @@
+units:
+    - id: blocks
+      column_sets:
+          - name: Population
+            total:
+                key: Pop_EST2019_v1
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: WhtCVAP
+                  name: White population
+                - key: BlkCVAP
+                  name: Black population
+                - key: AsnCVAP
+                  name: Asian population
+                - key: LatinoCVAP
+                  name: Hispanic population
+            total:
+                key: TotMinCVAP
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID20
+          name: Geo ID
+      unit_type: block
+      source: ../california/ca_oceano.geojson
+districting_problems:
+    - name: City Council
+      number_of_parts: 5
+      plural_noun: Council Districts
+id: ca_oceano
+name: Oceano
+state: California

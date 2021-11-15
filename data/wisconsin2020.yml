@@ -1,0 +1,132 @@
+state: Wisconsin
+units:
+    - column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population from 2010 Census
+                - key: NH_BLACK
+                  name: Black/African American population from 2010 Census
+                - key: HISP
+                  name: Population of Hispanic origin from 2010 Census
+                - key: NH_ASIAN
+                  name: Asian population from 2010 Census
+                - key: NH_AMIN
+                  name:
+                      American Indian or Alaska Native population from 2010
+                      Census
+                - key: NH_NHPI
+                  name:
+                      Native Hawaiian or other Pacific Islander population from
+                      2010 Census
+                - key: NH_OTHER
+                  name: Population of other race from 2010 Census
+                - key: NH_2MORE
+                  name: Population of other multiple races from 2010 Census
+                - key: VAP
+                  name: Population over the age of 18 from the 2010 Census
+                - key: WVAP
+                  name: White population over 18 from the 2010 Census
+                - key: BVAP
+                  name: Black population over 18 from the 2010 Census
+                - key: HVAP
+                  name:
+                      Population of Hispanic origin over 18 from the 2010 Census
+                - key: ASIANVAP
+                  name: Asian population over 18 from the 2010 Census
+                - key: AMINVAP
+                  name:
+                      American Indian or Alaska Native population over 18 from
+                      the 2010 Census
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian or other Pacific Islander population over
+                      18 from the 2010 Census
+                - key: OTHERVAP
+                  name: Population of other race over 18 from the 2010 Census
+                - key: 2MOREVAP
+                  name:
+                      Population of other multiple races over 18 from the 2010
+                      Census
+            total:
+                key: TOTPOP
+                name: Population from 2010 Census
+            type: population
+          - metadata:
+                race: Presidential
+                year: 2016
+            subgroups:
+                - key: PRES16D
+                  name: Democratic
+                - key: PRES16R
+                  name: Republican
+            type: election
+          - metadata:
+                race: Presidential
+                year: 2012
+            subgroups:
+                - key: PRES12D
+                  name: Democratic
+                - key: PRES12R
+                  name: Republican
+            type: election
+          - metadata:
+                race: Senate
+                year: 2016
+            subgroups:
+                - key: SEN16D
+                  name: Democratic
+                - key: SEN16R
+                  name: Republican
+            type: election
+          - metadata:
+                race: Senate
+                year: 2012
+            subgroups:
+                - key: SEN12D
+                  name: Democratic
+                - key: SEN12R
+                  name: Republican
+            type: election
+          - metadata:
+                race: Governor
+                year: 2014
+            subgroups:
+                - key: GOV14D
+                  name: Democratic
+                - key: GOV14R
+                  name: Republican
+            type: election
+          - metadata:
+                race: Governor
+                year: 2012
+            subgroups:
+                - key: GOV12D
+                  name: Democratic
+                - key: GOV12R
+                  name: Republican
+            type: election
+          - metadata:
+                race: Governor
+                year: 2018
+            subgroups:
+                - key: GOV18D
+                  name: Democratic
+                - key: GOV18R
+                  name: Republican
+            type: election
+      id: wards
+      unit_type: ward
+      source: ../WI.shp
+      id_column:
+          key: Code-2
+          name: Ward FIPS code
+      name_column:
+          key: COUNTY
+          name: County name
+districting_problems:
+    - name: Congress
+      number_of_parts: 8
+      plural_noun: Congressional Districts
+id: wisconsin2020
+name: Wisconsin

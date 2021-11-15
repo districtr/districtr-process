@@ -2,15 +2,18 @@ id: michigan
 state: Michigan
 name: Michigan
 units:
-    - id: precincts
+    - id: precincts2
       unit_type: precinct
-      source: ./shapes/MI_precincts/MI_precincts.shp
+      source: ../MI/MI.shp
       id_column:
           key: VTD
           name: Precinct ID
       name_column:
-          key: name
+          key: precinct
           name: Precinct Name
+      name_column:
+          key: county_nam
+          name: County Name
       column_sets:
           - type: election
             metadata:

@@ -1,0 +1,58 @@
+units:
+    - id: blockgroups
+      column_sets:
+      - name: Households by Income
+        type: population
+        subgroups:
+            - key: B19001_002
+              name: in_0_10
+            - key: B19001_003
+              name: in_10_15
+            - key: B19001_004
+              name: in_15_20
+            - key: B19001_005
+              name: in_20_25
+            - key: B19001_006
+              name: in_25_30
+            - key: B19001_007
+              name: in_30_35
+            - key: B19001_008
+              name: in_35_40
+            - key: B19001_009
+              name: in_40_45
+            - key: B19001_010
+              name: in_45_50
+            - key: B19001_011
+              name: in_50_60
+            - key: B19001_012
+              name: in_60_75
+            - key: B19001_013
+              name: in_75_100
+            - key: B19001_014
+              name: in_100_125
+            - key: B19001_015
+              name: in_125_150
+            - key: B19001_016
+              name: in_150_200
+            - key: B19001_017
+              name: in_200_plus
+            - key: B19013_001
+              name: Median Income
+      id_column:
+          key: GEOID
+          name: Geo ID
+      unit_type: block_group
+      source: ../tl_2018_04_bg/nwaz_bg.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 2
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 25
+      plural_noun: State Senate Districts
+    - name: State House
+      number_of_parts: 51
+      plural_noun: State House Districts
+id: nwaz_bg
+name: NWAZ
+state: Arizona

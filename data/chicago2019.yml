@@ -1,0 +1,100 @@
+id: chicago2019
+name: Chicago
+state: Illinois
+districting_problems:
+    - name: City Council
+      number_of_parts: 10
+      plural_noun: Multi-member Wards
+units:
+    - id: precincts
+      source: ../Chicago_Precincts/Chicago_Precincts.shp
+      id_column:
+          key: JOINID
+          name: ID
+      unit_type: precinct
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Population (2019)
+            subgroups:
+                - key: NH_WHITE19
+                  name: White population
+                - key: NH_BLACK19
+                  name: Black population
+                - key: HISP19
+                  name: Hispanic population
+                - key: NH_ASIAN19
+                  name: Asian population
+                - key: NH_AMIN19
+                  name: American Indian population
+                - key: NH_NHPI19
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE19
+                  name: Two or more races
+                - key: NH_OTHER19
+                  name: Other races
+            total:
+                key: TOTPOP19
+                name: Total population (2019)
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - metadata:
+              race: Mayoral Runoff
+              year: 2015
+            subgroups:
+            - key: RO_E15
+              name: Rahm Emanuel
+            - key: RO_G15
+              name: Jesus “Chuy” García
+            type: election
+          - metadata:
+              race: Mayoral Runoff
+              year: 2019
+            subgroups:
+            - key: MAY19LL
+              name: Lori Lightfoot
+            - key: MAY19TP
+              name: Toni Preckwinkle
+            type: election

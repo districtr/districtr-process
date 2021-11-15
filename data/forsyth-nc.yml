@@ -1,0 +1,140 @@
+id: forsyth_nc
+state: North Carolina
+name: Forsyth County
+units:
+  - id: precincts
+    unit_type: precinct
+    source: ../forsyth-nc.shp
+    id_column:
+      key: VTD
+      name: VTD ID
+    column_sets:
+      - type: election
+        metadata:
+          race: Governor
+          year: 2008
+        subgroups:
+          - key: EL08G_GV_D
+            name: Democratic
+          - key: EL08G_GV_R
+            name: Republican
+      - type: election
+        metadata:
+          race: Senate
+          year: 2008
+        subgroups:
+          - key: EL08G_USS_
+            name: Democratic
+          - key: EL08G_US_1
+            name: Republican
+      - type: election
+        metadata:
+          race: Senate
+          year: 2010
+        subgroups:
+          - key: EL10G_USS_
+            name: Democratic
+          - key: EL10G_US_1
+            name: Republican
+      - type: election
+        metadata:
+          race: Governor
+          year: 2012
+        subgroups:
+          - key: EL12G_GV_D
+            name: Democratic
+          - key: EL12G_GV_R
+            name: Republican
+      - type: election
+        metadata:
+          race: Senate
+          year: 2014
+        subgroups:
+          - key: EL14G_USS_
+            name: Democratic
+          - key: EL14G_US_1
+            name: Republican
+      - type: election
+        metadata:
+          race: Presidential
+          year: 2012
+        subgroups:
+          - key: EL12G_PR_D
+            name: Democratic
+          - key: EL12G_PR_R
+            name: Republican
+      - type: election
+        metadata:
+          race: Presidential
+          year: 2016
+        subgroups:
+          - key: EL16G_PR_D
+            name: Democratic
+          - key: EL16G_PR_R
+            name: Republican
+      - type: election
+        metadata:
+          race: Senate
+          year: 2016
+        subgroups:
+          - key: EL16G_US_1
+            name: Democratic
+          - key: EL16G_USS_
+            name: Republican
+      - type: election
+        metadata:
+          race: Governor
+          year: 2016
+        subgroups:
+          - key: EL16G_GV_D
+            name: Democratic
+          - key: EL16G_GV_R
+            name: Republican
+      - name: Population
+        subgroups:
+          - key: NH_WHITE
+            name: White population
+          - key: NH_BLACK
+            name: Black population
+          - key: HISP
+            name: Hispanic population
+          - key: NH_ASIAN
+            name: Asian population
+          - key: NH_AMIN
+            name: American Indian population
+          - key: NH_NHPI
+            name: Native Hawaiian and Pacific Islander population
+          - key: NH_2MORE
+            name: Two or more races
+          - key: NH_OTHER
+            name: Other races
+        total:
+          key: TOTPOP
+          name: Total population
+        type: population
+      - name: Voting Age Population
+        subgroups:
+          - key: WVAP
+            name: White voting age population
+          - key: BVAP
+            name: Black voting age population
+          - key: HVAP
+            name: Hispanic voting age population
+          - key: AMINVAP
+            name: Native American voting age population
+          - key: NHPIVAP
+            name: Native Hawaiian and Pacific Islander voting age population
+          - key: ASIANVAP
+            name: Asian voting age population
+          - key: OTHERVAP
+            name: Other races voting age population
+          - key: 2MOREVAP
+            name: Two or more races voting age population
+        total:
+          key: VAP
+          name: Voting age population
+        type: population
+districting_problems:
+  - name: County Commission
+    number_of_parts: 2
+    plural_noun: County Commission Districts

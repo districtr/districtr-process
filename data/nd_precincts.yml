@@ -1,0 +1,117 @@
+units:
+    - id: precincts
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: WPOP
+                  name: White population
+                - key: BPOP
+                  name: Black population
+                - key: ASIANPOP
+                  name: Asian population
+                - key: AMINPOP
+                  name: American Indian population
+                - key: NHPIPOP
+                  name: Native Hawaiian and Pacific Islander population
+                - key: 2MOREPOP
+                  name: Two or more races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: WCVAP
+                  name: White voting age population
+                - key: BCVAP
+                  name: Black voting age population
+                - key: HCVAP
+                  name: Hispanic voting age population
+                - key: AMINCVAP
+                  name: Native American voting age population
+                - key: NHPICVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANCVAP
+                  name: Asian voting age population
+                - key: 2MORECVAP
+                  name: Two or more races voting age population
+            total:
+                key: CVAP
+                name: Voting age population
+            type: population
+          - metadata:
+                race: US Senate
+                year: 2018
+            subgroups:
+                - key: G18USSRCRA
+                  name: Republican
+                - key: G18USSDHEI
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2018
+            subgroups:
+                - key: G18HALRARM
+                  name: Republican
+                - key: G18HALDSCH
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Attorney General
+                year: 2018
+            subgroups:
+                - key: G18ATGRSTE
+                  name: Republican
+                - key: G18ATGDTHO
+                  name: Democratic
+            type: election
+          - metadata:
+                race: President
+                year: 2016
+            subgroups:
+                - key: G16PRERTRU
+                  name: Republican
+                - key: G16PREDCLI
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US Senate
+                year: 2016
+            subgroups:
+                - key: G16USSRHOE
+                  name: Republican
+                - key: G16USSDGLA
+                  name: Democratic
+            type: election
+          - metadata:
+                race: US House
+                year: 2016
+            subgroups:
+                - key: G16HALRCRA
+                  name: Republican
+                - key: G16HALDIRO
+                  name: Democratic
+            type: election
+          - metadata:
+                race: Governor
+                year: 2016
+            subgroups:
+                - key: G16GOVRBUR
+                  name: Republican
+                - key: G16GOVDNEL
+                  name: Democratic
+            type: election
+      id_column:
+          key: GEOID20
+          name: FIPS code
+      unit_type: precinct
+      source: ../ND_pop.shp
+districting_problems:
+    - name: State Legislature
+      number_of_parts: 47
+      plural_noun: State Legislative Districts
+id: northdakota
+name: North Dakota
+state: North Dakota

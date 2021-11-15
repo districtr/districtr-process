@@ -1,0 +1,55 @@
+units:
+    - id: blocks20
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: OMB_NH_Wht
+                  name: White population
+                - key: OMB_Blk
+                  name: Black population
+                - key: OMB_Latino
+                  name: Hispanic population
+                - key: OMB_AsnPI
+                  name: Asian / Pacific Islander population
+                - key: OMB_Native
+                  name: American Indian population
+                - key: OMB_MultiRace
+                  name: Two or more races
+                - key: OMB_Other
+                  name: Other races
+            total:
+                key: Population2020
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: OMB_VAP_NH_Wht
+                  name: White voting age population
+                - key: OMB_VAP_Blk
+                  name: Black voting age population
+                - key: OMB_VAP_Latino
+                  name: Hispanic voting age population
+                - key: OMB_VAP_Native
+                  name: Native American voting age population
+                - key: OMB_VAP_AsnPI
+                  name: Asian / Pacific Islander voting age population
+                - key: OMB_Other_VAP
+                  name: Other races voting age population
+                - key: OMB_VAP_MultiRace
+                  name: Two or more races voting age population
+            total:
+                key: 18Pop
+                name: Voting age population
+            type: population
+      id_column:
+          key: Block
+          name: Block FIPS code
+      unit_type: block
+      source: ../yuma_blocks.geojson
+districting_problems:
+    - name: Congress
+      number_of_parts: 5
+      plural_noun: Supervisor Districts
+id: yuma
+name: Yuma
+state: Arizona

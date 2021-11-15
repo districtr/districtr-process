@@ -1,0 +1,126 @@
+units:
+    - id: blockgroups
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: NH_WHITE
+                  name: White population
+                - key: NH_BLACK
+                  name: Black population
+                - key: HISP
+                  name: Hispanic population
+                - key: NH_ASIAN
+                  name: Asian population
+                - key: NH_AMIN
+                  name: American Indian population
+                - key: NH_NHPI
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MORE
+                  name: Two or more races
+                - key: NH_OTHER
+                  name: Other races
+            total:
+                key: TOTPOP
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: WVAP
+                  name: White voting age population
+                - key: BVAP
+                  name: Black voting age population
+                - key: HVAP
+                  name: Hispanic voting age population
+                - key: AMINVAP
+                  name: Native American voting age population
+                - key: NHPIVAP
+                  name:
+                      Native Hawaiian and Pacific Islander voting age population
+                - key: ASIANVAP
+                  name: Asian voting age population
+                - key: OTHERVAP
+                  name: Other races voting age population
+                - key: 2MOREVAP
+                  name: Two or more races voting age population
+            total:
+                key: VAP
+                name: Voting age population
+            type: population
+          - name: Population (2018)
+            subgroups:
+                - key: NH_WHITEX
+                  name: White population
+                - key: NH_BLACKX
+                  name: Black population
+                - key: HISPX
+                  name: Hispanic population
+                - key: NH_ASIANX
+                  name: Asian population
+                - key: NH_AMINX
+                  name: American Indian population
+                - key: NH_NHPIX
+                  name: Native Hawaiian and Pacific Islander population
+                - key: NH_2MOREX
+                  name: Two or more races
+                - key: NH_OTHERX
+                  name: Other races
+            total:
+                key: TOTPOPX
+                name: Total population (2018)
+            type: population
+          - name: Households by Rental
+            type: population
+            subgroups:
+                - key: B25003_002
+                  name: Owner-occupied
+                - key: B25003_003
+                  name: Renter-occupied
+          - name: Households by Income
+            type: population
+            subgroups:
+                - key: B19013_001
+                  name: Median Income
+                - key: B19001_002
+                  name: in_0_10
+                - key: B19001_003
+                  name: in_10_15
+                - key: B19001_004
+                  name: in_15_20
+                - key: B19001_005
+                  name: in_20_25
+                - key: B19001_006
+                  name: in_25_30
+                - key: B19001_007
+                  name: in_30_35
+                - key: B19001_008
+                  name: in_35_40
+                - key: B19001_009
+                  name: in_40_45
+                - key: B19001_010
+                  name: in_45_50
+                - key: B19001_011
+                  name: in_50_60
+                - key: B19001_012
+                  name: in_60_75
+                - key: B19001_013
+                  name: in_75_100
+                - key: B19001_014
+                  name: in_100_125
+                - key: B19001_015
+                  name: in_125_150
+                - key: B19001_016
+                  name: in_150_200
+                - key: B19001_017
+                  name: in_200_plus
+      id_column:
+          key: GEOID10
+          name: Block group FIPS code
+      unit_type: block_group
+      source: ../tl_2010_06073_bg10/tl_2010_06073_bg10.shp
+districting_problems:
+    - name: Wards
+      number_of_parts: 8
+      plural_noun: Wards
+id: ca_SanDiego
+state: California
+name: San Diego County

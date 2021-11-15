@@ -1,0 +1,20 @@
+units:
+    - id: blockgroups
+      id_column:
+          key: GEOID
+          name: Block group FIPS code
+      unit_type: block_group
+      source: ../tl_2019_06_bg.shp
+districting_problems:
+    - name: Congress
+      number_of_parts: 53
+      plural_noun: Congressional Districts
+    - name: State Senate
+      number_of_parts: 40
+      plural_noun: State Senate Districts
+    - name: State Assembly
+      number_of_parts: 80
+      plural_noun: State Assembly Districts
+id: cali_nodata
+name: California
+state: California

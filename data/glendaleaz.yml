@@ -1,0 +1,34 @@
+units:
+    - id: blocks20
+      column_sets:
+          - name: Population
+            total:
+                key: Population
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: WhtCVAP
+                  name: White population
+                - key: BlkCVAP
+                  name: Black population
+                - key: APICVAP
+                  name: Asian / Pacific Islander population
+                - key: LatinoCVAP
+                  name: Hispanic population
+            total:
+                key: TotMinCVAP
+                name: Total population
+            type: population
+      id_column:
+          key: Block
+          name: Geo ID
+      unit_type: block
+      source: ../redistrict/glendale.shp
+districting_problems:
+    - name: City Council
+      number_of_parts: 5
+      plural_noun: Council Districts
+id: glendaleaz2
+name: Glendale
+state: Arizona

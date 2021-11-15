@@ -1,0 +1,45 @@
+units:
+    - id: blocks20
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: LF_20_White
+                  name: White population
+                - key: LF_20_AfAm
+                  name: Black population
+                - key: LF_20_Asian
+                  name: Asian population
+                - key: LF_20_Hispanic_or_Latino
+                  name: Hispanic population
+            total:
+                key: LF_20_Total
+                name: Total population
+            type: population
+          - name: Citizen Voting Age Population
+            subgroups:
+                - key: CVAP_15-19_AfAm
+                  name: Black population
+                - key: CVAP_15-19_AiAn
+                  name: American Indian population
+                - key: CVAP_15-19_Asian
+                  name: Asian population
+                - key: CVAP_15-19_Hawaiian_API
+                  name: Native Hawaiian Pacific Islander population
+                - key: CVAP_15-19_Hispanic_or_Latino
+                  name: Hispanic population
+            total:
+                key: CVAP_15-19_Total
+                name: Total population
+            type: population
+      id_column:
+          key: GEOID20
+          name: Geo ID
+      unit_type: block
+      source: ../Ventura_County_Supervisor_Blocks.geojson
+districting_problems:
+    - name: County Supervisor
+      number_of_parts: 5
+      plural_noun: Supervisor Districts
+id: ca_ventura
+name: Ventura County
+state: California
