@@ -1,6 +1,85 @@
 
 <html>
+    <head>
+        <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+
     <body>
-        Hello, world!
+        <h1>districtr-process Process</h1>
+
+        <h2>Editing Districtr Code</h2>
+        <p>
+            After you've used districtr-process to upload your tileset to 
+            Mapbox, you have to edit the Districtr code to let it know where to
+            find the tileset on Mapbox and how to interpret it. Additionally, 
+            you have to configure a number of settings for each module, such as
+            whether to display it on the state's landing page or what options
+            you want on the plan drawing page.
+        </p>
+        <h3><i>Copying from output.json</i></h3>
+        <p>
+            The first step is putting the JSON output from
+            <code>districtr-process</code> in the appropriate JSON file in 
+            the Districtr code. When you run <code>districtr-process</code> 
+            on a YAML file (or files), it writes some JSON code to 
+            <code>output.json</code>. This code will be a list of JSON objects,
+            with each object corresponding to a YAML file you ran 
+            <code>districtr-process</code> on. How you transfer this JSON from
+            <code>output.json</code> to the Distrctr JSON depends on the nature
+            of your task.
+        </p>
+        <h4>New Module</h4>
+        <p>
+            If this is a new module (i.e. there are no other sets of units for
+            this region on Distrctr), then you'll need to copy the full JSON
+            object, including the module id, name, and districting problem(s).
+            Find your module's state JSON in <code>assets/data/modules</code>
+            (e.g. <code>California.json</code>). Each of these state JSONs is
+            simply a list of JSON objects like the ones produced by
+            <code>districtr-process</code>. Add yours to the list.
+        </p>
+        <h4>Existing Module</h4>
+        <p>
+            If the module already exists on Districtr, then you probably only
+            need to add a new set of units to the existing module. In this case,
+            you need to copy the item corresponding to your new units from
+            the <code>units</code> array in <code>output.json</code>. Find the
+            module you're updating in the appropriate state JSON (e.g. 
+            <code>assets/data/modules/California.json</code>) and paste the
+            item you copied into that module's <code>units</code> array.
+        </p>
+        <h3><i>Configuring Districtr</i></h3>
+        <p>
+            This section is split into three parts: New Module, Existing 
+            Module, and General.
+        </p>
+        <h4>New Module</h4>
+        <p>
+            <code>landing_pages.json</code>: If you'd like the new module to
+            appear on the state's landing page (e.g. 
+            <code>district.org/California</code>), add your module's ID to the
+            appropriate list in <code>landing_pages.json</code>. These lists
+            of modules are separated into state, counties and cities, where
+            modules for those exist.
+        </p>
+        <h4>Existing Module</h4>
+        <p>
+            <code>"hideOnDefault"</code>: You probably don't want the old units
+            to show up on the state's landing page by default, now that there
+            are new units. To hide the old units, add 
+            <code>"hideOnDefault": true</code> to the old units in the module
+            in your state's JSON.
+        </p>
+
+        <h2>Self-QA</h2>
+        <p>The following is a non-exhaustive list of baseline QA checks you can perform on your module:
+            <ul>
+                <li></li>
+            </ul>
+        </p>
+        <p></p>
     </body>
 </html>
