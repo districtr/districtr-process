@@ -1,5 +1,48 @@
+# Running districtr-process (with Docker)
+## Why Docker?
+Docker is a tool to standardize and automate the setup of a virtual enviroment. 
+It allows every developer to test and work with the same enviroment, regardless of operating system, as long as they have Docker installed.
+The districtr-process scripts only work on older versions of Python and require building custom libraries with `make`, which can be finnicky.
+Using Docker allows us to skip the normal convoluted setup process and simply fetch a pre-built virtual enviroment to work in.
 
-# Create an environment with the neccessary packages  
+## Installing Docker
+First, install Docker.
+On macOS, you can install Docker from here: https://docs.docker.com/docker-for-mac/install/
+
+For Linux, you can install Docker with an official script:
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+```
+For Windows, follow the instructions here: https://docs.docker.com/docker-for-windows/install/
+
+## Getting a Docker image
+Then, to fetch the pre-built Docker image, run:
+```bash
+docker pull innovativeinventor/districtr-process:latest
+```
+Alternatively, you can build the dockerfile in `docker/Dockerfile` yourself.
+
+## Running
+Finally, to run `districtr-process`, you can run in the root of this git repo:
+```bash
+bash docker/run.sh [args] 
+```
+where `[args]` are whatever arguments you pass to districtr_process (e.g. `python -m districtr_process data/minnesota.yml` becomes `bash docker/run.sh data/data/minnesota.yml`).
+
+This is equivalent to running:
+```
+docker run -it --rm -v $(pwd):/districtr-process innovativeinventor/districtr-process python3 -m districtr_process [args]
+```
+where `$(pwd)` is the path to your `districtr-process` repo. 
+
+If you want to pass a mapbox API token to the Docker container, simply add it to `.env.list` file. For example, the contents of `.env.list` would look like:
+```
+MAPBOX_ACCESS_TOKEN=SOMESECRETKEY
+```
+where `SOMESECRETKEY` is your API token.
+
+# Alternate, non-containerized setup
 
 Run the following steps in terminal:
 
@@ -13,7 +56,7 @@ Run the following steps in terminal:
 
 `$ pipenv shell`
 
-# Test the process command on Minnesota
+## Test the process command on Minnesota
 
 `$ python -m districtr_process data/minnesota.yml`
 
