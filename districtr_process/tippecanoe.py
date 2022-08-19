@@ -4,10 +4,11 @@ import subprocess
 
 def tippecanoe_shell_command(filename, place, target, minzoom=0, maxzoom=None, 
                              overwrite=False):
+    data_columns = filter(lambda x: x != place.id_column, place.columns)
     accumulate_columns = [
-        f"--accumulate-attribute={col.key}:sum" for col in place.columns
+        f"--accumulate-attribute={col.key}:sum" for col in data_columns
     ]
-
+    
     zoom_options = ["-Z", str(minzoom)]
     if maxzoom is None:
         zoom_options.append("-zg")
