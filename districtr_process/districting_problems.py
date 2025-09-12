@@ -7,6 +7,8 @@ class DistrictingProblemSchema(Schema):
     number_of_parts = fields.Int(validate=Range(min=0))
     plural_noun = fields.Str()
     type = fields.Str(
-        validate=OneOf(["multimember", "districts", "community"]), default="districts"
+        validate=OneOf(["multimember", "districts", "community"]),
+        load_default="districts",
+        dump_default="districts",
     )
     units = fields.List(fields.Str())

@@ -1,0 +1,48 @@
+id: tracy_ca
+state: California
+name: Tracy
+units:
+    - id: blocks
+      name: 2020 Blocks
+      unit_type: block
+      source: ./tracy.geojson
+      id_column:
+          key: Block20
+          name: Block Code
+      column_sets:
+          - name: Population
+            subgroups:
+                - key: '[Population White]'
+                  name: White population
+                - key: '[Population Black]'
+                  name: Black population
+                - key: '[Population Latino]'
+                  name: Hispanic population
+                - key: '[Population Asian]'
+                  name: Asian population
+            total:
+                key: '[Population Total]'
+                name: Total population
+            type: population
+          - name: Voting Age Population
+            subgroups:
+                - key: '[CVAP White]'
+                  name: White voting age population
+                - key: '[CVAP Black]'
+                  name: Black voting age population
+                - key: '[CVAP Latino]'
+                  name: Hispanic voting age population
+                - key: '[CVAP Asian]'
+                  name: Asian voting age population
+            total:
+                key: '[CVAP Total]'
+                name: Voting age population
+            type: population
+districting_problems:
+    - name: County Commissioners
+      number_of_parts: 3
+      plural_noun: Districts
+    - name: County Commissioners
+      number_of_parts: 3
+      plural_noun: Districts
+      type: multimember
